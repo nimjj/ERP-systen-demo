@@ -1,56 +1,64 @@
-import type { AppState, DemoEvent, Role } from '../domain/types'
+/**
+ * Shell (SPEC §11): top bar with logo, layout switch, Simulate sales, Reset demo;
+ * split view (2×2) or one role full screen (?role=jamal|aisha|emily|priya);
+ * event stream drawer at the bottom.
+ */
+import { useEffect, useState } from 'react'
+import { demoTuning } from '../config/demoTuning'
+import type { Role } from '../domain/types'
+import { priceBasket } from '../rules/engine/tillPricing'
+import { EventStream } from './EventStream'
+import { HandheldPane } from './panes/HandheldPane'
+import { MarketingPane } from './panes/MarketingPane'
+import { PlannerPane } from './panes/PlannerPane'
+import { TillPane } from './panes/TillPane'
 import { useAppState, useEventStore } from './StoreContext'
 
-const ROLE_ORDER: Role[] = ['jamal', 'aisha', 'emily', 'priya']
-const ROLE_LABEL: Record<Role, string> = {
-  jamal: 'Cashier · till',
-  aisha: 'Store associate · handheld',
-  emily: 'Loyalty & marketing',
-  priya: 'Replenishment planner',
-}
+type Layout = 'split' | Role
+const ROLES: Role[] = ['jamal', 'aisha', 'emily', 'priya']
+const LABEL: Record<Layout, string> = { split: 'Split view', jamal: 'Jamal · Till', aisha: 'Aisha · Handheld', emily: 'Emily · Marketing', priya: 'Priya · Planner' }
 
-function initials(name: string) {
-  return name
-    .split(' ')
-    .map((p) => p[0])
-    .join('')
-}
-
-/** One line per role summarising what that person sees. Placeholder until the M3 panes. */
-function roleSummary(state: AppState, role: Role): string {
-  switch (role) {
-    case 'jamal': {
-      const live = state.till.rules.filter((r) => r.status === 'live').length
-      return `${live} till promotions live · ${state.till.scanScript.length}-item scan script`
-    }
-    case 'aisha': {
-      const open = state.handheld.tasks.filter((t) => t.status === 'OPEN').length
-      return `${open} open tasks at ${state.store.name}`
-    }
-    case 'emily': {
-      const offer = state.offers[0]
-      return offer ? `${offer.id} ${offer.status} · ${state.promos.promotions.length} promotions` : 'No offers'
-    }
-    case 'priya': {
-      const pending = state.proposals.filter((p) => p.status === 'PENDING_REVIEW').length
-      return `${state.proposals.length} order proposals · ${pending} need review`
-    }
-  }
-}
-
-function describe(e: DemoEvent): string {
-  if (e.type === 'NOTIFICATION_ADDED') {
-    const p = (e as DemoEvent<'NOTIFICATION_ADDED'>).payload
-    return `To ${p.role}: ${p.text}`
-  }
-  return e.type.replace(/_/g, ' ').toLowerCase()
+function readLayout(): Layout {
+  const role = new URLSearchParams(window.location.search).get('role')
+  return (ROLES as string[]).includes(role ?? '') ? (role as Role) : 'split'
 }
 
 export function App() {
   const state = useAppState()
   const store = useEventStore()
-  const events = state.events
-  const indexById = new Map(events.map((e, i) => [e.id, i + 1]))
+  const [layout, setLayout] = useState<Layout>(readLayout)
+
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    if (layout === 'split') url.searchParams.delete('role')
+    else url.searchParams.set('role', layout)
+    window.history.replaceState(null, '', url)
+  }, [layout])
+
+  function simulateSales() {
+    const sku = 'SKU-100221'
+    for (let i = 0; i < demoTuning.simulateSales.perClick; i++) {
+      const priced = priceBasket(store.getState(), [{ sku, qty: 1 }], null)
+      store.append({
+        type: 'SALE_COMPLETED',
+        actor: 'jamal',
+        payload: { txnId: `SIM-${Date.now().toString().slice(-5)}-${i + 1}`, memberId: null, lines: priced.saleLines, total: priced.total, tax: priced.tax, tender: 'Card' },
+      })
+    }
+  }
+
+  const pane = (role: Role, expand?: () => void) => {
+    switch (role) {
+      case 'jamal':
+        return <TillPane onExpand={expand} />
+      case 'aisha':
+        return <HandheldPane onExpand={expand} />
+      case 'emily':
+        return <MarketingPane onExpand={expand} />
+      case 'priya':
+        return <PlannerPane onExpand={expand} />
+    }
+  }
 
   return (
     <div className="app">
@@ -59,83 +67,39 @@ export function App() {
           <span className="logo" aria-hidden="true">
             JH<span className="logo-dot" />
           </span>
-          <div>
-            <div className="brand-name">John Henry Supermarkets</div>
-            <div className="brand-sub">
-              {state.store.name} · {state.store.id} · {state.store.asOfLabel}
-            </div>
+          <div className="brand-text">
+            <div className="brand-name">John Henry</div>
+            <div className="brand-sub">SUPERMARKETS</div>
+          </div>
+          <div className="store-chip">
+            <span className="store-label">STORE</span>
+            <span>
+              {state.store.name} #{state.store.number}
+            </span>
           </div>
         </div>
+        <nav className="layout-tabs" aria-label="Layout">
+          {(['split', ...ROLES] as Layout[]).map((l) => (
+            <button key={l} className={`tab ${layout === l ? 'tab-on' : ''}`} onClick={() => setLayout(l)}>
+              {LABEL[l]}
+            </button>
+          ))}
+        </nav>
         <div className="topbar-actions">
-          <span className="chip">{events.length} events</span>
-          <button className="btn" onClick={() => store.reset()}>
+          <button className="btn btn-amber" onClick={simulateSales} title="Ten single-yogurt sales at the till">
+            Simulate {demoTuning.simulateSales.perClick} sales
+          </button>
+          <button className="btn btn-ghost" onClick={() => store.reset()}>
             Reset demo
           </button>
         </div>
       </header>
 
-      <main className="split">
-        {ROLE_ORDER.map((role) => {
-          const persona = state.personas.find((p) => p.role === role)!
-          const inbox = state.notifications.filter((n) => n.role === role)
-          return (
-            <section key={role} className="pane">
-              <div className="pane-head">
-                <span className={`avatar avatar-${role}`}>{initials(persona.name)}</span>
-                <div>
-                  <div className="pane-name">{persona.name}</div>
-                  <div className="pane-role">{ROLE_LABEL[role]}</div>
-                </div>
-                <span className="bell" title="Inbox">
-                  {inbox.length}
-                </span>
-              </div>
-              <p className="pane-summary">{roleSummary(state, role)}</p>
-              <ul className="inbox">
-                {inbox
-                  .slice(-3)
-                  .reverse()
-                  .map((n) => (
-                    <li key={n.id} title={n.eventId}>
-                      {n.text}
-                    </li>
-                  ))}
-              </ul>
-              <button
-                className="btn btn-quiet"
-                onClick={() =>
-                  store.append({
-                    type: 'NOTIFICATION_ADDED',
-                    actor: 'system',
-                    payload: { role, text: `Sync check for ${persona.name.split(' ')[0]}`, link: null, severity: 'info' },
-                  })
-                }
-              >
-                Send sync check
-              </button>
-            </section>
-          )
-        })}
+      <main className={layout === 'split' ? 'split' : 'single'}>
+        {layout === 'split' ? ROLES.map((r) => <div key={r}>{pane(r, () => setLayout(r))}</div>) : pane(layout)}
       </main>
 
-      <footer className="stream">
-        <div className="stream-head">Event stream</div>
-        {events.length === 0 ? (
-          <div className="stream-empty">No events yet. Actions in any window appear here.</div>
-        ) : (
-          <ol className="stream-list">
-            {[...events].reverse().map((e) => (
-              <li key={e.id}>
-                <span className="stream-n">#{indexById.get(e.id)}</span>
-                <span className={`avatar avatar-sm avatar-${e.actor}`}>{e.actor[0].toUpperCase()}</span>
-                <span className="stream-type">{e.type}</span>
-                <span className="stream-desc">{describe(e)}</span>
-                {e.causedBy && <span className="chip chip-cause">because of #{indexById.get(e.causedBy)}</span>}
-              </li>
-            ))}
-          </ol>
-        )}
-      </footer>
+      <EventStream />
     </div>
   )
 }
