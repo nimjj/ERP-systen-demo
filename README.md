@@ -84,6 +84,10 @@ node scripts/scenarios.mjs http://localhost:5173/ <screenshot-folder>   # S1–S
 node scripts/flow.mjs      http://localhost:5173/ <screenshot-folder>   # two-window S1 click-through
 ```
 
+## Theme
+
+The UI follows the client's SPAR theme: `docs/THEME.md` (brief, sampled colours, contrast results). All colours and the Jost font live in `app/src/ui/theme.css`; change them there. The original prototype in `reference/` is themed too (by `scripts/rebrand-reference.py`). Contrast check (start the app first): `node scripts/contrast-audit.mjs http://localhost:5173/` from `app/`.
+
 ## Seed data
 
 `seed/` is generated from the original prototype's data in `reference/mock/` (read-only):

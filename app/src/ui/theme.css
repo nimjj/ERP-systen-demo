@@ -1,0 +1,90 @@
+/*
+ * THEME — the one place for colours, fonts, radii and shadows (docs/THEME.md).
+ * No other stylesheet or component may hard-code a colour or a font.
+ *
+ * Client: SPAR, Sri Lanka retail. Values marked "sampled" were measured from
+ * docs/brand/reference-site.png; the rest are the brief's estimates.
+ *
+ * Contrast (WCAG AA, 4.5:1 for text, 3:1 for large text and UI borders):
+ *   white on --green        4.57   white on --red-aa      4.54
+ *   white on --red-band     4.36   (large heavy type only, 3:1)
+ *   white on --danger       7.98   text on --amber        8.66 (dark text, never white)
+ *   --text-2 on white       6.18   --green on white       4.57
+ */
+
+/* Jost, bundled locally: no font requests at runtime. */
+@import '@fontsource/jost/latin-400.css';
+@import '@fontsource/jost/latin-500.css';
+@import '@fontsource/jost/latin-600.css';
+@import '@fontsource/jost/latin-700.css';
+@import '@fontsource/jost/latin-800.css';
+
+:root {
+  /* ---- surfaces and text ---- */
+  --white: #ffffff;
+  --surface: #f5f6f4;
+  --surface-2: #fafbf9; /* lighter than --surface: table footers, inset panels */
+  --border: #e3e6e1;
+  --border-strong: #c9cec7; /* separators that must show on --surface */
+  --border-input: #8b928e; /* inputs and selects: 3.2:1 on white (WCAG 1.4.11) */
+  --text: #000000; /* sampled: the site's text is pure black */
+  --text-2: #5b6360;
+  --text-3: #3a403d; /* step hints, secondary headings */
+
+  /* ---- brand ---- */
+  --red: #ee343f; /* sampled: announcement bar. Decoration only. */
+  --red-aa: #df303b; /* the sampled red, darkened 6% so white small text reaches AA */
+  --red-band: #ee1b24; /* sampled: bold bands (heavy, large white type only) */
+  --green: #01883f; /* sampled: large shapes; white on it 4.57 */
+  --green-bright: #10a437; /* sampled: the site's outlined-button border (decoration) */
+  --green-dark: #016b31; /* hover, and text on soft green */
+  --navy: #1b2a4a; /* estimate kept: the sampled badge is a shaded emboss (#070E29) */
+  --amber: #f2a900; /* estimate: no amber in the screenshot. Dark text only. */
+  --amber-dark: #d99700;
+  --amber-ink: #7a5400; /* amber-family text on light backgrounds */
+  --danger: #9e1b20; /* recall / failure: reads differently from the brand red */
+  --danger-dark: #7f1519;
+
+  /* ---- soft tints ---- */
+  --green-soft: #e6f4eb;
+  --amber-soft: #fff4d6;
+  --danger-soft: #fbeaea;
+  --red-soft: #fdecee;
+  --navy-soft: #e8ebf2;
+
+  /* ---- role colours: role chip, pane border and highlight ring only ---- */
+  --role-jamal: var(--red-aa);
+  --role-aisha: var(--green);
+  --role-emily: var(--navy);
+  --role-priya: var(--amber);
+  --role-on-jamal: var(--white);
+  --role-on-aisha: var(--white);
+  --role-on-emily: var(--white);
+  --role-on-priya: var(--text);
+  --role-system: #6b7370;
+
+  /* ---- states ---- */
+  --flash: #fff0b8; /* changed-value highlight */
+  --just-scanned: #fff7dc;
+  --on-chrome-dim: rgba(255, 255, 255, 0.85);
+
+  /* ---- shape and depth ---- */
+  --radius: 12px; /* cards, panes */
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.3);
+  --shadow-up: 0 -6px 20px rgba(0, 0, 0, 0.08);
+  --scrim: rgba(0, 0, 0, 0.45);
+
+  /* ---- type ---- */
+  --font: 'Jost', 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --weight-heavy: 800;
+
+  /* ---- layout ---- */
+  --announce: 30px;
+  --topbar: 56px;
+  --chrome: calc(var(--announce) + var(--topbar));
+  --streambar: 42px;
+}

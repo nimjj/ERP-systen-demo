@@ -192,12 +192,14 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
               </>
             )}
           </div>
-          <button className="btn btn-pay" disabled={priced.lines.length === 0} onClick={completeSale}>
-            Complete sale · {money(priced.total)}
-          </button>
-          <button className="btn btn-quiet" disabled={scans.length === 0} onClick={() => setScans([])}>
-            Void basket
-          </button>
+          <div className="till-pay">
+            <button className="btn btn-pay" disabled={priced.lines.length === 0} onClick={completeSale}>
+              Complete sale · {money(priced.total)}
+            </button>
+            <button className="btn btn-quiet" disabled={scans.length === 0} onClick={() => setScans([])}>
+              Void
+            </button>
+          </div>
         </div>
       </div>
     </PaneFrame>

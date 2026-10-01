@@ -33,7 +33,23 @@ export function App() {
   const presenter = usePresenter()
   // The pane of whoever acts in the current scenario step gets a highlight ring.
   const run = presenter.run
-  const cue = run && presenter.open ? scenarios[run.scenarioId]?.steps[run.step]?.actor : undefined
+  const scenario = run && presenter.open ? scenarios[run.scenarioId] : undefined
+  const cue = scenario && run ? scenario.steps[run.step]?.actor : undefined
+  // Story caption: the current step while a scenario runs, otherwise the client's tagline.
+  const caption =
+    scenario && run ? (
+      run.step < scenario.steps.length ? (
+        <>
+          <b>{scenario.title}</b> Step {run.step + 1} of {scenario.steps.length}: {scenario.steps[run.step].title}
+        </>
+      ) : (
+        <>
+          <b>{scenario.title}</b> Complete
+        </>
+      )
+    ) : (
+      'Your neighborhood store with a global spirit.'
+    )
 
   useEffect(() => {
     const url = new URL(window.location.href)
@@ -57,15 +73,12 @@ export function App() {
 
   return (
     <div className="app">
+      <div className="announce" role="status">
+        {caption}
+      </div>
       <header className="topbar">
         <div className="brand">
-          <span className="logo" aria-hidden="true">
-            JH<span className="logo-dot" />
-          </span>
-          <div className="brand-text">
-            <div className="brand-name">John Henry</div>
-            <div className="brand-sub">SUPERMARKETS</div>
-          </div>
+          <img className="brand-logo" src={`${import.meta.env.BASE_URL}brand/logo.png`} alt="SPAR" />
           <div className="store-chip">
             <span className="store-label">STORE</span>
             <span>

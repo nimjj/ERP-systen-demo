@@ -87,6 +87,10 @@ export function Presenter() {
 
       {scenario && run && (
         <>
+          <div className="band" aria-live="polite">
+            <span className="band-count">{run.step < scenario.steps.length ? `${run.step + 1}/${scenario.steps.length}` : '\u2605'}</span>
+            <span>{run.step < scenario.steps.length ? scenario.steps[run.step].title : 'Story complete'}</span>
+          </div>
           <ol className="steps">
             {scenario.steps.map((s, i) => (
               <li key={i} className={i < run.step ? 'step step-done' : i === run.step ? 'step step-current' : 'step'}>
@@ -134,7 +138,7 @@ export function Presenter() {
               Reset
             </button>
           </div>
-          <p className="muted small">Next does the step for you. Clicking in the pane does exactly the same; the list follows either way. Back undoes the last step in every window.</p>
+          <p className="muted small">Next does the step for you; clicking in the pane does exactly the same. Back undoes the last step in every window.</p>
         </>
       )}
 
@@ -195,15 +199,15 @@ function Timeline({ scenario, run, onClose }: { scenario: Scenario; run: Scenari
     <div className="overlay" role="dialog" aria-label="Scenario timeline">
       <div className="timeline">
         <div className="timeline-head">
-          <div>
-            <div className="timeline-title">{scenario.title}: one connected timeline</div>
-            <div className="muted small">
-              {scenario.steps.length} actions → {total} events across four roles. Every reaction points back to the action that caused it.
-            </div>
+          <div className="timeline-bar">
+            <div className="band timeline-title">{scenario.title}: one connected timeline</div>
+            <button className="btn btn-quiet" onClick={onClose}>
+              Close
+            </button>
           </div>
-          <button className="btn btn-quiet" onClick={onClose}>
-            Close
-          </button>
+          <div className="muted small">
+            {scenario.steps.length} actions → {total} events across four roles. Every reaction points back to the action that caused it.
+          </div>
         </div>
         <ol className="timeline-steps">
           {segments.map(({ step, events: evs }, i) => {
