@@ -6,6 +6,8 @@ import '@fontsource/inter/600.css'
 import '@fontsource/inter/700.css'
 import './ui/styles.css'
 import { App } from './ui/App'
+import { PresenterProvider } from './ui/PresenterContext'
+import { startRun } from './ui/Presenter'
 import { StoreProvider } from './ui/StoreContext'
 import { rules } from './rules'
 import { scenarios } from './scenarios'
@@ -22,13 +24,16 @@ const store = new LocalEventStore({
   transport: createBrowserTransport(),
 })
 
+// ?scenario=S1 loads the scenario's starting state and opens the presenter on step 1.
 const scenario = new URLSearchParams(window.location.search).get('scenario')
-if (scenario) store.reset(scenario)
+const initialRun = scenario && scenarios[scenario] ? (store.reset(scenario), startRun(scenario, store.getState().events.length)) : null
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <StoreProvider store={store}>
-      <App />
+      <PresenterProvider initialRun={initialRun}>
+        <App />
+      </PresenterProvider>
     </StoreProvider>
   </StrictMode>,
 )

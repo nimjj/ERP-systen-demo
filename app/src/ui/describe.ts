@@ -20,7 +20,10 @@ const d: { [T in EventType]: Describer<T> } = {
     const promo = s.promos.promotions.find((x) => x.id === p.promoId)
     return promo?.status === 'Published' ? `Published ${p.promoId}` : `Tried to publish ${p.promoId}`
   },
-  SALE_COMPLETED: (p) => `Sale ${p.txnId}: ${p.lines.reduce((n, l) => n + (Number.isInteger(l.qty) ? l.qty : 1), 0)} items, ${money(p.total)}${p.memberId ? ` · member ${p.memberId}` : ''}`,
+  SALE_COMPLETED: (p) => {
+    const n = p.lines.reduce((sum, l) => sum + (Number.isInteger(l.qty) ? l.qty : 1), 0)
+    return `Sale ${p.txnId}: ${n} ${n === 1 ? 'item' : 'items'}, ${money(p.total)}${p.memberId ? ` · member ${p.memberId}` : ''}`
+  },
   POINTS_AWARDED: (p) => `${p.points.toLocaleString()} points to ${p.memberId}${p.reasons.some((r) => r.offerId) ? ' (incl. offer bonus)' : ''}`,
   STOCK_CHANGED: (p, s) => `${itemName(s, p.sku)}: ${p.delta > 0 ? '+' : ''}${p.delta} (${p.reason.toLowerCase().replace(/_/g, ' ')}) → ${p.onHand} on hand`,
   PROPOSAL_RECOMPUTED: (p, s) =>

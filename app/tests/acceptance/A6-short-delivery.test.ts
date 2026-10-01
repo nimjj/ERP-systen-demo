@@ -37,7 +37,7 @@ describe('A6 short delivery', () => {
     expect(sim.state.claims.at(-1)!.id).toBe('CLM-5223')
   })
 
-  it('the claim flags Prairie Gold Dairy proposals with SUPPLIER_CONSTRAINT and the gap re-opens', () => {
+  it('the claim flags only the short item with SUPPLIER_CONSTRAINT; the gap re-opens', () => {
     const { sim, inbound } = approvedSim()
     const afterApproval = sim.proposal(YOGURT).proposedQty
     sim.do(receive(inbound.id, 12, 8))
@@ -47,8 +47,10 @@ describe('A6 short delivery', () => {
     // stock arrived but 4 units never will: the order no longer covers S
     expect(y.inTransit).toBe(6)
     expect(y.proposedQty).toBeGreaterThanOrEqual(afterApproval)
-    const prairie = sim.state.proposals.filter((p) => p.supplierId === 'SUP-PRAIRIE')
-    expect(prairie.every((p) => p.exceptions.some((e) => e.code === 'SUPPLIER_CONSTRAINT'))).toBe(true)
+    const otherPrairie = sim.state.proposals.filter((p) => p.supplierId === 'SUP-PRAIRIE' && p.itemId !== YOGURT)
+    expect(otherPrairie.map((p) => p.itemId).sort()).toEqual(['SKU-100207', 'SKU-100214', 'SKU-100249'])
+    expect(otherPrairie.some((p) => p.exceptions.some((e) => e.code === 'SUPPLIER_CONSTRAINT'))).toBe(false)
+    expect(sim.state.proposals.filter((p) => p.status === 'PENDING_REVIEW')).toHaveLength(4) // strawberries, cola, eggs + yogurt
   })
 
   it('S1: with the offer live, a short receipt re-opens the gap by one case (SPEC §9)', () => {

@@ -32,9 +32,14 @@ export function phantomSignal(proposal: Proposal, position: Position | undefined
   return p < demoTuning.phantomPThreshold ? { expected, p } : null
 }
 
-export function openDemoClaims(state: AppState, supplierId: string) {
+/** Open claims for this item from this supplier (only the short item is flagged, not every line of the supplier). */
+export function openDemoClaims(state: AppState, supplierId: string, sku: string) {
   return state.claims.filter(
-    (c) => c.supplierId === supplierId && OPEN_CLAIM_STATUSES.includes(c.status) && (c.raisedInDemo || demoTuning.supplierConstraintFromSeedClaims),
+    (c) =>
+      c.supplierId === supplierId &&
+      c.itemId === sku &&
+      OPEN_CLAIM_STATUSES.includes(c.status) &&
+      (c.raisedInDemo || demoTuning.supplierConstraintFromSeedClaims),
   )
 }
 
@@ -73,7 +78,7 @@ export function computeExceptions(ctx: ExceptionContext): ProposalException[] {
     )
   }
 
-  const claims = openDemoClaims(state, p.supplierId)
+  const claims = openDemoClaims(state, p.supplierId, p.itemId)
   if (claims.length > 0) {
     const c = claims[claims.length - 1]
     out.push({

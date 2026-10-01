@@ -2,10 +2,9 @@
 import { afterEach, describe, expect, it } from 'vitest'
 import { demoTuning } from '../../src/config/demoTuning'
 import { rules } from '../../src/rules'
-import { scenarios, type ScenarioRegistry } from '../../src/scenarios'
 import { buildSeedState, seedHash } from '../../src/seed/loadSeed'
 import type { KeyValueStorage, SyncTransport } from '../../src/store/EventStore'
-import { LocalEventStore } from '../../src/store/localEventStore'
+import { LocalEventStore, type ScenarioSetups } from '../../src/store/localEventStore'
 import { BroadcastChannelTransport, StorageEventTransport } from '../../src/store/transports'
 import { FakeBrowser, MemoryStorage, note, waitFor } from '../helpers'
 
@@ -14,7 +13,7 @@ afterEach(() => {
   while (opened.length) opened.pop()!.dispose()
 })
 
-function openWindow(clientId: string, transport: SyncTransport, storage: KeyValueStorage = new MemoryStorage(), extra: { scenarios?: ScenarioRegistry } = {}) {
+function openWindow(clientId: string, transport: SyncTransport, storage: KeyValueStorage = new MemoryStorage(), extra: { scenarios?: ScenarioSetups } = {}) {
   const store = new LocalEventStore({ buildSeed: buildSeedState, seedHash, rules, storage, transport, clientId, ...extra })
   opened.push(store)
   return store
@@ -79,7 +78,7 @@ describe('A14 cross-tab sync — BroadcastChannel', () => {
 
   it('reset with a scenario: setup events reach every window', async () => {
     const name = channel()
-    const registry: ScenarioRegistry = { ...scenarios, demo: { title: 'test', setup: [note('setup 1'), note('setup 2')] } }
+    const registry: ScenarioSetups = { demo: { setup: [note('setup 1'), note('setup 2')] } }
     const w1 = openWindow('w1', new BroadcastChannelTransport(name), new MemoryStorage(), { scenarios: registry })
     const w2 = openWindow('w2', new BroadcastChannelTransport(name), new MemoryStorage(), { scenarios: registry })
     w2.append(note('stale'))
@@ -89,6 +88,25 @@ describe('A14 cross-tab sync — BroadcastChannel', () => {
     await waitFor(() => w2.getEvents().length === 2 && w2.getEvents()[0].id === w1.getEvents()[0].id, budget)
 
     expect(w2.getState()).toEqual(w1.getState())
+  })
+})
+
+describe('A14 cross-tab sync — Presenter Back (truncate)', () => {
+  it('truncating in one window rolls every window back to the same state', async () => {
+    const name = `jh-test-${Math.random().toString(36).slice(2)}`
+    const w1 = openWindow('w1', new BroadcastChannelTransport(name))
+    const w2 = openWindow('w2', new BroadcastChannelTransport(name))
+    w1.append(note('step 1'))
+    const keep = w1.getEvents().length
+    const atMark = w1.getState()
+    w1.append(note('step 2'))
+    await waitFor(() => w2.getEvents().length === 2, budget)
+
+    w1.truncate(keep)
+    await waitFor(() => w2.getEvents().length === keep, budget)
+
+    expect(w1.getState()).toEqual(atMark)
+    expect(w2.getState()).toEqual(atMark)
   })
 })
 

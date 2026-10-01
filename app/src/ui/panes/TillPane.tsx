@@ -3,12 +3,10 @@
  * shared changes until "Complete sale", which emits SALE_COMPLETED.
  */
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { completeSale as completeSaleDraft } from '../../actions'
 import { priceBasket, resolveCode, type BasketItem } from '../../rules/engine/tillPricing'
 import { Chip, Flash, money, num, PaneFrame } from '../components'
 import { useAppState, useEventStore } from '../StoreContext'
-
-let txnCounter = 0
-const newTxnId = () => `1101-04-${Date.now().toString().slice(-6)}${++txnCounter}`
 
 export function TillPane({ onExpand }: { onExpand?: () => void }) {
   const state = useAppState()
@@ -56,11 +54,7 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
 
   function completeSale() {
     if (priced.lines.length === 0) return
-    store.append({
-      type: 'SALE_COMPLETED',
-      actor: 'jamal',
-      payload: { txnId: newTxnId(), memberId, lines: priced.saleLines, total: priced.total, tax: priced.tax, tender: 'Card' },
-    })
+    store.append(completeSaleDraft(state, basket, memberId))
     setScans([])
     setMemberId(null)
     setAlert(null)

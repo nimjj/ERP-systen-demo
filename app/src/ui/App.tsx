@@ -6,12 +6,15 @@
 import { useEffect, useState } from 'react'
 import { demoTuning } from '../config/demoTuning'
 import type { Role } from '../domain/types'
-import { priceBasket } from '../rules/engine/tillPricing'
+import { simulateSales } from '../actions'
 import { EventStream } from './EventStream'
 import { HandheldPane } from './panes/HandheldPane'
 import { MarketingPane } from './panes/MarketingPane'
 import { PlannerPane } from './panes/PlannerPane'
 import { TillPane } from './panes/TillPane'
+import { Presenter } from './Presenter'
+import { usePresenter } from './PresenterContext'
+import { scenarios } from '../scenarios'
 import { useAppState, useEventStore } from './StoreContext'
 
 type Layout = 'split' | Role
@@ -27,6 +30,10 @@ export function App() {
   const state = useAppState()
   const store = useEventStore()
   const [layout, setLayout] = useState<Layout>(readLayout)
+  const presenter = usePresenter()
+  // The pane of whoever acts in the current scenario step gets a highlight ring.
+  const run = presenter.run
+  const cue = run && presenter.open ? scenarios[run.scenarioId]?.steps[run.step]?.actor : undefined
 
   useEffect(() => {
     const url = new URL(window.location.href)
@@ -34,18 +41,6 @@ export function App() {
     else url.searchParams.set('role', layout)
     window.history.replaceState(null, '', url)
   }, [layout])
-
-  function simulateSales() {
-    const sku = 'SKU-100221'
-    for (let i = 0; i < demoTuning.simulateSales.perClick; i++) {
-      const priced = priceBasket(store.getState(), [{ sku, qty: 1 }], null)
-      store.append({
-        type: 'SALE_COMPLETED',
-        actor: 'jamal',
-        payload: { txnId: `SIM-${Date.now().toString().slice(-5)}-${i + 1}`, memberId: null, lines: priced.saleLines, total: priced.total, tax: priced.tax, tender: 'Card' },
-      })
-    }
-  }
 
   const pane = (role: Role, expand?: () => void) => {
     switch (role) {
@@ -86,18 +81,32 @@ export function App() {
           ))}
         </nav>
         <div className="topbar-actions">
-          <button className="btn btn-amber" onClick={simulateSales} title="Ten single-yogurt sales at the till">
+          <button className="btn btn-amber" onClick={() => simulateSales(store.getState()).forEach((d) => store.append(d))} title="Ten single-yogurt sales at the till">
             Simulate {demoTuning.simulateSales.perClick} sales
           </button>
           <button className="btn btn-ghost" onClick={() => store.reset()}>
             Reset demo
           </button>
+          <button className={`btn ${presenter.open ? 'btn-light' : 'btn-ghost'}`} onClick={() => presenter.setOpen(!presenter.open)} aria-pressed={presenter.open}>
+            Presenter
+          </button>
         </div>
       </header>
 
-      <main className={layout === 'split' ? 'split' : 'single'}>
-        {layout === 'split' ? ROLES.map((r) => <div key={r}>{pane(r, () => setLayout(r))}</div>) : pane(layout)}
-      </main>
+      <div className="workspace">
+        <main className={layout === 'split' ? 'split' : 'single'}>
+          {layout === 'split' ? (
+            ROLES.map((r) => (
+              <div key={r} className={cue === r ? 'cue' : undefined}>
+                {pane(r, () => setLayout(r))}
+              </div>
+            ))
+          ) : (
+            <div className={`single-wrap ${cue === layout ? 'cue' : ''}`}>{pane(layout)}</div>
+          )}
+        </main>
+        {presenter.open && <Presenter />}
+      </div>
 
       <EventStream />
     </div>

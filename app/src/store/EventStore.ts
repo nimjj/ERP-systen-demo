@@ -18,6 +18,8 @@ export interface EventStore {
   replay(events: readonly DemoEvent[]): void
   /** Back to seed in every open window; then run the scenario's setup events, if any. */
   reset(scenarioId?: string): void
+  /** Keep only the first `length` events, in every open window (Presenter "Back"). */
+  truncate(length: number): void
   dispose(): void
 }
 
@@ -25,6 +27,7 @@ export interface EventStore {
 export type SyncMessage =
   | { kind: 'events'; from: string; events: DemoEvent[] }
   | { kind: 'reset'; from: string }
+  | { kind: 'truncate'; from: string; length: number }
 
 export interface SyncTransport {
   post(message: SyncMessage): void

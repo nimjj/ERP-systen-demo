@@ -269,3 +269,10 @@ Agreed with the client owner on 2026-10-01. Every resulting data change is logge
 7. **seedAdjustment.** Strawberries' seed qty (80) is not the formula's (32); like every SHELF_CAPACITY line in proposals.json it is hand-set. The +48 difference is kept on top of the live formula so the seed and its exception reproduce exactly and still move with stock. All other lines: 0.
 8. **PROMO_UPLIFT also covers pre-build.** A line with `prebuild > 0` keeps PROMO_UPLIFT (Cola, for the upcoming PRM-2702), in addition to the §13.3 trigger (active uplift raises qty).
 9. **Stock risk** compares exact cover with the threshold and displays it rounded down (0.998 days shows as 0.99, never as "1.00 < 1.0").
+
+### M4 changes (requested by the client owner, 2026-10-01)
+
+10. **Short delivery flags only the short item.** SUPPLIER_CONSTRAINT applies to the item on the open demo claim, not to every line of that supplier (replaces the §5.2 "any open claim for supplier" wording).
+11. **C11, C12, C13 built in M4** (ahead of M5) because S1 step 4 (refill) and S2 (Cola pre-build → PRM-2702 Pass) need them; A9, A10 and the refill test pass.
+12. **Pre-build is used up by the approval that carries it.** Approving the Cola line sets its remaining pre-build to 0, so the next order is not inflated by the same 77 units again.
+13. **Presenter "Back" undoes the step** in every window (event log truncated to where the step started).

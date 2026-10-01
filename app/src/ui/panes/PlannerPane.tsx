@@ -1,5 +1,6 @@
 /** Priya — replenishment planner: proposal table with exceptions and approve/edit/hold, claims, series chart. */
 import { useState } from 'react'
+import { approveOrder, holdOrder } from '../../actions'
 import type { Proposal, SeriesPoint } from '../../domain/types'
 import { Chip, Flash, money, PaneFrame } from '../components'
 import { useAppState, useEventStore } from '../StoreContext'
@@ -110,7 +111,7 @@ function Decision({ p }: { p: Proposal }) {
   const qty = edit && edit.id === p.id ? edit.qty : p.proposedQty
   const decided = p.status === 'HELD' || p.status === 'BLOCKED'
   function approve() {
-    store.append({ type: 'ORDER_APPROVED', actor: 'priya', payload: { proposalId: p.id, qty, ...(qty !== p.proposedQty ? { editedFrom: p.proposedQty } : {}) } })
+    store.append(approveOrder(p, qty))
     setEdit(null)
   }
   return (
@@ -123,7 +124,7 @@ function Decision({ p }: { p: Proposal }) {
         <button className="btn btn-sm" disabled={decided || qty <= 0} onClick={approve}>
           Approve {qty}
         </button>
-        <button className="btn btn-quiet btn-sm" disabled={decided} onClick={() => store.append({ type: 'ORDER_HELD', actor: 'priya', payload: { proposalId: p.id, qty: p.proposedQty } })}>
+        <button className="btn btn-quiet btn-sm" disabled={decided} onClick={() => store.append(holdOrder(p))}>
           Hold
         </button>
       </div>

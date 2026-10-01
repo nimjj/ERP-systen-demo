@@ -83,6 +83,8 @@ const reducers: { [T in EventType]?: Reducer<T> } = {
     if (!prop) return
     prop.lastOrderQty = p.qty
     prop.status = 'APPROVED'
+    // The approved order carries the promotion pre-build; it must not be added again.
+    prop.prebuild = Math.max(0, prop.prebuild - p.qty)
   },
   ORDER_HELD: (d, p) => {
     const prop = d.proposals.find((x) => x.id === p.proposalId)
@@ -146,6 +148,10 @@ const reducers: { [T in EventType]?: Reducer<T> } = {
   },
   STOCK_RISK_CLEARED: (d, p) => {
     d.stockRisks = d.stockRisks.filter((r) => !(r.offerId === p.offerId && r.sku === p.sku))
+  },
+  SUPPLY_ADDED: (d, p) => {
+    const promo = d.promos.promotions.find((x) => x.id === p.promoId)
+    if (promo) promo.extraSupplyUnits = (promo.extraSupplyUnits ?? 0) + p.units
   },
   NOTIFICATION_ADDED: (d, p, e) => {
     d.notifications.push({ id: e.id, role: p.role, text: p.text, link: p.link, severity: p.severity, eventId: e.id, read: false })

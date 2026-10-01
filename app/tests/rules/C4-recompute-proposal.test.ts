@@ -28,10 +28,11 @@ describe('C4 recompute proposal', () => {
     expect(rule.run(state, event).newEvents).toEqual([])
   })
 
-  it('a demo claim recomputes every proposal of that supplier', () => {
+  it('a demo claim recomputes and flags only the short item, not the rest of the supplier', () => {
     const { state, event } = afterReducer({ type: 'CLAIM_RAISED', actor: 'system', payload: { claimId: 'CLM-9999', supplierId: 'SUP-PRAIRIE', sku: YOGURT, shortQty: 2, value: 8.34 } })
-    const skus = rule.run(state, event).newEvents.map((e) => (e.payload as { sku: string }).sku)
-    expect(skus.sort()).toEqual(['SKU-100207', 'SKU-100214', 'SKU-100221', 'SKU-100249'])
+    const out = rule.run(state, event).newEvents
+    expect(out).toHaveLength(1)
+    expect(out[0]).toMatchObject({ payload: { sku: YOGURT, status: 'PENDING_REVIEW', exceptions: [expect.objectContaining({ code: 'SUPPLIER_CONSTRAINT' })] } })
   })
 
   it('historical seed claims do not raise SUPPLIER_CONSTRAINT (§13.3)', () => {

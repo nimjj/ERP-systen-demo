@@ -6,6 +6,9 @@
  */
 import type { Rule } from '../domain/types'
 import { c1TillRuleFromOffer } from './c1TillRuleFromOffer'
+import { c11SupplyForPromo } from './c11SupplyForPromo'
+import { c12CountVariance } from './c12CountVariance'
+import { c13ShelfRefill } from './c13ShelfRefill'
 import { c2OfferUplift } from './c2OfferUplift'
 import { c3SaleDepletesStock } from './c3SaleDepletesStock'
 import { c4RecomputeProposal } from './c4RecomputeProposal'
@@ -25,4 +28,7 @@ export const rules: readonly Rule[] = [
   c6DeliveryReceipt,
   c8PromoStockGate,
   c9StockRisk,
+  c11SupplyForPromo,
+  c12CountVariance,
+  c13ShelfRefill,
 ]

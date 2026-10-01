@@ -1,4 +1,5 @@
 /** Emily — loyalty & marketing: offers with live counters, stock-risk banner, campaigns, promotions with the stock-check gate. */
+import { pauseOffer, publishOffer, publishPromo, submitPromo } from '../../actions'
 import { demoTuning } from '../../config/demoTuning'
 import type { Offer, Promo } from '../../domain/types'
 import { canPublishPromo } from '../../rules/engine/promoStockCheck'
@@ -16,11 +17,12 @@ const STATUS_TONE: Record<string, 'green' | 'amber' | 'neutral' | 'blue' | 'red'
   Ended: 'neutral',
 }
 const GATE_TONE = { Pass: 'green', Warn: 'amber', Fail: 'red' } as const
+/** Promotions that still need a decision first, finished ones last. */
+const PROMO_ORDER: Record<string, number> = { 'In approval': 0, Approved: 0, Published: 1, Live: 2, Ended: 3 }
 
 function OfferCard({ offer }: { offer: Offer }) {
   const store = useEventStore()
   const live = offer.status === 'Live'
-  const payload = { offerId: offer.id, items: offer.itemIds, storeIds: offer.storeIds }
   return (
     <div className="card">
       <div className="card-head">
@@ -60,11 +62,11 @@ function OfferCard({ offer }: { offer: Offer }) {
       </div>
       <div className="card-actions">
         {live ? (
-          <button className="btn btn-quiet" onClick={() => store.append({ type: 'OFFER_PAUSED', actor: 'emily', payload })}>
+          <button className="btn btn-quiet" onClick={() => store.append(pauseOffer(offer))}>
             Pause offer
           </button>
         ) : (
-          <button className="btn" onClick={() => store.append({ type: 'OFFER_PUBLISHED', actor: 'emily', payload })}>
+          <button className="btn" onClick={() => store.append(publishOffer(offer))}>
             Publish to {offer.storeIds.length === 1 ? 'Plano Market' : `${offer.storeIds.length} stores`}
           </button>
         )}
@@ -104,7 +106,7 @@ function PromoRow({ promo }: { promo: Promo }) {
       </td>
       <td className="actions">
         {!ended && (
-          <button className="btn btn-quiet btn-sm" onClick={() => store.append({ type: 'PROMO_SUBMITTED', actor: 'emily', payload: { promoId: promo.id } })}>
+          <button className="btn btn-quiet btn-sm" onClick={() => store.append(submitPromo(promo.id))}>
             Stock check
           </button>
         )}
@@ -113,7 +115,7 @@ function PromoRow({ promo }: { promo: Promo }) {
             className="btn btn-sm"
             disabled={!canPublish}
             title={canPublish ? undefined : 'Blocked: the stock check failed'}
-            onClick={() => store.append({ type: 'PROMO_PUBLISHED', actor: 'emily', payload: { promoId: promo.id } })}
+            onClick={() => store.append(publishPromo(promo.id))}
           >
             Publish
           </button>
@@ -136,7 +138,7 @@ export function MarketingPane({ onExpand }: { onExpand?: () => void }) {
             <span>
               <b>Stock risk on {r.offerId}:</b> {state.positions[r.sku]?.name} has <Flash value={cover}>{cover.toFixed(2)}</Flash> days of cover at {state.store.name} (alert below {demoTuning.riskCoverDays.toFixed(1)}).
             </span>
-            <button className="btn btn-sm" onClick={() => store.append({ type: 'OFFER_PAUSED', actor: 'emily', payload: { offerId: offer.id, items: offer.itemIds, storeIds: offer.storeIds } })}>
+            <button className="btn btn-sm" onClick={() => store.append(pauseOffer(offer))}>
               Pause offer
             </button>
           </div>
@@ -148,6 +150,24 @@ export function MarketingPane({ onExpand }: { onExpand?: () => void }) {
         <OfferCard key={o.id} offer={o} />
       ))}
 
+      <h4 className="section">Promotions</h4>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Promotion</th>
+            <th>Status</th>
+            <th>Stock check</th>
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          {[...state.promos.promotions]
+            .sort((a, b) => (PROMO_ORDER[a.status] ?? 1) - (PROMO_ORDER[b.status] ?? 1))
+            .map((p) => (
+              <PromoRow key={p.id} promo={p} />
+            ))}
+        </tbody>
+      </table>
       <h4 className="section">Campaigns</h4>
       <table className="table">
         <thead>
@@ -177,22 +197,6 @@ export function MarketingPane({ onExpand }: { onExpand?: () => void }) {
         </tbody>
       </table>
 
-      <h4 className="section">Promotions</h4>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Promotion</th>
-            <th>Status</th>
-            <th>Stock check</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>
-          {state.promos.promotions.map((p) => (
-            <PromoRow key={p.id} promo={p} />
-          ))}
-        </tbody>
-      </table>
     </PaneFrame>
   )
 }

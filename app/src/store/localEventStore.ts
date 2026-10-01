@@ -9,10 +9,12 @@
  *   setup events are appended (and broadcast) like any other events.
  */
 import type { AppState, DemoEvent, EventDraft, Rule } from '../domain/types'
-import type { ScenarioRegistry } from '../scenarios'
 import { dispatch, replay as replayLog, step } from './dispatch'
 import type { EventStore, KeyValueStorage, SyncMessage, SyncTransport } from './EventStore'
 import { LOG_KEY, loadLog, saveLog } from './persistence'
+
+/** What reset(scenarioId) needs from a scenario: the root events to dispatch after the reset. */
+export type ScenarioSetups = Record<string, { setup: readonly EventDraft[] }>
 
 export interface LocalEventStoreOptions {
   buildSeed: () => AppState
@@ -20,7 +22,7 @@ export interface LocalEventStoreOptions {
   rules: readonly Rule[]
   storage?: KeyValueStorage | null
   transport?: SyncTransport | null
-  scenarios?: ScenarioRegistry
+  scenarios?: ScenarioSetups
   /** Identifies this window in event ids and sync messages. */
   clientId?: string
   /** Clock for root events only; rules never see it. */
@@ -109,6 +111,12 @@ export class LocalEventStore implements EventStore {
     for (const draft of scenario?.setup ?? []) this.append(draft)
   }
 
+  truncate(length: number): void {
+    if (length >= this.state.events.length) return
+    this.truncateLocal(length)
+    this.opts.transport?.post({ kind: 'truncate', from: this.clientId, length })
+  }
+
   dispose(): void {
     this.unsubscribeTransport?.()
     this.opts.transport?.close()
@@ -122,10 +130,19 @@ export class LocalEventStore implements EventStore {
     this.notify()
   }
 
+  private truncateLocal(length: number): void {
+    this.replay(this.state.events.slice(0, length))
+    this.persist()
+  }
+
   private onMessage(message: SyncMessage): void {
     if (message.from === this.clientId) return
     if (message.kind === 'reset') {
       this.resetLocal()
+      return
+    }
+    if (message.kind === 'truncate') {
+      if (message.length < this.state.events.length) this.truncateLocal(message.length)
       return
     }
     let changed = false

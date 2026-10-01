@@ -1,10 +1,13 @@
 /**
- * Aisha — store handheld (phone-width). Each task opens a simple form; submitting
- * emits events (DELIVERY_RECEIVED, COUNT_SUBMITTED, SHELF_REFILLED, TASK_COMPLETED).
+ * Aisha — store handheld (phone-width). Each task opens a simple form; every
+ * submit goes through the action builders in src/actions.ts (same events as the
+ * Presenter's Next button).
  */
 import { useState } from 'react'
-import type { AppState, Inbound, Task } from '../../domain/types'
+import { countLines, defaultReceived, gapList, receiveDelivery, receiveLines, refillShelf, submitCount } from '../../actions'
+import type { Task } from '../../domain/types'
 import { Chip, Flash, PaneFrame } from '../components'
+import { usePresenter } from '../PresenterContext'
 import { useAppState, useEventStore } from '../StoreContext'
 
 const ICON: Record<Task['kind'], { glyph: string; tone: string }> = {
@@ -16,28 +19,15 @@ const ICON: Record<Task['kind'], { glyph: string; tone: string }> = {
 }
 const PRIORITY = { High: 0, Medium: 1, Low: 2 }
 
-function inboundFor(state: AppState, task: Task): Inbound[] {
-  return state.inbound.filter((i) => i.asnId === task.ref || i.id === task.ref)
-}
-
-/** Live gap list: shelf below a quarter of its capacity with stock in the back room, or empty. */
-function gaps(state: AppState) {
-  return Object.values(state.positions)
-    .filter((p) => p.shelf < p.shelfCapacity * 0.25 && (p.backRoom > 0 || p.shelf === 0))
-    .map((p) => ({ ...p, refill: Math.min(p.backRoom, p.shelfCapacity - p.shelf) }))
-}
-
 function ReceiveForm({ task, onDone }: { task: Task; onDone: () => void }) {
   const state = useAppState()
   const store = useEventStore()
-  const lines = inboundFor(state, task)
+  const { shortShip } = usePresenter()
+  const lines = receiveLines(state, task)
   const open = lines.filter((l) => l.status === 'IN_TRANSIT')
-  const [qty, setQty] = useState<Record<string, number>>(() => Object.fromEntries(open.map((l) => [l.id, l.expectedQty])))
+  const [qty, setQty] = useState<Record<string, number>>(() => Object.fromEntries(open.map((l) => [l.id, defaultReceived(l, shortShip)])))
   function confirm() {
-    for (const l of open) store.append({ type: 'DELIVERY_RECEIVED', actor: 'aisha', payload: { inboundId: l.id, expectedQty: l.expectedQty, receivedQty: qty[l.id] ?? l.expectedQty } })
-    if (store.getState().handheld.tasks.find((t) => t.id === task.id)?.status === 'OPEN') {
-      store.append({ type: 'TASK_COMPLETED', actor: 'aisha', payload: { taskId: task.id, kind: task.kind } })
-    }
+    for (const d of receiveDelivery(state, task, qty)) store.append(d)
     onDone()
   }
   return (
@@ -70,15 +60,10 @@ function ReceiveForm({ task, onDone }: { task: Task; onDone: () => void }) {
 function CountForm({ task, onDone }: { task: Task; onDone: () => void }) {
   const state = useAppState()
   const store = useEventStore()
-  const lines = state.handheld.count.lines.map((l) => ({ ...l, systemQty: state.positions[l.itemId]?.onHand ?? l.systemQty }))
+  const lines = countLines(state)
   const [qty, setQty] = useState<Record<string, number>>(() => Object.fromEntries(lines.map((l) => [l.itemId, l.actualHint ?? l.systemQty])))
   function submit() {
-    store.append({
-      type: 'COUNT_SUBMITTED',
-      actor: 'aisha',
-      payload: { countId: state.handheld.count.id, lines: lines.map((l) => ({ sku: l.itemId, systemQty: l.systemQty, actualQty: qty[l.itemId] ?? l.systemQty })) },
-    })
-    store.append({ type: 'TASK_COMPLETED', actor: 'aisha', payload: { taskId: task.id, kind: task.kind } })
+    for (const d of submitCount(state, task, qty)) store.append(d)
     onDone()
   }
   return (
@@ -100,15 +85,14 @@ function CountForm({ task, onDone }: { task: Task; onDone: () => void }) {
       <button className="btn btn-block" disabled={task.status === 'DONE'} onClick={submit}>
         Submit count
       </button>
-      <p className="muted small">Stock correction from counts arrives with the P1 rules (M5).</p>
     </>
   )
 }
 
-function GapForm() {
+function GapForm({ task, onDone }: { task: Task; onDone: () => void }) {
   const state = useAppState()
   const store = useEventStore()
-  const list = gaps(state)
+  const list = gapList(state)
   return (
     <>
       <p className="muted small">Low shelves right now. Refill moves stock from the back room to the shelf.</p>
@@ -124,14 +108,23 @@ function GapForm() {
                   Shelf <Flash value={p.shelf} /> / {p.shelfCapacity} · back room <Flash value={p.backRoom} />
                 </div>
               </div>
-              <button className="btn btn-quiet" disabled={p.refill <= 0} onClick={() => store.append({ type: 'SHELF_REFILLED', actor: 'aisha', payload: { sku: p.sku, qty: p.refill } })}>
+              <button className="btn btn-quiet" disabled={p.refill <= 0} onClick={() => store.append(refillShelf(p))}>
                 {p.refill > 0 ? `Refill ${p.refill}` : 'Nothing to refill'}
               </button>
             </li>
           ))}
         </ul>
       )}
-      <p className="muted small">Shelf moves from refills arrive with the P1 rules (M5).</p>
+      <button
+        className="btn btn-quiet btn-block"
+        disabled={task.status === 'DONE'}
+        onClick={() => {
+          store.append({ type: 'TASK_COMPLETED', actor: 'aisha', payload: { taskId: task.id, kind: task.kind } })
+          onDone()
+        }}
+      >
+        Finish gap scan
+      </button>
     </>
   )
 }
@@ -139,7 +132,7 @@ function GapForm() {
 export function HandheldPane({ onExpand }: { onExpand?: () => void }) {
   const state = useAppState()
   const [openId, setOpenId] = useState<string | null>(null)
-  // Open first, then priority, then the newest tasks created during the demo.
+  // Open first, then priority, then the newest tasks created during the demo; seed tasks keep their order.
   const order = new Map(state.handheld.tasks.map((t, i) => [t.id, i]))
   const tasks = [...state.handheld.tasks].sort(
     (a, b) =>
@@ -150,7 +143,7 @@ export function HandheldPane({ onExpand }: { onExpand?: () => void }) {
   )
   const openTask = tasks.find((t) => t.id === openId)
   const openCount = tasks.filter((t) => t.status === 'OPEN').length
-  const gapCount = gaps(state).length
+  const gapCount = gapList(state).length
 
   return (
     <PaneFrame role="aisha" onExpand={onExpand}>
@@ -170,7 +163,7 @@ export function HandheldPane({ onExpand }: { onExpand?: () => void }) {
               <h3 className="phone-title">{openTask.title}</h3>
               {openTask.kind === 'RECEIVE' && <ReceiveForm task={openTask} onDone={() => setOpenId(null)} />}
               {openTask.kind === 'COUNT' && <CountForm task={openTask} onDone={() => setOpenId(null)} />}
-              {openTask.kind === 'GAP' && <GapForm />}
+              {openTask.kind === 'GAP' && <GapForm task={openTask} onDone={() => setOpenId(null)} />}
             </>
           ) : (
             <>
