@@ -5,7 +5,7 @@
  * deterministic: ids are derived from state, never from the clock.
  */
 import { demoTuning } from './config/demoTuning'
-import type { AppState, EventDraft, Inbound, Offer, Position, Proposal, Task } from './domain/types'
+import type { AppState, EventDraft, Inbound, Offer, Position, Proposal, Recall, Task } from './domain/types'
 import { priceBasket, type BasketItem } from './rules/engine/tillPricing'
 
 // ---------------------------------------------------------------- Emily
@@ -70,13 +70,47 @@ export function submitCount(state: AppState, task: Task, actual: Record<string, 
   ]
 }
 
-/** Live gap list: shelf below a quarter of its capacity with stock in the back room, or empty. */
+/** Live gap list: shelf below a quarter of its capacity with stock in the back room, or empty. Recalled items are not gaps. */
 export function gapList(state: AppState): (Position & { refill: number })[] {
   return Object.values(state.positions)
+    .filter((p) => !state.till.blockedSkus.includes(p.sku))
     .filter((p) => p.shelf < p.shelfCapacity * 0.25 && (p.backRoom > 0 || p.shelf === 0))
     .map((p) => ({ ...p, refill: Math.min(p.backRoom, p.shelfCapacity - p.shelf) }))
 }
 
 export function refillShelf(position: Position): EventDraft {
   return { type: 'SHELF_REFILLED', actor: 'aisha', payload: { sku: position.sku, qty: Math.min(position.backRoom, position.shelfCapacity - position.shelf) } }
+}
+
+// ---------------------------------------------------------------- Recall (ops, Jamal, Aisha, Emily)
+/** Ops issues the recall (Presenter control / S3 step 1). */
+export function issueRecall(recall: Recall): EventDraft {
+  const qty = recall.stores.reduce((n, s) => n + s.lots.reduce((m, l) => m + l.onHand, 0), 0)
+  return { type: 'RECALL_ISSUED', actor: 'system', payload: { recallId: recall.id, sku: recall.itemId, lots: recall.lots.map((l) => l.lot), qty } }
+}
+
+/** The till refused a scan of a recalled item. */
+export function scanBlocked(state: AppState, sku: string, lane = 4): EventDraft | null {
+  const recall = state.recalls.find((r) => r.itemId === sku && r.status === 'ISSUED')
+  return recall ? { type: 'RECALL_SCAN_BLOCKED', actor: 'jamal', payload: { recallId: recall.id, sku, lane } } : null
+}
+
+/** The lot behind a RECALL_PULL task (ref = "<recallId>:<lot>") and how many Plano holds. */
+export function pullTaskLot(state: AppState, task: Task) {
+  const [recallId, lot] = (task.ref ?? '').split(':')
+  const recall = state.recalls.find((r) => r.id === recallId)
+  const row = recall?.stores.find((s) => s.storeId === state.store.id)
+  const l = row?.lots.find((x) => x.lot === lot)
+  return recall && l ? { recall, lot: l.lot, onHand: l.onHand, pulled: l.pulled } : null
+}
+
+export function pullLot(state: AppState, task: Task, qty: number): EventDraft[] {
+  const info = pullTaskLot(state, task)
+  if (!info) return []
+  return [{ type: 'RECALL_PULLED', actor: 'aisha', payload: { recallId: info.recall.id, sku: info.recall.itemId, lots: [info.lot], qty } }]
+}
+
+export function sendRecallNotice(recall: Recall): EventDraft | null {
+  if (!recall.notice || recall.notice.status !== 'DRAFT') return null
+  return { type: 'RECALL_NOTICE_SENT', actor: 'emily', payload: { recallId: recall.id, push: recall.notice.push, email: recall.notice.email, sms: recall.notice.sms } }
 }

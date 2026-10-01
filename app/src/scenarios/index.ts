@@ -6,7 +6,7 @@
  *
  * `setup` is what `?scenario=<id>` / reset(<id>) dispatches before step 1.
  */
-import { approveOrder, completeSale, defaultReceived, publishOffer, publishPromo, receiveDelivery, refillShelf, simulateSales, submitPromo } from '../actions'
+import { approveOrder, completeSale, defaultReceived, issueRecall, publishOffer, publishPromo, pullLot, pullTaskLot, receiveDelivery, refillShelf, scanBlocked, sendRecallNotice, simulateSales, submitPromo } from '../actions'
 import type { AppState, DemoEvent, EventDraft, Role } from '../domain/types'
 
 export interface StepContext {
@@ -147,4 +147,55 @@ export const s2: Scenario = {
   ],
 }
 
-export const scenarios: ScenarioRegistry = { S1: s1, S2: s2 }
+const CHEDDAR = 'SKU-100228'
+const RECALL = 'RCL-2026-014'
+const recallOf = (s: AppState) => s.recalls.find((r) => r.id === RECALL)!
+
+export const s3: Scenario = {
+  title: 'S3 · Recall hits everyone',
+  minutes: 2,
+  timeline: true,
+  setup: [],
+  steps: [
+    {
+      actor: 'presenter',
+      title: 'Ops issues recall RCL-2026-014 (Shredded Mild Cheddar)',
+      how: 'Presenter → Issue recall RCL-2026-014',
+      watch: 'All four panes change at once: till blocks cheddar, Aisha gets 3 pull tasks, Priya’s cheddar order (84 units) is held, Emily’s PRM-2698 is flagged and a customer notice is drafted.',
+      next: (s) => (recallOf(s).status === 'NOT_ISSUED' ? [issueRecall(recallOf(s))] : []),
+      done: (_s, since) => has(since, 'RECALL_ISSUED', (e) => e.payload.recallId === RECALL),
+    },
+    {
+      actor: 'jamal',
+      title: 'Jamal tries to sell a cheddar',
+      how: 'Till → item: Shredded Mild Cheddar 8 oz → Key item',
+      watch: 'The till refuses it: "RECALLED — do not sell". The refused scan is counted on the recall.',
+      next: (s) => [scanBlocked(s, CHEDDAR)].filter((d): d is EventDraft => d !== null),
+      done: (_s, since) => has(since, 'RECALL_SCAN_BLOCKED', (e) => e.payload.sku === CHEDDAR),
+    },
+    {
+      actor: 'aisha',
+      title: 'Aisha pulls all three lots',
+      how: 'Handheld → each "Pull Shredded Mild Cheddar 8 oz · lot …" task → Confirm pulled',
+      watch: 'Cheddar on hand goes 31 → 0; Plano is confirmed on the recall; Priya sees the write-off for the supplier credit.',
+      next: (s) =>
+        s.handheld.tasks
+          .filter((t) => t.kind === 'RECALL_PULL' && t.status === 'OPEN')
+          .flatMap((t) => {
+            const lot = pullTaskLot(s, t)
+            return lot ? pullLot(s, t, lot.onHand - lot.pulled) : []
+          }),
+      done: (s) => !!recallOf(s).stores.find((r) => r.storeId === s.store.id)?.confirmedBy,
+    },
+    {
+      actor: 'emily',
+      title: 'Emily sends the customer notice',
+      how: 'Emily pane → Recall card → Send notice',
+      watch: 'The notice goes to 1,102 push, 1,219 email and 388 SMS contacts; PRM-2698 keeps its recall flag.',
+      next: (s) => [sendRecallNotice(recallOf(s))].filter((d): d is EventDraft => d !== null),
+      done: (_s, since) => has(since, 'RECALL_NOTICE_SENT', (e) => e.payload.recallId === RECALL),
+    },
+  ],
+}
+
+export const scenarios: ScenarioRegistry = { S1: s1, S2: s2, S3: s3 }

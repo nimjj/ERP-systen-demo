@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { approveOrder, holdOrder } from '../../actions'
 import type { Proposal, SeriesPoint } from '../../domain/types'
 import { Chip, Flash, money, PaneFrame } from '../components'
+import { PlannerRecallBanner } from '../RecallViews'
 import { useAppState, useEventStore } from '../StoreContext'
 
 const STATUS: Record<Proposal['status'], { label: string; tone: 'green' | 'amber' | 'blue' | 'red' | 'neutral' }> = {
@@ -149,6 +150,7 @@ export function PlannerPane({ onExpand }: { onExpand?: () => void }) {
         </Flash>
       }
     >
+      <PlannerRecallBanner />
       <p className="muted small intro">Orders go to the DC and suppliers at 06:00. Review the exceptions; the rest is auto-released.</p>
       <div className="table-wrap">
         <table className="table proposals">

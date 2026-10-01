@@ -369,6 +369,8 @@ export interface Promo {
   gate?: StockCheckResult
   /** Live: units per week added by SUPPLY_ADDED (C11). */
   extraSupplyUnits?: number
+  /** Live: items removed from this promo by a recall (C14). */
+  recallFlags?: { recallId: string; sku: string; itemName: string }[]
   [extra: string]: unknown
 }
 
@@ -426,7 +428,22 @@ export interface Recall {
   customers: { buyers: number; push: number; email: number; sms: number; refunds: number; nonMemberSales: number; signage: boolean }
   credit: { claimId: string | null; status: string; submittedAt: string | null; unitCost: number; units: number; amount: number }
   stores: RecallStoreRow[]
+  /** Live: customer notice drafted when the recall is issued (C14), sent by Emily. */
+  notice?: RecallNotice
   [extra: string]: unknown
+}
+
+export interface RecallNotice {
+  status: 'DRAFT' | 'SENT'
+  buyers: number
+  push: number
+  email: number
+  sms: number
+  refunds: number
+  nonMemberSales: number
+  signage: boolean
+  subject: string
+  body: string
 }
 
 export interface Notification {
@@ -531,6 +548,9 @@ export interface EventPayloads {
   COUNT_SUBMITTED: { countId: string; lines: { sku: string; systemQty: number; actualQty: number }[] }
   RECALL_ISSUED: { recallId: string; sku: string; lots: string[]; qty: number }
   RECALL_PULLED: { recallId: string; sku: string; lots: string[]; qty: number }
+  RECALL_SCAN_BLOCKED: { recallId: string; sku: string; lane: number }
+  RECALL_NOTICE_SENT: { recallId: string; push: number; email: number; sms: number }
+  INBOUND_HELD: { inboundId: string; sku: string; qty: number; reason: string }
   NOTIFICATION_ADDED: { role: Role; text: string; link: string | null; severity: Severity }
   // P1 / P2 (SPEC §3 C11, C16–C18)
   SUPPLY_ADDED: { promoId: string; proposalId: string; units: number }

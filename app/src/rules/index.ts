@@ -9,6 +9,8 @@ import { c1TillRuleFromOffer } from './c1TillRuleFromOffer'
 import { c11SupplyForPromo } from './c11SupplyForPromo'
 import { c12CountVariance } from './c12CountVariance'
 import { c13ShelfRefill } from './c13ShelfRefill'
+import { c14RecallIssued } from './c14RecallIssued'
+import { c15RecallPulled } from './c15RecallPulled'
 import { c2OfferUplift } from './c2OfferUplift'
 import { c3SaleDepletesStock } from './c3SaleDepletesStock'
 import { c4RecomputeProposal } from './c4RecomputeProposal'
@@ -31,4 +33,6 @@ export const rules: readonly Rule[] = [
   c11SupplyForPromo,
   c12CountVariance,
   c13ShelfRefill,
+  c14RecallIssued,
+  c15RecallPulled,
 ]

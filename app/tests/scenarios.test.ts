@@ -4,9 +4,9 @@
  * identical event log (type, actor, payload) as pressing Next.
  */
 import { describe, expect, it } from 'vitest'
-import { approveOrder, completeSale, defaultReceived, gapList, publishOffer, publishPromo, receiveDelivery, refillShelf, simulateSales, submitPromo } from '../src/actions'
+import { approveOrder, completeSale, defaultReceived, gapList, issueRecall, publishOffer, publishPromo, pullLot, pullTaskLot, receiveDelivery, refillShelf, scanBlocked, sendRecallNotice, simulateSales, submitPromo } from '../src/actions'
 import type { DemoEvent, EventDraft } from '../src/domain/types'
-import { s1, s2, type Scenario } from '../src/scenarios'
+import { s1, s2, s3, type Scenario } from '../src/scenarios'
 import { ofType, Sim, YOGURT } from './helpers'
 
 const ctx = { shortShip: true }
@@ -90,6 +90,40 @@ describe('S2 — Promo gate', () => {
       () => [submitPromo('PRM-2702')],
       (sim) => [approveOrder(sim.state.proposals.find((p) => p.id === 'PRP-00003')!)],
       () => [publishPromo('PRM-2702')],
+    ])
+    expect(shape(byPanes.log)).toEqual(shape(byNext.log))
+  })
+})
+
+describe('S3 — Recall hits everyone', () => {
+  it('every step completes with Next; all four panes changed and Plano is confirmed', () => {
+    const sim = playNext(s3)
+    const recall = sim.state.recalls.find((r) => r.id === 'RCL-2026-014')!
+    expect(sim.state.till.blockedSkus).toEqual(['SKU-100228'])
+    expect(recall.posBlock.blockedScans).toBe(1)
+    expect(sim.state.handheld.tasks.filter((t) => t.kind === 'RECALL_PULL').every((t) => t.status === 'DONE')).toBe(true)
+    expect(sim.position('SKU-100228').onHand).toBe(0)
+    expect(sim.state.inbound.find((i) => i.sku === 'SKU-100228')!.status).toBe('HELD')
+    expect(sim.promo('PRM-2698').recallFlags).toHaveLength(1)
+    expect(recall.notice!.status).toBe('SENT')
+    expect(recall.stores.find((r) => r.storeId === 'US-DFW-1101')!.confirmedBy).toBe('Aisha Khan')
+  })
+
+  it('doing it in the panes gives the identical event log as Next', () => {
+    const byNext = playNext(s3)
+    const byPanes = playLikePanes([
+      (sim) => [issueRecall(sim.state.recalls[0])], // Presenter: Issue recall
+      (sim) => [scanBlocked(sim.state, 'SKU-100228')!], // Till: key cheddar → refused
+      (sim) => {
+        // Handheld: open each pull task (in list order) and confirm the pre-filled quantity
+        const drafts: EventDraft[] = []
+        for (const t of sim.state.handheld.tasks.filter((x) => x.kind === 'RECALL_PULL')) {
+          const lot = pullTaskLot(sim.state, t)!
+          drafts.push(...pullLot(sim.state, t, lot.onHand - lot.pulled))
+        }
+        return drafts
+      },
+      (sim) => [sendRecallNotice(sim.state.recalls[0])!], // Emily: Send notice
     ])
     expect(shape(byPanes.log)).toEqual(shape(byNext.log))
   })

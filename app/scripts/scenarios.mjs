@@ -106,5 +106,46 @@ const s2Next = await runWithNext('S2', 4)
 }
 console.log(`S2 via Next: ${s2Next.length} events`)
 
+// ---- 3. S3 with Next, then by hand, and compare
+const s3Next = await runWithNext('S3', 4)
+{
+  const { context, page } = await open('?scenario=S3')
+  const pane = (r) => page.locator(`.pane-${r}`)
+  const step = async (label) => console.log(`S3 by hand — ${label}: current step = ${await currentStep(page)}`)
+
+  await page.locator('.presenter').getByRole('button', { name: /Issue recall RCL-2026-014/ }).click()
+  await page.waitForTimeout(400)
+  await shot(page, 'S3-hand-1-issued')
+  await step('after Issue recall')
+
+  await pane('jamal').locator('select[aria-label="Item lookup"]').selectOption('SKU-100228')
+  await pane('jamal').getByRole('button', { name: 'Key item' }).click()
+  await page.waitForTimeout(300)
+  await shot(page, 'S3-hand-2-till-blocked')
+  console.log('S3 by hand — till banner:', (await pane('jamal').locator('.banner-red').first().innerText()).trim())
+  await step('after the cheddar scan')
+
+  for (let i = 0; i < 3; i++) {
+    await pane('aisha').locator('.task', { hasText: 'Pull Shredded Mild Cheddar' }).first().click()
+    if (i === 0) await shot(page, 'S3-hand-3-pull-form')
+    await pane('aisha').getByRole('button', { name: 'Confirm pulled' }).click()
+    await page.waitForTimeout(250)
+  }
+  await shot(page, 'S3-hand-3-pulled')
+  await step('after the three pulls')
+
+  await pane('emily').getByRole('button', { name: /Send notice/ }).click()
+  await page.waitForTimeout(400)
+  console.log('S3 by hand — timeline open at the end:', (await page.locator('.overlay').count()) === 1)
+  const s3Hand = await log(page)
+  const same = JSON.stringify(s3Hand) === JSON.stringify(s3Next)
+  console.log(`S3 event logs: Next ${s3Next.length} events, by hand ${s3Hand.length} events, identical: ${same}`)
+  if (!same) {
+    const i = s3Hand.findIndex((e, k) => JSON.stringify(e) !== JSON.stringify(s3Next[k]))
+    console.log('first difference at', i, JSON.stringify(s3Next[i]), JSON.stringify(s3Hand[i]))
+  }
+  await context.close()
+}
+
 if (errors.length) console.log('PAGE ERRORS:\n' + errors.join('\n'))
 await browser.close()

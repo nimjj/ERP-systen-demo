@@ -4,7 +4,7 @@
  * Presenter's Next button).
  */
 import { useState } from 'react'
-import { countLines, defaultReceived, gapList, receiveDelivery, receiveLines, refillShelf, submitCount } from '../../actions'
+import { countLines, defaultReceived, gapList, pullLot, pullTaskLot, receiveDelivery, receiveLines, refillShelf, submitCount } from '../../actions'
 import type { Task } from '../../domain/types'
 import { Chip, Flash, PaneFrame } from '../components'
 import { usePresenter } from '../PresenterContext'
@@ -44,6 +44,8 @@ function ReceiveForm({ task, onDone }: { task: Task; onDone: () => void }) {
             </div>
             {l.status === 'IN_TRANSIT' ? (
               <input type="number" min={0} value={qty[l.id] ?? l.expectedQty} onChange={(e) => setQty({ ...qty, [l.id]: Number(e.target.value) })} aria-label={`Received ${l.name}`} />
+            ) : l.status === 'HELD' ? (
+              <Chip tone="red">Held · recall</Chip>
             ) : (
               <Chip tone="green">Received {l.receivedQty}</Chip>
             )}
@@ -129,17 +131,64 @@ function GapForm({ task, onDone }: { task: Task; onDone: () => void }) {
   )
 }
 
+function RecallPullForm({ task, onDone }: { task: Task; onDone: () => void }) {
+  const state = useAppState()
+  const store = useEventStore()
+  const info = pullTaskLot(state, task)
+  const [qty, setQty] = useState(info ? info.onHand - info.pulled : 0)
+  if (!info) return <div className="empty">This lot is not on file for {state.store.name}.</div>
+  const where = state.handheld.gaps.find((g) => g.itemId === info.recall.itemId)?.location ?? state.handheld.count.lines.find((l) => l.itemId === info.recall.itemId)?.location
+  return (
+    <>
+      <div className="banner banner-red">
+        Recall {info.recall.id} · {info.recall.kind} {info.recall.classification}
+      </div>
+      <ul className="form-lines">
+        <li>
+          <div>
+            <div className="line-name">
+              {info.recall.itemName} · lot {info.lot}
+            </div>
+            <div className="muted small">
+              {where ? `${where} · ` : ''}on file {info.onHand} · pulled {info.pulled}
+            </div>
+          </div>
+          <input type="number" min={0} max={info.onHand - info.pulled} value={qty} onChange={(e) => setQty(Number(e.target.value))} aria-label={`Pulled lot ${info.lot}`} />
+        </li>
+      </ul>
+      <p className="muted small">{info.recall.action}</p>
+      <button
+        className="btn btn-block"
+        disabled={task.status === 'DONE' || qty <= 0}
+        onClick={() => {
+          for (const d of pullLot(state, task, qty)) store.append(d)
+          onDone()
+        }}
+      >
+        Confirm pulled
+      </button>
+    </>
+  )
+}
+
 export function HandheldPane({ onExpand }: { onExpand?: () => void }) {
   const state = useAppState()
   const [openId, setOpenId] = useState<string | null>(null)
-  // Open first, then priority, then the newest tasks created during the demo; seed tasks keep their order.
+  // Open first, then priority, then the newest batch of tasks created during the demo (tasks
+  // created by the same action, like the three lot pulls, keep their order); seed tasks keep their order.
   const order = new Map(state.handheld.tasks.map((t, i) => [t.id, i]))
+  const batch = (id: string) => {
+    const t = state.handheld.tasks.find((x) => x.id === id)!
+    const parent = t.createdBy ? t.createdBy.replace(/\.\d+$/, '') : ''
+    return state.events.findIndex((e) => e.id === parent)
+  }
   const tasks = [...state.handheld.tasks].sort(
     (a, b) =>
       (a.status === b.status ? 0 : a.status === 'OPEN' ? -1 : 1) ||
       PRIORITY[a.priority] - PRIORITY[b.priority] ||
       Number(!!b.createdBy) - Number(!!a.createdBy) ||
-      (a.createdBy ? order.get(b.id)! - order.get(a.id)! : order.get(a.id)! - order.get(b.id)!),
+      (a.createdBy && b.createdBy ? batch(b.id) - batch(a.id) : 0) ||
+      order.get(a.id)! - order.get(b.id)!,
   )
   const openTask = tasks.find((t) => t.id === openId)
   const openCount = tasks.filter((t) => t.status === 'OPEN').length
@@ -164,6 +213,7 @@ export function HandheldPane({ onExpand }: { onExpand?: () => void }) {
               {openTask.kind === 'RECEIVE' && <ReceiveForm task={openTask} onDone={() => setOpenId(null)} />}
               {openTask.kind === 'COUNT' && <CountForm task={openTask} onDone={() => setOpenId(null)} />}
               {openTask.kind === 'GAP' && <GapForm task={openTask} onDone={() => setOpenId(null)} />}
+              {openTask.kind === 'RECALL_PULL' && <RecallPullForm task={openTask} onDone={() => setOpenId(null)} />}
             </>
           ) : (
             <>

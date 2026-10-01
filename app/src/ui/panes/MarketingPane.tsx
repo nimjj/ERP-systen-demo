@@ -5,6 +5,7 @@ import type { Offer, Promo } from '../../domain/types'
 import { canPublishPromo } from '../../rules/engine/promoStockCheck'
 import { coverDays } from '../../rules/engine/stockRisk'
 import { Chip, Flash, money, num, PaneFrame } from '../components'
+import { MarketingRecallCard } from '../RecallViews'
 import { useAppState, useEventStore } from '../StoreContext'
 
 const STATUS_TONE: Record<string, 'green' | 'amber' | 'neutral' | 'blue' | 'red'> = {
@@ -90,6 +91,11 @@ function PromoRow({ promo }: { promo: Promo }) {
         <div className="muted small">
           {promo.id} · {promo.mechanic} · {promo.start} → {promo.end}
         </div>
+        {promo.recallFlags?.map((f) => (
+          <Chip key={f.recallId + f.sku} tone="red">
+            Recall {f.recallId}: {f.itemName} removed
+          </Chip>
+        ))}
       </td>
       <td>
         <Flash value={promo.status}>
@@ -144,6 +150,8 @@ export function MarketingPane({ onExpand }: { onExpand?: () => void }) {
           </div>
         )
       })}
+
+      <MarketingRecallCard />
 
       <h4 className="section">Offers</h4>
       {state.offers.map((o) => (

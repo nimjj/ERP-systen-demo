@@ -153,6 +153,38 @@ const reducers: { [T in EventType]?: Reducer<T> } = {
     const promo = d.promos.promotions.find((x) => x.id === p.promoId)
     if (promo) promo.extraSupplyUnits = (promo.extraSupplyUnits ?? 0) + p.units
   },
+  RECALL_ISSUED: (d, p, e) => {
+    const r = d.recalls.find((x) => x.id === p.recallId)
+    if (!r) return
+    r.status = 'ISSUED'
+    r.issued = e.ts
+    r.posBlock = { blocked: true, blockedAt: e.ts, blockedScans: r.posBlock.blockedScans }
+  },
+  RECALL_PULLED: (d, p) => {
+    const r = d.recalls.find((x) => x.id === p.recallId)
+    const row = r?.stores.find((s) => s.storeId === d.store.id)
+    if (!row) return
+    let left = p.qty
+    for (const lot of row.lots) {
+      if (!p.lots.includes(lot.lot) || left <= 0) continue
+      const take = Math.min(left, lot.onHand - lot.pulled)
+      lot.pulled += take
+      left -= take
+    }
+    if (row.lots.every((l) => l.pulled >= l.onHand)) row.confirmedBy = d.personas.find((x) => x.role === 'aisha')?.name ?? 'Store associate'
+  },
+  RECALL_SCAN_BLOCKED: (d, p) => {
+    const r = d.recalls.find((x) => x.id === p.recallId)
+    if (r) r.posBlock.blockedScans += 1
+  },
+  RECALL_NOTICE_SENT: (d, p) => {
+    const r = d.recalls.find((x) => x.id === p.recallId)
+    if (r?.notice) r.notice.status = 'SENT'
+  },
+  INBOUND_HELD: (d, p) => {
+    const i = d.inbound.find((x) => x.id === p.inboundId)
+    if (i) i.status = 'HELD'
+  },
   NOTIFICATION_ADDED: (d, p, e) => {
     d.notifications.push({ id: e.id, role: p.role, text: p.text, link: p.link, severity: p.severity, eventId: e.id, read: false })
   },

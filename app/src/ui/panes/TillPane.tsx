@@ -3,7 +3,7 @@
  * shared changes until "Complete sale", which emits SALE_COMPLETED.
  */
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { completeSale as completeSaleDraft } from '../../actions'
+import { completeSale as completeSaleDraft, scanBlocked } from '../../actions'
 import { priceBasket, resolveCode, type BasketItem } from '../../rules/engine/tillPricing'
 import { Chip, Flash, money, num, PaneFrame } from '../components'
 import { useAppState, useEventStore } from '../StoreContext'
@@ -24,7 +24,11 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
     for (const s of scans) merged.set(s.sku, Math.round(((merged.get(s.sku) ?? 0) + s.qty) * 100) / 100)
     return [...merged].map(([sku, qty]) => ({ sku, qty }))
   }, [scans])
-  const priced = useMemo(() => priceBasket(state, basket, memberId), [state, basket, memberId])
+  // A recall issued while an item is already in the basket takes it out of the sale.
+  const sellable = useMemo(() => basket.filter((b) => !till.blockedSkus.includes(b.sku)), [basket, till.blockedSkus])
+  const removed = basket.filter((b) => till.blockedSkus.includes(b.sku))
+  const priced = useMemo(() => priceBasket(state, sellable, memberId), [state, sellable, memberId])
+  const activeRecalls = state.recalls.filter((r) => r.status === 'ISSUED' && till.blockedSkus.includes(r.itemId))
   const member = till.members.find((m) => m.id === memberId)
   const listRef = useRef<HTMLUListElement>(null)
   useEffect(() => {
@@ -36,6 +40,8 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
     if (!entry) return
     if (till.blockedSkus.includes(sku)) {
       setAlert(`RECALLED — do not sell: ${entry.name}`)
+      const refused = scanBlocked(state, sku)
+      if (refused) store.append(refused)
       return
     }
     const keyIndex = code ? till.quickKeys.findIndex((k) => k.code === code) : -1
@@ -54,7 +60,7 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
 
   function completeSale() {
     if (priced.lines.length === 0) return
-    store.append(completeSaleDraft(state, basket, memberId))
+    store.append(completeSaleDraft(state, sellable, memberId))
     setScans([])
     setMemberId(null)
     setAlert(null)
@@ -67,7 +73,15 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
     <PaneFrame role="jamal" onExpand={onExpand} actions={<Chip tone="blue">Lane 4</Chip>}>
       <div className="till">
         <div className="till-basket">
-          {alert && <div className="banner banner-red">{alert}</div>}
+          {activeRecalls.map((r) => (
+            <div key={r.id} className="banner banner-recall">
+              <span>
+                <b>Recall {r.id}:</b> {r.itemName} is blocked at this till. Refused scans: <Flash value={r.posBlock.blockedScans} />
+              </span>
+            </div>
+          ))}
+          {alert && <div className="banner banner-red">⛔ {alert}</div>}
+          {removed.length > 0 && <div className="banner banner-red">Removed from this sale (recalled): {removed.map((b) => till.catalogue.find((c) => c.id === b.sku)?.name).join(', ')}</div>}
           {priced.lines.length === 0 ? (
             <div className="empty-state">
               <div className="empty-title">Ready for the next customer</div>

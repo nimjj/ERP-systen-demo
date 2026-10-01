@@ -308,3 +308,18 @@ main { flex: 1; min-width: 0; min-height: 0; padding: 12px 12px calc(var(--strea
 .till-side .field-row { flex-wrap: wrap; }
 .till-side .field-row select { min-width: 100%; }
 .till-side .field-row .btn { flex: 1; }
+
+.banner-recall { background: #7f1d1d; color: #fff; border: 0; }
+.banner-recall b { color: #fff; }
+.recall-card { border: 2px solid var(--red); border-radius: 10px; padding: 12px; background: #fff7f6; margin-bottom: 10px; }
+.recall-card .card-title { color: var(--red); }
+.notice-counts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 8px 0; }
+.notice-counts div { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+.notice-counts b { font-size: 16px; display: block; }
+.notice-text { background: #fff; border: 1px dashed #e7b4ae; border-radius: 8px; padding: 8px 10px; font-size: 12px; }
+.notice-text .subject { font-weight: 700; margin-bottom: 4px; }
+.progress { height: 8px; border-radius: 4px; background: #f3d4d0; overflow: hidden; margin-top: 6px; }
+.progress > span { display: block; height: 100%; background: var(--red); transition: width 0.6s ease; }
+.btn-danger { background: var(--red); border-color: var(--red); }
+.btn-danger:hover:not(:disabled) { background: #9f2a22; }
+.banner-recall .flash-on { color: var(--ink); }

@@ -7,7 +7,7 @@
  * either path. Back undoes the current step's events in every window.
  */
 import { useEffect, useMemo, useState } from 'react'
-import { simulateSales } from '../actions'
+import { issueRecall, simulateSales } from '../actions'
 import { demoTuning } from '../config/demoTuning'
 import type { DemoEvent } from '../domain/types'
 import { scenarios, type Scenario } from '../scenarios'
@@ -151,6 +151,13 @@ export function Presenter() {
         <button className="btn btn-amber btn-block" onClick={() => simulateSales(store.getState()).forEach((d) => store.append(d))}>
           Simulate {demoTuning.simulateSales.perClick} sales
         </button>
+        {state.recalls
+          .filter((r) => r.status === 'NOT_ISSUED')
+          .map((r) => (
+            <button key={r.id} className="btn btn-danger btn-block" onClick={() => store.append(issueRecall(r))}>
+              Issue recall {r.id}
+            </button>
+          ))}
         <label className="toggle">
           <input type="checkbox" checked={shortShip} onChange={(e) => setShortShip(e.target.checked)} />
           <span>
@@ -210,7 +217,9 @@ function Timeline({ scenario, run, onClose }: { scenario: Scenario; run: Scenari
                   <span className="tl-n">{i + 1}</span>
                   {step.actor !== 'presenter' ? <Avatar actor={step.actor} label={initials(state.personas.find((p) => p.role === step.actor)!.name)} size="sm" /> : <span className="avatar avatar-sm avatar-system">P</span>}
                   <b>{step.title}</b>
-                  <span className="muted small">{evs.length} events</span>
+                  <span className="muted small">
+                    {evs.length} {evs.length === 1 ? 'event' : 'events'}
+                  </span>
                 </div>
                 <ul className="tl-events">
                   {shown.map((e) => (
@@ -224,7 +233,7 @@ function Timeline({ scenario, run, onClose }: { scenario: Scenario; run: Scenari
                   {collapsible && (
                     <li>
                       <button className="link" onClick={() => setExpanded({ ...expanded, [i]: true })}>
-                        + {roots.length - 1} more sales ({evs.length - shown.length} events) — show all
+                        + {roots.length - 1} more actions ({evs.length - shown.length} events) — show all
                       </button>
                     </li>
                   )}

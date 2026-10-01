@@ -276,3 +276,10 @@ Agreed with the client owner on 2026-10-01. Every resulting data change is logge
 11. **C11, C12, C13 built in M4** (ahead of M5) because S1 step 4 (refill) and S2 (Cola pre-build → PRM-2702 Pass) need them; A9, A10 and the refill test pass.
 12. **Pre-build is used up by the approval that carries it.** Approving the Cola line sets its remaining pre-build to 0, so the next order is not inflated by the same 77 units again.
 13. **Presenter "Back" undoes the step** in every window (event log truncated to where the step started).
+
+### M5 notes (recall)
+
+14. **Priya's cheddar "order" is the open inbound.** Plano has no cheddar proposal in the data; its open cheddar order is the 84-unit line on ASN-US-778134, which the recall holds (`INBOUND_HELD`). Proposals for a recalled SKU are set to BLOCKED (covered by a test with a synthetic proposal).
+15. **Three events added to §4:** `INBOUND_HELD` (open order held), `RECALL_SCAN_BLOCKED` (the till refused a scan; increments the recall's `posBlock.blockedScans`), `RECALL_NOTICE_SENT` (Emily sends the drafted notice).
+16. **Customer notice counts are the recall record's network counts** (1,284 member buyers; push 1,102 / email 1,219 / SMS 388; 173 refunds; 265 non-member sales; signage), not Plano-only.
+17. **Recalled items are not gaps:** an empty recalled shelf is left out of Aisha's gap scan.
