@@ -37,7 +37,11 @@
     "exception": null,
     "status": "AUTO_RELEASED",
     "value": 25.02,
-    "cost": 4.17
+    "cost": 4.17,
+    "seedAdjustment": 0,
+    "exceptions": [],
+    "uplift": 0,
+    "effectiveDaily": 9.3
   },
   {
     "id": "PRP-00002",
@@ -82,7 +86,18 @@
     },
     "status": "PENDING_REVIEW",
     "value": 167.2,
-    "cost": 2.09
+    "cost": 2.09,
+    "seedAdjustment": 48,
+    "exceptions": [
+      {
+        "code": "SHELF_CAPACITY",
+        "label": "Exceeds shelf capacity",
+        "severity": "low",
+        "explanation": "Proposed quantity plus stock on hand (103) exceeds shelf capacity (74). Excess would sit in the back room."
+      }
+    ],
+    "uplift": 0,
+    "effectiveDaily": 16.4
   },
   {
     "id": "PRP-00003",
@@ -127,7 +142,18 @@
     },
     "status": "PENDING_REVIEW",
     "value": 761.6,
-    "cost": 4.76
+    "cost": 4.76,
+    "seedAdjustment": 0,
+    "exceptions": [
+      {
+        "code": "PROMO_UPLIFT",
+        "label": "Promotion build-up",
+        "severity": "high",
+        "explanation": "Halloween Cola 12 pk $4.99 member price starts in week 3. Forecast uplift is about 90%. Pre-build of 77 units is added so the store doesn't run out on day 1."
+      }
+    ],
+    "uplift": 0,
+    "effectiveDaily": 19.1
   },
   {
     "id": "PRP-00004",
@@ -167,7 +193,11 @@
     "exception": null,
     "status": "AUTO_RELEASED",
     "value": 33.12,
-    "cost": 0.69
+    "cost": 0.69,
+    "seedAdjustment": 0,
+    "exceptions": [],
+    "uplift": 0,
+    "effectiveDaily": 35.4
   },
   {
     "id": "PRP-00005",
@@ -212,7 +242,18 @@
     },
     "status": "PENDING_REVIEW",
     "value": 100.2,
-    "cost": 3.34
+    "cost": 3.34,
+    "seedAdjustment": 0,
+    "exceptions": [
+      {
+        "code": "PHANTOM_SUSPECTED",
+        "label": "Possible phantom stock",
+        "severity": "high",
+        "explanation": "System shows 19 on hand, but there have been no sales for 8 hours where 6 were expected (p < 0.01). The shelf may be empty. A count task has been sent to the store. If the count finds it empty, order 48 units instead of 30."
+      }
+    ],
+    "uplift": 0,
+    "effectiveDaily": 17.6
   },
   {
     "id": "PRP-00006",
@@ -252,7 +293,11 @@
     "exception": null,
     "status": "AUTO_RELEASED",
     "value": 57.6,
-    "cost": 2.4
+    "cost": 2.4,
+    "seedAdjustment": 0,
+    "exceptions": [],
+    "uplift": 0,
+    "effectiveDaily": 10.4
   },
   {
     "id": "PRP-00007",
@@ -292,7 +337,11 @@
     "exception": null,
     "status": "AUTO_RELEASED",
     "value": 201.4,
-    "cost": 2.65
+    "cost": 2.65,
+    "seedAdjustment": 0,
+    "exceptions": [],
+    "uplift": 0,
+    "effectiveDaily": 34
   },
   {
     "id": "PRP-00008",
@@ -332,7 +381,11 @@
     "exception": null,
     "status": "AUTO_RELEASED",
     "value": 89.92,
-    "cost": 2.81
+    "cost": 2.81,
+    "seedAdjustment": 0,
+    "exceptions": [],
+    "uplift": 0,
+    "effectiveDaily": 10.7
   },
   {
     "id": "PRP-00009",
@@ -372,7 +425,11 @@
     "exception": null,
     "status": "AUTO_RELEASED",
     "value": 450.5,
-    "cost": 2.65
+    "cost": 2.65,
+    "seedAdjustment": 0,
+    "exceptions": [],
+    "uplift": 0,
+    "effectiveDaily": 27.1
   },
   {
     "id": "PRP-00010",
@@ -412,7 +469,11 @@
     "exception": null,
     "status": "AUTO_RELEASED",
     "value": 0,
-    "cost": 9.22
+    "cost": 9.22,
+    "seedAdjustment": 0,
+    "exceptions": [],
+    "uplift": 0,
+    "effectiveDaily": 6.1
   },
   {
     "id": "PRP-00011",
@@ -452,6 +513,10 @@
     "exception": null,
     "status": "AUTO_RELEASED",
     "value": 0,
-    "cost": 5.37
+    "cost": 5.37,
+    "seedAdjustment": 0,
+    "exceptions": [],
+    "uplift": 0,
+    "effectiveDaily": 5.6
   }
 ]

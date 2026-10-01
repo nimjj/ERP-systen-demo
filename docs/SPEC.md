@@ -263,3 +263,9 @@ Agreed with the client owner on 2026-10-01. Every resulting data change is logge
 4. **Proposal numbers win** (replaces §10.2): eggs onHand 19; count CNT-44821 shows system 19, found 0, so A10 asserts a variance of −19; eggs start PHANTOM_SUSPECTED via `phantomSignals`. ASN-US-778134 lines carry the planner's in-transit qty (yogurt 1 case = 6 units, not 4 cases).
 5. **Engine (§5.1).** `orderUpTo` = `demandOverExposure` + `safetyStock` as stored; uplift scales `demandOverExposure`; `safetyStock` is a seeded input (not derivable from service level). Position uses `proposals.onOrder`, never `positions.onOrder` (which equals the proposed qty).
 6. **Promo gate (§5.3).** Pass/Warn/Fail come from per-promo demand/supply in `demoTuning.promoStockCheck`; C11 flips PRM-2702 via `promoSupplyOnApproval`.
+
+### M2 engine choices (made during M2, flagged for confirmation)
+
+7. **seedAdjustment.** Strawberries' seed qty (80) is not the formula's (32); like every SHELF_CAPACITY line in proposals.json it is hand-set. The +48 difference is kept on top of the live formula so the seed and its exception reproduce exactly and still move with stock. All other lines: 0.
+8. **PROMO_UPLIFT also covers pre-build.** A line with `prebuild > 0` keeps PROMO_UPLIFT (Cola, for the upcoming PRM-2702), in addition to the §13.3 trigger (active uplift raises qty).
+9. **Stock risk** compares exact cover with the threshold and displays it rounded down (0.998 days shows as 0.99, never as "1.00 < 1.0").

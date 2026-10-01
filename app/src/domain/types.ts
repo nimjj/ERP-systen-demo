@@ -146,9 +146,16 @@ export interface Proposal {
   daysOfCover: number
   deliveryDate: string
   confidence: string
+  /** Primary exception (data shape); `exceptions` holds all of them. */
   exception: ProposalException | null
+  exceptions: ProposalException[]
   status: ProposalStatus
   value: number
+  /** Units the seed data adds on top of the formula (strawberries +48); kept on every recompute. */
+  seedAdjustment: number
+  /** Live: active uplift and the forecast after uplift (written by PROPOSAL_RECOMPUTED). */
+  uplift: number
+  effectiveDaily: number
   [extra: string]: unknown
 }
 
@@ -358,6 +365,10 @@ export interface Promo {
   itemNames: string[]
   forecast: { baselineUnits: number; promoUnits: number; upliftPct: number; [extra: string]: number }
   stockCheck: { result: StockCheckStatus; source: string; prebuildUnits: number; detail: string; short: { location: string; kind: string; shortUnits: number }[]; checkedAt: string }
+  /** Live: last gate result from PROMO_STOCK_CHECKED. */
+  gate?: StockCheckResult
+  /** Live: units per week added by SUPPLY_ADDED (C11). */
+  extraSupplyUnits?: number
   [extra: string]: unknown
 }
 
@@ -385,6 +396,7 @@ export interface Claim {
   note?: string
   storeId: string | null
   raisedInDemo: boolean
+  inboundId?: string
 }
 
 export interface RecallStoreRow {
@@ -427,6 +439,13 @@ export interface Notification {
   read: boolean
 }
 
+export interface StockRisk {
+  offerId: string
+  sku: string
+  coverDays: number
+  eventId: string
+}
+
 export interface AppState {
   store: Store
   personas: Persona[]
@@ -443,6 +462,7 @@ export interface AppState {
   promos: PromosState
   claims: Claim[]
   recalls: Recall[]
+  stockRisks: StockRisk[]
   notifications: Notification[]
   events: DemoEvent[]
 }
@@ -456,6 +476,16 @@ export interface SaleLine {
   qty: number
   price: number
   promoApplied: string[]
+}
+
+export interface PointsReason {
+  label: string
+  points: number
+  ruleId?: string
+  offerId?: string
+  sku?: string
+  qty?: number
+  salesUsd?: number
 }
 
 export interface StockCheckResult {
@@ -472,16 +502,29 @@ export interface EventPayloads {
   PROMO_STOCK_CHECKED: { promoId: string; result: StockCheckResult }
   PROMO_PUBLISHED: { promoId: string }
   SALE_COMPLETED: { txnId: string; memberId: string | null; lines: SaleLine[]; total: number; tax: number; tender: string }
-  POINTS_AWARDED: { memberId: string; points: number; reasons: { label: string; points: number }[] }
+  POINTS_AWARDED: { memberId: string; points: number; reasons: PointsReason[] }
   STOCK_CHANGED: { sku: string; delta: number; reason: StockReason; onHand: number; shelf: number; backRoom: number }
-  PROPOSAL_RECOMPUTED: { proposalId: string; sku: string; oldQty: number; newQty: number; exceptions: ExceptionCode[]; status: ProposalStatus }
+  PROPOSAL_RECOMPUTED: {
+    proposalId: string
+    sku: string
+    oldQty: number
+    newQty: number
+    exceptions: ProposalException[]
+    status: ProposalStatus
+    onHand: number
+    inTransit: number
+    orderUpTo: number
+    uplift: number
+    effectiveDaily: number
+    daysOfCover: number
+  }
   ORDER_APPROVED: { proposalId: string; qty: number; editedFrom?: number }
   ORDER_HELD: { proposalId: string; qty: number; editedFrom?: number }
   INBOUND_CREATED: { inboundId: string; sku: string; qty: number; eta: string | null }
   TASK_CREATED: { taskId: string; kind: TaskKind; title: string; detail: string; ref: string | null }
   TASK_COMPLETED: { taskId: string; kind: TaskKind }
   DELIVERY_RECEIVED: { inboundId: string; expectedQty: number; receivedQty: number }
-  CLAIM_RAISED: { claimId: string; supplierId: string; sku: string; shortQty: number; value: number }
+  CLAIM_RAISED: { claimId: string; supplierId: string; sku: string; shortQty: number; value: number; inboundId?: string }
   STOCK_RISK_RAISED: { offerId: string; sku: string; coverDays: number }
   STOCK_RISK_CLEARED: { offerId: string; sku: string; coverDays: number }
   SHELF_REFILLED: { sku: string; qty: number }

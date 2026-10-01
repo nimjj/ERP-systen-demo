@@ -39,6 +39,10 @@ Every place the seed differs from the source data, and why. "Decision M0 #n" ref
 
 - **PRP-00005 Large Grade A Eggs 18 ct: exception null → PHANTOM_SUSPECTED, status AUTO_RELEASED → PENDING_REVIEW, ifEmptyQty → 48. proposedQty stays 30.**
   Decision M0 #4: eggs phantom driven by demoTuning.phantomSignals (8 h without a sale). Needed for count task CNT-44821 and A10. Explanation text follows the format of the other PHANTOM_SUSPECTED lines in proposals.json.
+- **Added seedAdjustment (units the data adds on top of the order-up-to formula): PRP-00002 Strawberries 1 lb: formula 32, data 80 → seedAdjustment +48. Every other line has 0.**
+  The formula reproduces 276/276 AUTO_RELEASED lines, but SHELF_CAPACITY lines in proposals.json carry a larger, hand-set quantity (0/8 reproduce). The adjustment is kept on top of the live formula so the seed quantity and its exception reproduce exactly and still move with stock.
+- **Added exceptions[] (all exception objects; exception stays the primary one), uplift 0 and effectiveDaily = dailyForecast.**
+  The live engine can raise several exceptions at once (SPEC §5.2); uplift/effectiveDaily are written by every recompute, so the seed carries them too.
 
 ## till
 

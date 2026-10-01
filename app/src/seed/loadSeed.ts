@@ -41,7 +41,7 @@ const raw = {
 const seedJson = JSON.stringify(raw)
 
 export function buildSeedState(): AppState {
-  return { ...(JSON.parse(seedJson) as typeof raw), notifications: [], events: [] }
+  return { ...(JSON.parse(seedJson) as typeof raw), stockRisks: [], notifications: [], events: [] }
 }
 
 /** FNV-1a of the seed, so a persisted log from an older seed is discarded. */

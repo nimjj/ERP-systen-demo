@@ -373,6 +373,29 @@ const tasksSeed = {
   )
 }
 
+// ---------------------------------------------------------------- proposals: engine fields
+{
+  const adjusted: string[] = []
+  for (const p of proposals) {
+    const formula = ceilToCase(Math.max(0, p.orderUpTo - (p.onHand + p.inTransit + p.onOrder)) + p.prebuild, p.casePack)
+    p.seedAdjustment = p.proposedQty - formula
+    if (p.seedAdjustment !== 0) adjusted.push(`${p.id} ${p.itemName}: formula ${formula}, data ${p.proposedQty} → seedAdjustment ${p.seedAdjustment >= 0 ? '+' : ''}${p.seedAdjustment}`)
+    p.exceptions = p.exception ? [p.exception] : []
+    p.uplift = 0
+    p.effectiveDaily = p.dailyForecast
+  }
+  change(
+    'proposals',
+    `Added seedAdjustment (units the data adds on top of the order-up-to formula): ${adjusted.join('; ') || 'none'}. Every other line has 0.`,
+    'The formula reproduces 276/276 AUTO_RELEASED lines, but SHELF_CAPACITY lines in proposals.json carry a larger, hand-set quantity (0/8 reproduce). The adjustment is kept on top of the live formula so the seed quantity and its exception reproduce exactly and still move with stock.',
+  )
+  change(
+    'proposals',
+    'Added exceptions[] (all exception objects; exception stays the primary one), uplift 0 and effectiveDaily = dailyForecast.',
+    'The live engine can raise several exceptions at once (SPEC §5.2); uplift/effectiveDaily are written by every recompute, so the seed carries them too.',
+  )
+}
+
 // ---------------------------------------------------------------- series
 const series: Record<string, Any[]> = {}
 for (const p of proposals) {
