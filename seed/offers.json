@@ -1,0 +1,31 @@
+[
+  {
+    "id": "OF-3101",
+    "name": "+200 bonus points on Greek Yogurt 32 oz",
+    "kind": "Vendor funded",
+    "mechanic": "Bonus points",
+    "fundedBy": "Prairie Gold Dairy",
+    "fundingPct": 100,
+    "audience": "Yogurt buyers, lapsed 30+ days",
+    "status": "Draft",
+    "targeted": 18999,
+    "clipped": 0,
+    "redeemed": 0,
+    "clipRatePct": 0,
+    "redemptionRatePct": 0,
+    "costUsd": 0,
+    "vendorPaidUsd": 0,
+    "incrementalSalesUsd": 0,
+    "start": "2026-09-22",
+    "end": "2026-10-28",
+    "model": null,
+    "itemIds": [
+      "SKU-100221"
+    ],
+    "storeIds": [
+      "US-DFW-1101"
+    ],
+    "tillRuleId": "R-BP-801",
+    "bonusPoints": 200
+  }
+]

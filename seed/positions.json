@@ -1,0 +1,374 @@
+{
+  "SKU-100221": {
+    "sku": "SKU-100221",
+    "positionId": "POS-00077",
+    "name": "Plain Greek Yogurt 32 oz",
+    "onHand": 17,
+    "shelf": 9,
+    "backRoom": 8,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 45,
+    "dailyDemand": 9.3,
+    "lots": [
+      {
+        "lot": "L260927-478",
+        "received": "2026-09-27",
+        "expiry": "2026-10-09",
+        "qty": 5,
+        "ref": "ASN-544498",
+        "daysLeft": 11,
+        "nearExpiry": false
+      },
+      {
+        "lot": "L260928-159",
+        "received": "2026-09-28",
+        "expiry": "2026-10-09",
+        "qty": 12,
+        "ref": "ASN-588621",
+        "daysLeft": 11,
+        "nearExpiry": false
+      }
+    ],
+    "flags": [],
+    "lastCounted": "2026-08-22"
+  },
+  "SKU-100410": {
+    "sku": "SKU-100410",
+    "positionId": "POS-00078",
+    "name": "Strawberries 1 lb",
+    "onHand": 23,
+    "shelf": 23,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 74,
+    "dailyDemand": 16.4,
+    "lots": [
+      {
+        "lot": "L260927-762",
+        "received": "2026-09-27",
+        "expiry": "2026-10-03",
+        "qty": 7,
+        "ref": "ASN-530587",
+        "daysLeft": 5,
+        "nearExpiry": false
+      },
+      {
+        "lot": "L260928-195",
+        "received": "2026-09-28",
+        "expiry": "2026-10-04",
+        "qty": 16,
+        "ref": "ASN-532869",
+        "daysLeft": 6,
+        "nearExpiry": false
+      }
+    ],
+    "flags": [],
+    "lastCounted": "2026-07-16"
+  },
+  "SKU-100319": {
+    "sku": "SKU-100319",
+    "positionId": "POS-00079",
+    "name": "Cola 12 pk 12 oz Cans",
+    "onHand": 39,
+    "shelf": 38,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 1,
+    "shelfCapacity": 234,
+    "dailyDemand": 19.1,
+    "lots": [],
+    "flags": [],
+    "lastCounted": "2026-09-12"
+  },
+  "SKU-100396": {
+    "sku": "SKU-100396",
+    "positionId": "POS-00080",
+    "name": "Hass Avocados (each)",
+    "onHand": 57,
+    "shelf": 57,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 220,
+    "dailyDemand": 35.4,
+    "lots": [
+      {
+        "lot": "L260927-684",
+        "received": "2026-09-27",
+        "expiry": "2026-10-03",
+        "qty": 9,
+        "ref": "ASN-524407",
+        "daysLeft": 5,
+        "nearExpiry": false
+      },
+      {
+        "lot": "L260928-538",
+        "received": "2026-09-28",
+        "expiry": "2026-10-04",
+        "qty": 48,
+        "ref": "ASN-563091",
+        "daysLeft": 6,
+        "nearExpiry": false
+      }
+    ],
+    "flags": [],
+    "lastCounted": "2026-08-10"
+  },
+  "SKU-100214": {
+    "sku": "SKU-100214",
+    "positionId": "POS-00081",
+    "name": "Large Grade A Eggs 18 ct",
+    "onHand": 19,
+    "shelf": 19,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 74,
+    "dailyDemand": 17.6,
+    "lots": [
+      {
+        "lot": "L260927-146",
+        "received": "2026-09-27",
+        "expiry": "2026-10-08",
+        "qty": 1,
+        "ref": "ASN-573884",
+        "daysLeft": 10,
+        "nearExpiry": false
+      },
+      {
+        "lot": "L260928-951",
+        "received": "2026-09-28",
+        "expiry": "2026-10-10",
+        "qty": 18,
+        "ref": "ASN-543233",
+        "daysLeft": 12,
+        "nearExpiry": false
+      }
+    ],
+    "flags": [],
+    "lastCounted": "2026-09-11"
+  },
+  "SKU-100249": {
+    "sku": "SKU-100249",
+    "positionId": "POS-00082",
+    "name": "Half & Half 1 qt",
+    "onHand": 13,
+    "shelf": 13,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 61,
+    "dailyDemand": 10.4,
+    "lots": [
+      {
+        "lot": "L260928-101",
+        "received": "2026-09-28",
+        "expiry": "2026-10-09",
+        "qty": 12,
+        "ref": "ASN-542360",
+        "daysLeft": 11,
+        "nearExpiry": false
+      },
+      {
+        "lot": "L260927-379",
+        "received": "2026-09-27",
+        "expiry": "2026-10-10",
+        "qty": 1,
+        "ref": "ASN-594853",
+        "daysLeft": 12,
+        "nearExpiry": false
+      }
+    ],
+    "flags": [],
+    "lastCounted": "2026-09-13"
+  },
+  "SKU-100207": {
+    "sku": "SKU-100207",
+    "positionId": "POS-00083",
+    "name": "2% Reduced Fat Milk 1 gal",
+    "onHand": 26,
+    "shelf": 26,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 127,
+    "dailyDemand": 34,
+    "lots": [
+      {
+        "lot": "L260928-390",
+        "received": "2026-09-28",
+        "expiry": "2026-10-09",
+        "qty": 26,
+        "ref": "ASN-547090",
+        "daysLeft": 11,
+        "nearExpiry": false
+      }
+    ],
+    "flags": [],
+    "lastCounted": "2026-09-09"
+  },
+  "SKU-100312": {
+    "sku": "SKU-100312",
+    "positionId": "POS-00084",
+    "name": "Orange Juice 52 oz",
+    "onHand": 29,
+    "shelf": 27,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 2,
+    "shelfCapacity": 145,
+    "dailyDemand": 10.7,
+    "lots": [],
+    "flags": [],
+    "lastCounted": "2026-08-16"
+  },
+  "SKU-100298": {
+    "sku": "SKU-100298",
+    "positionId": "POS-00085",
+    "name": "Purified Water 24 pk 16.9 oz",
+    "onHand": 55,
+    "shelf": 55,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 328,
+    "dailyDemand": 27.1,
+    "lots": [],
+    "flags": [],
+    "lastCounted": "2026-09-06"
+  },
+  "SKU-100354": {
+    "sku": "SKU-100354",
+    "positionId": "POS-00086",
+    "name": "Laundry Detergent 92 oz",
+    "onHand": 55,
+    "shelf": 52,
+    "backRoom": 0,
+    "quarantine": 1,
+    "rtvHold": 2,
+    "shelfCapacity": 82,
+    "dailyDemand": 6.1,
+    "lots": [],
+    "flags": [],
+    "lastCounted": "2026-07-22"
+  },
+  "SKU-100368": {
+    "sku": "SKU-100368",
+    "positionId": "POS-00087",
+    "name": "Trash Bags 13 gal 40 ct",
+    "onHand": 46,
+    "shelf": 46,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 79,
+    "dailyDemand": 5.6,
+    "lots": [],
+    "flags": [],
+    "lastCounted": "2026-04-16"
+  },
+  "SKU-100200": {
+    "sku": "SKU-100200",
+    "positionId": "POS-00088",
+    "name": "Whole Milk 1 gal",
+    "onHand": 48,
+    "shelf": 48,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 130,
+    "dailyDemand": 34.8,
+    "lots": [
+      {
+        "lot": "L260927-760",
+        "received": "2026-09-27",
+        "expiry": "2026-10-08",
+        "qty": 12,
+        "ref": "ASN-571095",
+        "daysLeft": 10,
+        "nearExpiry": false
+      },
+      {
+        "lot": "L260928-449",
+        "received": "2026-09-28",
+        "expiry": "2026-10-11",
+        "qty": 36,
+        "ref": "ASN-554108",
+        "daysLeft": 13,
+        "nearExpiry": false
+      }
+    ],
+    "flags": [],
+    "lastCounted": "2026-09-21"
+  },
+  "SKU-100417": {
+    "sku": "SKU-100417",
+    "positionId": "POS-00089",
+    "name": "Russet Potatoes 5 lb bag",
+    "onHand": 0,
+    "shelf": 0,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 63,
+    "dailyDemand": 12.3,
+    "lots": [],
+    "flags": [
+      "ZERO"
+    ],
+    "lastCounted": "2026-07-27"
+  },
+  "SKU-100382": {
+    "sku": "SKU-100382",
+    "positionId": "POS-00090",
+    "name": "Disinfecting Wipes 3 pk",
+    "onHand": 0,
+    "shelf": 0,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 62,
+    "dailyDemand": 3.8,
+    "lots": [],
+    "flags": [
+      "ZERO"
+    ],
+    "lastCounted": "2026-09-03"
+  },
+  "SKU-100228": {
+    "sku": "SKU-100228",
+    "positionId": "POS-PLANO-100228",
+    "name": "Shredded Mild Cheddar 8 oz",
+    "onHand": 31,
+    "shelf": 31,
+    "backRoom": 0,
+    "quarantine": 0,
+    "rtvHold": 0,
+    "shelfCapacity": 80,
+    "dailyDemand": 16,
+    "lots": [
+      {
+        "lot": "PGD-26261A",
+        "qty": 12,
+        "expiry": "2026-11-29",
+        "ref": null
+      },
+      {
+        "lot": "PGD-26261B",
+        "qty": 12,
+        "expiry": "2026-11-29",
+        "ref": null
+      },
+      {
+        "lot": "PGD-26263A",
+        "qty": 7,
+        "expiry": "2026-12-01",
+        "ref": null
+      }
+    ],
+    "flags": [],
+    "lastCounted": null
+  }
+}

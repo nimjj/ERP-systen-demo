@@ -1,0 +1,34 @@
+[
+  {
+    "role": "jamal",
+    "userId": "U-1005",
+    "name": "Jamal Carter",
+    "email": "jcarter@johnhenry.example",
+    "roleId": "cashier",
+    "scope": "Plano Market"
+  },
+  {
+    "role": "aisha",
+    "userId": "U-1006",
+    "name": "Aisha Khan",
+    "email": "akhan@johnhenry.example",
+    "roleId": "associate",
+    "scope": "Plano Market"
+  },
+  {
+    "role": "emily",
+    "userId": "U-1007",
+    "name": "Emily Chen",
+    "email": "echen@johnhenry.example",
+    "roleId": "marketing",
+    "scope": "All Texas stores"
+  },
+  {
+    "role": "priya",
+    "userId": "U-1002",
+    "name": "Priya Raman",
+    "email": "praman@johnhenry.example",
+    "roleId": "planner",
+    "scope": "All Texas stores"
+  }
+]

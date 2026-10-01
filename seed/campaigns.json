@@ -1,0 +1,19 @@
+[
+  {
+    "id": "CMP-505",
+    "name": "Fall dairy bonus points",
+    "channel": "Push",
+    "segmentId": null,
+    "segmentName": "Yogurt buyers, lapsed 30+ days",
+    "offerId": "OF-3101",
+    "offerName": "+200 bonus points on Greek Yogurt 32 oz",
+    "status": "Draft",
+    "sendAt": "2026-09-22T07:00:00",
+    "endDate": "2026-10-06",
+    "audience": 18999,
+    "holdoutPct": 10,
+    "owner": "Chloe Reyes",
+    "subject": null,
+    "results": null
+  }
+]

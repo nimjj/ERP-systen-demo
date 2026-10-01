@@ -1,0 +1,527 @@
+{
+  "mechanics": [
+    {
+      "name": "% off",
+      "baseUplift": 0.2,
+      "elasticity": 2.2,
+      "defaultDepth": 20,
+      "hint": "Percentage off the shelf price"
+    },
+    {
+      "name": "Price cut",
+      "baseUplift": 0.18,
+      "elasticity": 2.4,
+      "defaultDepth": 20,
+      "hint": "Temporary lower shelf price"
+    },
+    {
+      "name": "Multi-buy",
+      "baseUplift": 0.25,
+      "elasticity": 2,
+      "defaultDepth": 15,
+      "hint": "e.g. 2 for $6, 3 for 2"
+    },
+    {
+      "name": "BOGO",
+      "baseUplift": 0.35,
+      "elasticity": 1.2,
+      "defaultDepth": 50,
+      "hint": "Buy one get one free (50% effective)"
+    },
+    {
+      "name": "Mix & match",
+      "baseUplift": 0.22,
+      "elasticity": 1.9,
+      "defaultDepth": 20,
+      "hint": "Any N from a group for a fixed price"
+    },
+    {
+      "name": "Spend & save",
+      "baseUplift": 0.12,
+      "elasticity": 1.4,
+      "defaultDepth": 12,
+      "hint": "Spend $X, save $Y on the basket"
+    },
+    {
+      "name": "Bonus points",
+      "baseUplift": 0.1,
+      "elasticity": 4,
+      "defaultDepth": 2,
+      "hint": "Extra Rewards points (1 pt = $0.005)"
+    },
+    {
+      "name": "Member price",
+      "baseUplift": 0.2,
+      "elasticity": 2,
+      "defaultDepth": 20,
+      "hint": "Lower price for identified Rewards members"
+    },
+    {
+      "name": "Digital coupon",
+      "baseUplift": 0.12,
+      "elasticity": 1.8,
+      "defaultDepth": 15,
+      "hint": "Clip-to-card coupon in the app"
+    }
+  ],
+  "itemBaselines": {
+    "SKU-100200": 405,
+    "SKU-100207": 333,
+    "SKU-100214": 145,
+    "SKU-100221": 88,
+    "SKU-100228": 140,
+    "SKU-100235": 63,
+    "SKU-100242": 79,
+    "SKU-100249": 107,
+    "SKU-100256": 452,
+    "SKU-100263": 222,
+    "SKU-100270": 150,
+    "SKU-100277": 188,
+    "SKU-100284": 44,
+    "SKU-100291": 52,
+    "SKU-100298": 341,
+    "SKU-100305": 252,
+    "SKU-100312": 139,
+    "SKU-100319": 206,
+    "SKU-100326": 84,
+    "SKU-100333": 56,
+    "SKU-100340": 97,
+    "SKU-100347": 90,
+    "SKU-100354": 55,
+    "SKU-100361": 82,
+    "SKU-100368": 57,
+    "SKU-100375": 58,
+    "SKU-100382": 26,
+    "SKU-100389": 503,
+    "SKU-100396": 416,
+    "SKU-100403": 226,
+    "SKU-100410": 142,
+    "SKU-100417": 192,
+    "SKU-100424": 245
+  },
+  "stockCapacity": {
+    "SKU-100200": 24211,
+    "SKU-100207": 17768,
+    "SKU-100214": 6808,
+    "SKU-100221": 3930,
+    "SKU-100228": 7699,
+    "SKU-100235": 3216,
+    "SKU-100242": 3211,
+    "SKU-100249": 6306,
+    "SKU-100256": 25615,
+    "SKU-100263": 11844,
+    "SKU-100270": 6557,
+    "SKU-100277": 11109,
+    "SKU-100284": 1990,
+    "SKU-100291": 2492,
+    "SKU-100298": 16637,
+    "SKU-100305": 12172,
+    "SKU-100312": 6732,
+    "SKU-100319": 9169,
+    "SKU-100326": 3634,
+    "SKU-100333": 3108,
+    "SKU-100340": 5641,
+    "SKU-100347": 3764,
+    "SKU-100354": 3008,
+    "SKU-100361": 4100,
+    "SKU-100368": 2954,
+    "SKU-100375": 2502,
+    "SKU-100382": 1271,
+    "SKU-100389": 28424,
+    "SKU-100396": 22951,
+    "SKU-100403": 11688,
+    "SKU-100410": 7340,
+    "SKU-100417": 8136,
+    "SKU-100424": 11335
+  },
+  "promotions": [
+    {
+      "id": "PRM-2641",
+      "name": "Whole Milk 2 for $6",
+      "category": "Dairy",
+      "mechanic": "Multi-buy",
+      "mechanicDetail": "Buy 2 for $6.00 (reg. $3.48 each)",
+      "status": "Ended",
+      "start": "2026-06-22",
+      "end": "2026-07-05",
+      "weeks": 2,
+      "itemIds": [
+        "SKU-100200"
+      ],
+      "itemNames": [
+        "Whole Milk 1 gal"
+      ],
+      "zones": [
+        "DFW",
+        "HOU",
+        "AUS",
+        "SAT",
+        "RGV"
+      ],
+      "storeCount": 30,
+      "memberOnly": false,
+      "targeting": "All shoppers",
+      "channels": [
+        "POS",
+        "E-commerce",
+        "Rewards app"
+      ],
+      "event": "July 4th",
+      "owner": "Rachel Okonkwo",
+      "vendor": "Prairie Gold Dairy",
+      "depthPct": 14,
+      "vendorFundingUsd": 13488,
+      "vendorFundingPct": 70,
+      "forecast": {
+        "baselineUnits": 25515,
+        "promoUnits": 39548,
+        "upliftPct": 55,
+        "discountCostUsd": 19268,
+        "incrementalMarginUsd": 9236,
+        "avgPrice": 3.48
+      },
+      "stockCheck": {
+        "result": "Pass",
+        "source": "Temple TX Perishables DC",
+        "prebuildUnits": 0,
+        "detail": "Temple TX Perishables DC can cover the forecast uplift. Pre-build is scheduled in the normal replenishment run.",
+        "short": [],
+        "checkedAt": "2026-06-08"
+      },
+      "approvals": [
+        {
+          "step": "Category manager",
+          "by": "Rachel Okonkwo",
+          "status": "Approved",
+          "at": "2026-05-20"
+        },
+        {
+          "step": "Supply planning (stock check)",
+          "by": "Supply planning",
+          "status": "Approved",
+          "at": "2026-06-09"
+        },
+        {
+          "step": "Commercial director",
+          "by": "Laura Pemberton",
+          "status": "Approved",
+          "at": "2026-06-14"
+        }
+      ],
+      "seriesKey": "US-DFW-1104|SKU-100200",
+      "published": true,
+      "live": null,
+      "results": {
+        "baselineUnits": 25515,
+        "actualUnits": 37237,
+        "incrementalUnits": 11722,
+        "cannibalisedUnits": 2035,
+        "pullForwardUnits": 1459,
+        "haloUnits": 1421,
+        "netIncrementalUnits": 9649,
+        "cannibalisationPct": 17.4,
+        "haloPct": 12.1,
+        "pullForwardPct": 12.4,
+        "grossIncrementalMarginUsd": 7100,
+        "incrementalMarginUsd": 7162,
+        "investmentUsd": 5443,
+        "vendorFundingUsd": 12699,
+        "roi": 1.32,
+        "forecastUpliftPct": 55,
+        "actualUpliftPct": 46,
+        "memberLiftPct": 57,
+        "nonMemberLiftPct": 38,
+        "memberShareOfUnitsPct": 77,
+        "learning": "Uplift came in 9 pts below forecast. The uplift model's Multi-buy elasticity for Dairy is nudged down for the next run."
+      }
+    },
+    {
+      "id": "PRM-2698",
+      "name": "Fall Dairy 3x Rewards points",
+      "category": "Dairy",
+      "mechanic": "Bonus points",
+      "mechanicDetail": "3 points per $1 instead of 1 (vendor funded)",
+      "status": "Live",
+      "start": "2026-09-21",
+      "end": "2026-10-04",
+      "weeks": 2,
+      "itemIds": [
+        "SKU-100221",
+        "SKU-100228"
+      ],
+      "itemNames": [
+        "Plain Greek Yogurt 32 oz",
+        "Shredded Mild Cheddar 8 oz"
+      ],
+      "zones": [
+        "DFW",
+        "HOU",
+        "AUS",
+        "SAT",
+        "RGV"
+      ],
+      "storeCount": 30,
+      "memberOnly": true,
+      "targeting": "Rewards members",
+      "channels": [
+        "POS",
+        "E-commerce",
+        "Rewards app"
+      ],
+      "event": null,
+      "owner": "Rachel Okonkwo",
+      "vendor": "Prairie Gold Dairy",
+      "depthPct": 1,
+      "vendorFundingUsd": 631,
+      "vendorFundingPct": 100,
+      "forecast": {
+        "baselineUnits": 13680,
+        "promoUnits": 15869,
+        "upliftPct": 16,
+        "discountCostUsd": 631,
+        "incrementalMarginUsd": 2349,
+        "avgPrice": 3.98
+      },
+      "stockCheck": {
+        "result": "Pass",
+        "source": "Temple TX Perishables DC",
+        "prebuildUnits": 490,
+        "detail": "Temple TX Perishables DC can cover the forecast uplift. Pre-build is scheduled in the normal replenishment run.",
+        "short": [],
+        "checkedAt": "2026-09-25"
+      },
+      "approvals": [
+        {
+          "step": "Category manager",
+          "by": "Rachel Okonkwo",
+          "status": "Approved",
+          "at": "2026-08-25"
+        },
+        {
+          "step": "Supply planning (stock check)",
+          "by": "Supply planning",
+          "status": "Approved",
+          "at": "2026-09-04"
+        },
+        {
+          "step": "Commercial director",
+          "by": "Laura Pemberton",
+          "status": "Approved",
+          "at": "2026-09-12"
+        }
+      ],
+      "seriesKey": "US-DFW-1101|SKU-100221",
+      "published": true,
+      "live": {
+        "daysIn": 8,
+        "totalDays": 14,
+        "unitsToDate": 9280,
+        "forecastToDate": 9068,
+        "vsForecastPct": 2.3,
+        "storesOos": 0,
+        "redemptions": 8538
+      },
+      "results": null
+    },
+    {
+      "id": "PRM-2702",
+      "name": "Halloween Cola 12 pk $4.99 member price",
+      "category": "Beverages",
+      "mechanic": "Member price",
+      "mechanicDetail": "Members pay $4.99 (reg. $6.48), limit 4 per transaction",
+      "status": "Approved",
+      "start": "2026-10-19",
+      "end": "2026-11-01",
+      "weeks": 2,
+      "itemIds": [
+        "SKU-100319"
+      ],
+      "itemNames": [
+        "Cola 12 pk 12 oz Cans"
+      ],
+      "zones": [
+        "DFW",
+        "HOU",
+        "AUS",
+        "SAT",
+        "RGV"
+      ],
+      "storeCount": 30,
+      "memberOnly": true,
+      "targeting": "Rewards members",
+      "channels": [
+        "POS",
+        "E-commerce",
+        "Rewards app"
+      ],
+      "event": "Halloween",
+      "owner": "Ana Beltrán",
+      "vendor": "Summit Drinks Co.",
+      "depthPct": 23,
+      "vendorFundingUsd": 19600,
+      "vendorFundingPct": 50,
+      "forecast": {
+        "baselineUnits": 13843,
+        "promoUnits": 26302,
+        "upliftPct": 90,
+        "discountCostUsd": 39201,
+        "incrementalMarginUsd": 1829,
+        "avgPrice": 6.48
+      },
+      "stockCheck": {
+        "result": "Warn",
+        "source": "Lancaster TX Ambient DC",
+        "prebuildUnits": 3640,
+        "detail": "3 stores lack shelf/back-room space for day-1 volume. Pre-build 3,640 units over the 2 weeks before start and add a secondary display.",
+        "short": [
+          {
+            "location": "McAllen Market",
+            "kind": "Store",
+            "shortUnits": 56
+          },
+          {
+            "location": "Garland Market",
+            "kind": "Store",
+            "shortUnits": 62
+          },
+          {
+            "location": "Pasadena Market",
+            "kind": "Store",
+            "shortUnits": 60
+          }
+        ],
+        "checkedAt": "2026-09-28"
+      },
+      "approvals": [
+        {
+          "step": "Category manager",
+          "by": "Ana Beltrán",
+          "status": "Approved",
+          "at": "2026-09-27"
+        },
+        {
+          "step": "Supply planning (stock check)",
+          "by": "Supply planning",
+          "status": "Approved",
+          "at": "2026-10-02"
+        },
+        {
+          "step": "Commercial director",
+          "by": "Laura Pemberton",
+          "status": "Approved",
+          "at": "2026-10-08"
+        }
+      ],
+      "seriesKey": "US-DFW-1101|SKU-100319",
+      "published": true,
+      "live": null,
+      "results": null
+    },
+    {
+      "id": "PRM-2720",
+      "name": "Thanksgiving Baking: butter & eggs member price",
+      "category": "Dairy",
+      "mechanic": "Member price",
+      "mechanicDetail": "Butter $3.49 (reg. $4.48), eggs $3.99 (reg. $4.97) for members",
+      "status": "In approval",
+      "start": "2026-11-16",
+      "end": "2026-11-29",
+      "weeks": 2,
+      "itemIds": [
+        "SKU-100235",
+        "SKU-100214"
+      ],
+      "itemNames": [
+        "Salted Butter 1 lb",
+        "Large Grade A Eggs 18 ct"
+      ],
+      "zones": [
+        "DFW",
+        "HOU",
+        "AUS",
+        "SAT",
+        "RGV"
+      ],
+      "storeCount": 30,
+      "memberOnly": true,
+      "targeting": "Rewards members",
+      "channels": [
+        "POS",
+        "E-commerce",
+        "Rewards app"
+      ],
+      "event": "Thanksgiving",
+      "owner": "Rachel Okonkwo",
+      "vendor": "Prairie Gold Dairy",
+      "depthPct": 21,
+      "vendorFundingUsd": 10217,
+      "vendorFundingPct": 35,
+      "forecast": {
+        "baselineUnits": 16474,
+        "promoUnits": 28829,
+        "upliftPct": 75,
+        "discountCostUsd": 29190,
+        "incrementalMarginUsd": 305,
+        "avgPrice": 4.82
+      },
+      "stockCheck": {
+        "result": "Fail",
+        "source": "Temple TX Perishables DC",
+        "prebuildUnits": 4170,
+        "detail": "Temple TX Perishables DC is 2,325 units/week short of the forecast demand: Prairie Gold Dairy has capped the seasonal allocation. Reduce depth or scope, or confirm extra supply before approval.",
+        "short": [
+          {
+            "location": "Temple TX Perishables DC",
+            "kind": "DC",
+            "shortUnits": 2325
+          },
+          {
+            "location": "McKinney Supercenter",
+            "kind": "Store",
+            "shortUnits": 93
+          },
+          {
+            "location": "South Lamar Market",
+            "kind": "Store",
+            "shortUnits": 118
+          },
+          {
+            "location": "Pasadena Market",
+            "kind": "Store",
+            "shortUnits": 71
+          },
+          {
+            "location": "Cedar Park Supercenter",
+            "kind": "Store",
+            "shortUnits": 103
+          }
+        ],
+        "checkedAt": "2026-09-26"
+      },
+      "approvals": [
+        {
+          "step": "Category manager",
+          "by": "Rachel Okonkwo",
+          "status": "Approved",
+          "at": "2026-10-09"
+        },
+        {
+          "step": "Supply planning (stock check)",
+          "by": "Supply planning",
+          "status": "Blocked",
+          "at": null
+        },
+        {
+          "step": "Commercial director",
+          "by": "Laura Pemberton",
+          "status": "Pending",
+          "at": null
+        }
+      ],
+      "seriesKey": "US-DFW-1101|SKU-100214",
+      "published": false,
+      "live": null,
+      "results": null
+    }
+  ]
+}

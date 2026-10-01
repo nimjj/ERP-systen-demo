@@ -1,0 +1,5744 @@
+{
+  "SKU-100221": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 72,
+      "forecast": 58,
+      "legacy": 63,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 23,
+      "forecast": 73,
+      "legacy": 85,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 50,
+      "forecast": 71,
+      "legacy": 23,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 58,
+      "forecast": 68,
+      "legacy": 49,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 103,
+      "forecast": 81,
+      "legacy": 63,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 35,
+      "forecast": 67,
+      "legacy": 90,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 56,
+      "forecast": 62,
+      "legacy": 31,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 40,
+      "forecast": 69,
+      "legacy": 59,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 68,
+      "forecast": 65,
+      "legacy": 34,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 76,
+      "forecast": 61,
+      "legacy": 57,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 71,
+      "forecast": 65,
+      "legacy": 91,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 22,
+      "forecast": 68,
+      "legacy": 77,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 69,
+      "forecast": 70,
+      "legacy": 22,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 58,
+      "forecast": 60,
+      "legacy": 61,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 64,
+      "forecast": 57,
+      "legacy": 68,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 45,
+      "forecast": 59,
+      "legacy": 66,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 48,
+      "forecast": 60,
+      "legacy": 40,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 79,
+      "forecast": 60,
+      "legacy": 47,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 41,
+      "forecast": 65,
+      "legacy": 94,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 75,
+      "forecast": 59,
+      "legacy": 48,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 64,
+      "forecast": 71,
+      "legacy": 69,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 85,
+      "forecast": 56,
+      "legacy": 56,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 67,
+      "forecast": 64,
+      "legacy": 79,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 73,
+      "forecast": 53,
+      "legacy": 74,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 79,
+      "forecast": 67,
+      "legacy": 59,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 71,
+      "forecast": 69,
+      "legacy": 94,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 63,
+      "forecast": 65,
+      "legacy": 63,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 18,
+      "forecast": 57,
+      "legacy": 69,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 73,
+      "forecast": 57,
+      "legacy": 22,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 65,
+      "forecast": 53,
+      "legacy": 58,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 47,
+      "forecast": 64,
+      "legacy": 62,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 93,
+      "forecast": 62,
+      "legacy": 53,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 57,
+      "forecast": 59,
+      "legacy": 75,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 71,
+      "forecast": 55,
+      "legacy": 49,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 79,
+      "forecast": 69,
+      "legacy": 57,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 71,
+      "forecast": 67,
+      "legacy": 80,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 67,
+      "forecast": 65,
+      "legacy": 69,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 42,
+      "forecast": 63,
+      "legacy": 66,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 57,
+      "forecast": 64,
+      "legacy": 42,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 65,
+      "p80": 78,
+      "p95": 91,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 65,
+      "p80": 78,
+      "p95": 91,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 64,
+      "p80": 79,
+      "p95": 92,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 64,
+      "p80": 79,
+      "p95": 93,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 64,
+      "p80": 79,
+      "p95": 93,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 64,
+      "p80": 79,
+      "p95": 94,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 64,
+      "p80": 79,
+      "p95": 94,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 84,
+      "p80": 105,
+      "p95": 125,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 63,
+      "p80": 79,
+      "p95": 95,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 63,
+      "p80": 79,
+      "p95": 95,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 62,
+      "p80": 79,
+      "p95": 95,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 77,
+      "p80": 98,
+      "p95": 119,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 61,
+      "p80": 79,
+      "p95": 95,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100410": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 123,
+      "forecast": 139,
+      "legacy": 103,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 99,
+      "forecast": 128,
+      "legacy": 135,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 162,
+      "forecast": 123,
+      "legacy": 95,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 97,
+      "forecast": 123,
+      "legacy": 186,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 171,
+      "forecast": 158,
+      "legacy": 109,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 152,
+      "forecast": 109,
+      "legacy": 176,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 104,
+      "forecast": 113,
+      "legacy": 146,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 95,
+      "forecast": 115,
+      "legacy": 106,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 121,
+      "forecast": 80,
+      "legacy": 106,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 135,
+      "forecast": 108,
+      "legacy": 122,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 103,
+      "forecast": 121,
+      "legacy": 123,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 111,
+      "forecast": 110,
+      "legacy": 113,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 134,
+      "forecast": 126,
+      "legacy": 89,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 128,
+      "forecast": 113,
+      "legacy": 117,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 72,
+      "forecast": 88,
+      "legacy": 111,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 154,
+      "forecast": 114,
+      "legacy": 76,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 120,
+      "forecast": 112,
+      "legacy": 124,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 105,
+      "forecast": 82,
+      "legacy": 144,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 69,
+      "forecast": 101,
+      "legacy": 95,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 112,
+      "forecast": 108,
+      "legacy": 70,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 122,
+      "forecast": 133,
+      "legacy": 114,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 115,
+      "forecast": 102,
+      "legacy": 116,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 99,
+      "forecast": 110,
+      "legacy": 138,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 88,
+      "forecast": 102,
+      "legacy": 107,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 90,
+      "forecast": 123,
+      "legacy": 71,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 82,
+      "forecast": 123,
+      "legacy": 89,
+      "oos": true,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 124,
+      "forecast": 114,
+      "legacy": 83,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 67,
+      "forecast": 121,
+      "legacy": 122,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 99,
+      "forecast": 105,
+      "legacy": 61,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 85,
+      "forecast": 94,
+      "legacy": 87,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 93,
+      "forecast": 120,
+      "legacy": 90,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 124,
+      "forecast": 125,
+      "legacy": 111,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 115,
+      "forecast": 113,
+      "legacy": 145,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 74,
+      "forecast": 100,
+      "legacy": 133,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 176,
+      "forecast": 138,
+      "legacy": 85,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 129,
+      "forecast": 123,
+      "legacy": 210,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 119,
+      "forecast": 111,
+      "legacy": 149,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 98,
+      "forecast": 103,
+      "legacy": 107,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 123,
+      "forecast": 112,
+      "legacy": 111,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 115,
+      "p80": 139,
+      "p95": 161,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 115,
+      "p80": 139,
+      "p95": 163,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 115,
+      "p80": 140,
+      "p95": 164,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 119,
+      "p80": 146,
+      "p95": 172,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 115,
+      "p80": 141,
+      "p95": 166,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 114,
+      "p80": 141,
+      "p95": 167,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 114,
+      "p80": 142,
+      "p95": 168,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 156,
+      "p80": 195,
+      "p95": 233,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 113,
+      "p80": 142,
+      "p95": 169,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 112,
+      "p80": 142,
+      "p95": 169,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 111,
+      "p80": 141,
+      "p95": 170,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 133,
+      "p80": 169,
+      "p95": 204,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 110,
+      "p80": 141,
+      "p95": 170,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100319": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 116,
+      "forecast": 118,
+      "legacy": 108,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 98,
+      "forecast": 133,
+      "legacy": 103,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 110,
+      "forecast": 131,
+      "legacy": 95,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 154,
+      "forecast": 148,
+      "legacy": 122,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 179,
+      "forecast": 179,
+      "legacy": 135,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 99,
+      "forecast": 124,
+      "legacy": 214,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 97,
+      "forecast": 151,
+      "legacy": 109,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 116,
+      "forecast": 134,
+      "legacy": 102,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 133,
+      "forecast": 141,
+      "legacy": 118,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 75,
+      "forecast": 106,
+      "legacy": 116,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 119,
+      "forecast": 129,
+      "legacy": 84,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 145,
+      "forecast": 117,
+      "legacy": 100,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 143,
+      "forecast": 134,
+      "legacy": 169,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 159,
+      "forecast": 129,
+      "legacy": 122,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 72,
+      "forecast": 122,
+      "legacy": 159,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 130,
+      "forecast": 115,
+      "legacy": 77,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 122,
+      "forecast": 116,
+      "legacy": 156,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 110,
+      "forecast": 137,
+      "legacy": 103,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 96,
+      "forecast": 109,
+      "legacy": 130,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 171,
+      "forecast": 130,
+      "legacy": 112,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 151,
+      "forecast": 149,
+      "legacy": 141,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 139,
+      "forecast": 130,
+      "legacy": 139,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 93,
+      "forecast": 116,
+      "legacy": 128,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 133,
+      "forecast": 117,
+      "legacy": 84,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 144,
+      "forecast": 126,
+      "legacy": 112,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 171,
+      "forecast": 197,
+      "legacy": 133,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 149,
+      "forecast": 116,
+      "legacy": 153,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 109,
+      "forecast": 119,
+      "legacy": 175,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 107,
+      "forecast": 144,
+      "legacy": 101,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 126,
+      "forecast": 135,
+      "legacy": 125,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 165,
+      "forecast": 120,
+      "legacy": 125,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 158,
+      "forecast": 116,
+      "legacy": 135,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 106,
+      "forecast": 145,
+      "legacy": 187,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 125,
+      "forecast": 123,
+      "legacy": 90,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 156,
+      "forecast": 202,
+      "legacy": 101,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 186,
+      "forecast": 170,
+      "legacy": 133,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 174,
+      "forecast": 132,
+      "legacy": 182,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 64,
+      "forecast": 146,
+      "legacy": 154,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 134,
+      "forecast": 114,
+      "legacy": 52,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 134,
+      "p80": 153,
+      "p95": 171,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 135,
+      "p80": 154,
+      "p95": 172,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 256,
+      "p80": 293,
+      "p95": 329,
+      "override": null,
+      "promo": "Halloween Cola 12 pk $4.99 member price",
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 286,
+      "p80": 329,
+      "p95": 370,
+      "override": null,
+      "promo": "Halloween Cola 12 pk $4.99 member price",
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 134,
+      "p80": 155,
+      "p95": 175,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 134,
+      "p80": 155,
+      "p95": 175,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 133,
+      "p80": 155,
+      "p95": 176,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 153,
+      "p80": 178,
+      "p95": 202,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 132,
+      "p80": 155,
+      "p95": 176,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 131,
+      "p80": 154,
+      "p95": 176,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 131,
+      "p80": 154,
+      "p95": 176,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 153,
+      "p80": 181,
+      "p95": 208,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 129,
+      "p80": 153,
+      "p95": 176,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100396": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 125,
+      "forecast": 227,
+      "legacy": 210,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 239,
+      "forecast": 233,
+      "legacy": 132,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 269,
+      "forecast": 260,
+      "legacy": 233,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 282,
+      "forecast": 240,
+      "legacy": 243,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 333,
+      "forecast": 278,
+      "legacy": 232,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 172,
+      "forecast": 214,
+      "legacy": 289,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 179,
+      "forecast": 204,
+      "legacy": 177,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 246,
+      "forecast": 212,
+      "legacy": 185,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 216,
+      "forecast": 223,
+      "legacy": 281,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 257,
+      "forecast": 225,
+      "legacy": 231,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 232,
+      "forecast": 219,
+      "legacy": 226,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 216,
+      "forecast": 235,
+      "legacy": 257,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 243,
+      "forecast": 222,
+      "legacy": 239,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 204,
+      "forecast": 215,
+      "legacy": 259,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 168,
+      "forecast": 206,
+      "legacy": 232,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 217,
+      "forecast": 196,
+      "legacy": 185,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 244,
+      "forecast": 231,
+      "legacy": 249,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 214,
+      "forecast": 242,
+      "legacy": 221,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 226,
+      "forecast": 229,
+      "legacy": 248,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 284,
+      "forecast": 271,
+      "legacy": 266,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 236,
+      "forecast": 218,
+      "legacy": 300,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 224,
+      "forecast": 230,
+      "legacy": 233,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 267,
+      "forecast": 192,
+      "legacy": 201,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 240,
+      "forecast": 240,
+      "legacy": 280,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 264,
+      "forecast": 213,
+      "legacy": 244,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 281,
+      "forecast": 236,
+      "legacy": 232,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 229,
+      "forecast": 237,
+      "legacy": 270,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 117,
+      "forecast": 270,
+      "legacy": 208,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 192,
+      "forecast": 258,
+      "legacy": 133,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 286,
+      "forecast": 261,
+      "legacy": 172,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 197,
+      "forecast": 244,
+      "legacy": 259,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 209,
+      "forecast": 250,
+      "legacy": 223,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 259,
+      "forecast": 258,
+      "legacy": 192,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 256,
+      "forecast": 239,
+      "legacy": 301,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 281,
+      "forecast": 268,
+      "legacy": 273,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 271,
+      "forecast": 260,
+      "legacy": 325,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 214,
+      "forecast": 242,
+      "legacy": 280,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 270,
+      "forecast": 257,
+      "legacy": 196,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 118,
+      "forecast": 245,
+      "legacy": 270,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 248,
+      "p80": 282,
+      "p95": 315,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 248,
+      "p80": 283,
+      "p95": 317,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 248,
+      "p80": 285,
+      "p95": 319,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 258,
+      "p80": 297,
+      "p95": 334,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 248,
+      "p80": 286,
+      "p95": 322,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 247,
+      "p80": 286,
+      "p95": 324,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 246,
+      "p80": 286,
+      "p95": 325,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 339,
+      "p80": 395,
+      "p95": 449,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 244,
+      "p80": 286,
+      "p95": 326,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 243,
+      "p80": 286,
+      "p95": 326,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 242,
+      "p80": 285,
+      "p95": 326,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 288,
+      "p80": 341,
+      "p95": 391,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 239,
+      "p80": 283,
+      "p95": 326,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100214": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 140,
+      "forecast": 158,
+      "legacy": 108,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 135,
+      "forecast": 125,
+      "legacy": 121,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 135,
+      "forecast": 121,
+      "legacy": 149,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 167,
+      "forecast": 132,
+      "legacy": 140,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 143,
+      "forecast": 124,
+      "legacy": 184,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 123,
+      "forecast": 122,
+      "legacy": 158,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 143,
+      "forecast": 107,
+      "legacy": 106,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 107,
+      "forecast": 119,
+      "legacy": 155,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 148,
+      "forecast": 109,
+      "legacy": 116,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 109,
+      "forecast": 108,
+      "legacy": 147,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 147,
+      "forecast": 107,
+      "legacy": 125,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 84,
+      "forecast": 133,
+      "legacy": 162,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 138,
+      "forecast": 141,
+      "legacy": 97,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 104,
+      "forecast": 120,
+      "legacy": 111,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 108,
+      "forecast": 124,
+      "legacy": 116,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 127,
+      "forecast": 124,
+      "legacy": 113,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 144,
+      "forecast": 109,
+      "legacy": 120,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 128,
+      "forecast": 98,
+      "legacy": 138,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 93,
+      "forecast": 113,
+      "legacy": 111,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 111,
+      "forecast": 123,
+      "legacy": 109,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 109,
+      "forecast": 114,
+      "legacy": 114,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 126,
+      "forecast": 114,
+      "legacy": 96,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 92,
+      "forecast": 113,
+      "legacy": 129,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 84,
+      "forecast": 101,
+      "legacy": 110,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 150,
+      "forecast": 113,
+      "legacy": 74,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 111,
+      "forecast": 132,
+      "legacy": 179,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 101,
+      "forecast": 109,
+      "legacy": 115,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 149,
+      "forecast": 116,
+      "legacy": 110,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 112,
+      "forecast": 112,
+      "legacy": 158,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 146,
+      "forecast": 124,
+      "legacy": 98,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 118,
+      "forecast": 140,
+      "legacy": 159,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 166,
+      "forecast": 139,
+      "legacy": 128,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 113,
+      "forecast": 120,
+      "legacy": 165,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 118,
+      "forecast": 129,
+      "legacy": 128,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 155,
+      "forecast": 147,
+      "legacy": 98,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 111,
+      "forecast": 138,
+      "legacy": 139,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 132,
+      "forecast": 120,
+      "legacy": 122,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 129,
+      "forecast": 114,
+      "legacy": 146,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 124,
+      "forecast": 117,
+      "legacy": 125,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 123,
+      "p80": 140,
+      "p95": 156,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 123,
+      "p80": 140,
+      "p95": 157,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 123,
+      "p80": 141,
+      "p95": 158,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 122,
+      "p80": 141,
+      "p95": 158,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 122,
+      "p80": 141,
+      "p95": 159,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 122,
+      "p80": 141,
+      "p95": 159,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 121,
+      "p80": 141,
+      "p95": 159,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 159,
+      "p80": 185,
+      "p95": 211,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 120,
+      "p80": 140,
+      "p95": 160,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 119,
+      "p80": 140,
+      "p95": 159,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 118,
+      "p80": 139,
+      "p95": 159,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 146,
+      "p80": 173,
+      "p95": 199,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 116,
+      "p80": 138,
+      "p95": 159,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100249": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 40,
+      "forecast": 68,
+      "legacy": 60,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 79,
+      "forecast": 66,
+      "legacy": 33,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 55,
+      "forecast": 67,
+      "legacy": 90,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 64,
+      "forecast": 67,
+      "legacy": 51,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 76,
+      "forecast": 66,
+      "legacy": 71,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 74,
+      "forecast": 67,
+      "legacy": 66,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 68,
+      "forecast": 63,
+      "legacy": 82,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 78,
+      "forecast": 61,
+      "legacy": 79,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 63,
+      "forecast": 61,
+      "legacy": 86,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 60,
+      "forecast": 68,
+      "legacy": 70,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 72,
+      "forecast": 62,
+      "legacy": 54,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 67,
+      "forecast": 61,
+      "legacy": 65,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 66,
+      "forecast": 74,
+      "legacy": 65,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 71,
+      "forecast": 69,
+      "legacy": 69,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 68,
+      "forecast": 66,
+      "legacy": 79,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 65,
+      "forecast": 61,
+      "legacy": 67,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 62,
+      "forecast": 67,
+      "legacy": 72,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 63,
+      "forecast": 70,
+      "legacy": 62,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 84,
+      "forecast": 65,
+      "legacy": 66,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 54,
+      "forecast": 62,
+      "legacy": 85,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 76,
+      "forecast": 75,
+      "legacy": 57,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 72,
+      "forecast": 65,
+      "legacy": 90,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 36,
+      "forecast": 68,
+      "legacy": 69,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 59,
+      "forecast": 72,
+      "legacy": 35,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 69,
+      "forecast": 67,
+      "legacy": 68,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 71,
+      "forecast": 65,
+      "legacy": 73,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 58,
+      "forecast": 64,
+      "legacy": 66,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 80,
+      "forecast": 65,
+      "legacy": 55,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 63,
+      "forecast": 69,
+      "legacy": 90,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 43,
+      "forecast": 62,
+      "legacy": 75,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 70,
+      "forecast": 74,
+      "legacy": 46,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 71,
+      "forecast": 68,
+      "legacy": 66,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 57,
+      "forecast": 66,
+      "legacy": 68,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 53,
+      "forecast": 65,
+      "legacy": 51,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 73,
+      "forecast": 67,
+      "legacy": 54,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 85,
+      "forecast": 72,
+      "legacy": 78,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 85,
+      "forecast": 69,
+      "legacy": 83,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 97,
+      "forecast": 69,
+      "legacy": 72,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 80,
+      "forecast": 66,
+      "legacy": 78,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 73,
+      "p80": 83,
+      "p95": 93,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 73,
+      "p80": 84,
+      "p95": 94,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 73,
+      "p80": 84,
+      "p95": 94,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 74,
+      "p80": 85,
+      "p95": 95,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 74,
+      "p80": 85,
+      "p95": 96,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 74,
+      "p80": 85,
+      "p95": 96,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 73,
+      "p80": 85,
+      "p95": 97,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 97,
+      "p80": 113,
+      "p95": 128,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 73,
+      "p80": 86,
+      "p95": 97,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 73,
+      "p80": 86,
+      "p95": 98,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 73,
+      "p80": 86,
+      "p95": 98,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 90,
+      "p80": 107,
+      "p95": 122,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 72,
+      "p80": 85,
+      "p95": 98,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100207": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 214,
+      "forecast": 237,
+      "legacy": 236,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 250,
+      "forecast": 202,
+      "legacy": 192,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 164,
+      "forecast": 216,
+      "legacy": 228,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 249,
+      "forecast": 219,
+      "legacy": 135,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 244,
+      "forecast": 253,
+      "legacy": 225,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 241,
+      "forecast": 238,
+      "legacy": 259,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 190,
+      "forecast": 210,
+      "legacy": 266,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 243,
+      "forecast": 201,
+      "legacy": 191,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 204,
+      "forecast": 205,
+      "legacy": 286,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 261,
+      "forecast": 200,
+      "legacy": 189,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 228,
+      "forecast": 207,
+      "legacy": 303,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 249,
+      "forecast": 206,
+      "legacy": 261,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 172,
+      "forecast": 255,
+      "legacy": 276,
+      "oos": true,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 178,
+      "forecast": 228,
+      "legacy": 194,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 204,
+      "forecast": 196,
+      "legacy": 199,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 190,
+      "forecast": 219,
+      "legacy": 185,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 120,
+      "forecast": 220,
+      "legacy": 164,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 214,
+      "forecast": 198,
+      "legacy": 118,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 219,
+      "forecast": 222,
+      "legacy": 247,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 107,
+      "forecast": 227,
+      "legacy": 191,
+      "oos": true,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 185,
+      "forecast": 181,
+      "legacy": 99,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 172,
+      "forecast": 203,
+      "legacy": 174,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 223,
+      "forecast": 198,
+      "legacy": 170,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 181,
+      "forecast": 208,
+      "legacy": 261,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 197,
+      "forecast": 205,
+      "legacy": 187,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 283,
+      "forecast": 245,
+      "legacy": 208,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 199,
+      "forecast": 221,
+      "legacy": 331,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 197,
+      "forecast": 219,
+      "legacy": 181,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 166,
+      "forecast": 239,
+      "legacy": 223,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 253,
+      "forecast": 210,
+      "legacy": 170,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 190,
+      "forecast": 267,
+      "legacy": 203,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 231,
+      "forecast": 297,
+      "legacy": 198,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 245,
+      "forecast": 221,
+      "legacy": 191,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 240,
+      "forecast": 223,
+      "legacy": 294,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 245,
+      "forecast": 221,
+      "legacy": 250,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 338,
+      "forecast": 230,
+      "legacy": 293,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 243,
+      "forecast": 254,
+      "legacy": 273,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 284,
+      "forecast": 262,
+      "legacy": 199,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 248,
+      "forecast": 258,
+      "legacy": 256,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 238,
+      "p80": 271,
+      "p95": 303,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 239,
+      "p80": 273,
+      "p95": 305,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 240,
+      "p80": 275,
+      "p95": 308,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 240,
+      "p80": 276,
+      "p95": 310,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 240,
+      "p80": 277,
+      "p95": 312,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 240,
+      "p80": 278,
+      "p95": 314,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 240,
+      "p80": 279,
+      "p95": 316,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 316,
+      "p80": 368,
+      "p95": 419,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 239,
+      "p80": 279,
+      "p95": 318,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 238,
+      "p80": 279,
+      "p95": 319,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 237,
+      "p80": 279,
+      "p95": 320,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 295,
+      "p80": 349,
+      "p95": 400,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 235,
+      "p80": 279,
+      "p95": 321,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100312": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 40,
+      "forecast": 80,
+      "legacy": 61,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 51,
+      "forecast": 80,
+      "legacy": 37,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 72,
+      "forecast": 78,
+      "legacy": 52,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 76,
+      "forecast": 84,
+      "legacy": 63,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 81,
+      "forecast": 96,
+      "legacy": 66,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 52,
+      "forecast": 69,
+      "legacy": 95,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 55,
+      "forecast": 66,
+      "legacy": 49,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 50,
+      "forecast": 67,
+      "legacy": 58,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 90,
+      "forecast": 68,
+      "legacy": 58,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 61,
+      "forecast": 68,
+      "legacy": 106,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 58,
+      "forecast": 58,
+      "legacy": 67,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 39,
+      "forecast": 64,
+      "legacy": 48,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 44,
+      "forecast": 62,
+      "legacy": 42,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 59,
+      "forecast": 58,
+      "legacy": 41,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 68,
+      "forecast": 61,
+      "legacy": 51,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 48,
+      "forecast": 66,
+      "legacy": 55,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 66,
+      "forecast": 62,
+      "legacy": 45,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 61,
+      "forecast": 56,
+      "legacy": 70,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 53,
+      "forecast": 71,
+      "legacy": 60,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 80,
+      "forecast": 89,
+      "legacy": 57,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 49,
+      "forecast": 71,
+      "legacy": 71,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 74,
+      "forecast": 53,
+      "legacy": 42,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 33,
+      "forecast": 59,
+      "legacy": 85,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 93,
+      "forecast": 61,
+      "legacy": 31,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 56,
+      "forecast": 65,
+      "legacy": 93,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 140,
+      "forecast": 93,
+      "legacy": 57,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 40,
+      "forecast": 69,
+      "legacy": 146,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 78,
+      "forecast": 65,
+      "legacy": 41,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 72,
+      "forecast": 67,
+      "legacy": 87,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 76,
+      "forecast": 63,
+      "legacy": 75,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 97,
+      "forecast": 49,
+      "legacy": 78,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 71,
+      "forecast": 91,
+      "legacy": 81,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 65,
+      "forecast": 83,
+      "legacy": 59,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 61,
+      "forecast": 79,
+      "legacy": 64,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 56,
+      "forecast": 83,
+      "legacy": 72,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 103,
+      "forecast": 112,
+      "legacy": 56,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 67,
+      "forecast": 83,
+      "legacy": 89,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 105,
+      "forecast": 67,
+      "legacy": 73,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 55,
+      "forecast": 65,
+      "legacy": 105,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 75,
+      "p80": 91,
+      "p95": 106,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 76,
+      "p80": 92,
+      "p95": 107,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 76,
+      "p80": 93,
+      "p95": 108,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 85,
+      "p80": 104,
+      "p95": 123,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 76,
+      "p80": 94,
+      "p95": 110,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 76,
+      "p80": 94,
+      "p95": 111,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 76,
+      "p80": 94,
+      "p95": 112,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 139,
+      "p80": 174,
+      "p95": 207,
+      "override": null,
+      "promo": "Thanksgiving Juice 2 for $6",
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 76,
+      "p80": 95,
+      "p95": 113,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 75,
+      "p80": 95,
+      "p95": 114,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 75,
+      "p80": 95,
+      "p95": 114,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 88,
+      "p80": 112,
+      "p95": 135,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 74,
+      "p80": 95,
+      "p95": 115,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100298": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 138,
+      "forecast": 162,
+      "legacy": 172,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 115,
+      "forecast": 175,
+      "legacy": 153,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 145,
+      "forecast": 174,
+      "legacy": 128,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 105,
+      "forecast": 155,
+      "legacy": 170,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 205,
+      "forecast": 212,
+      "legacy": 96,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 75,
+      "forecast": 149,
+      "legacy": 224,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 179,
+      "forecast": 141,
+      "legacy": 88,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 160,
+      "forecast": 143,
+      "legacy": 147,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 135,
+      "forecast": 136,
+      "legacy": 161,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 167,
+      "forecast": 147,
+      "legacy": 139,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 114,
+      "forecast": 159,
+      "legacy": 174,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 140,
+      "forecast": 155,
+      "legacy": 129,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 146,
+      "forecast": 156,
+      "legacy": 131,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 129,
+      "forecast": 161,
+      "legacy": 140,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 205,
+      "forecast": 156,
+      "legacy": 105,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 138,
+      "forecast": 161,
+      "legacy": 203,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 146,
+      "forecast": 159,
+      "legacy": 119,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 221,
+      "forecast": 167,
+      "legacy": 139,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 156,
+      "forecast": 137,
+      "legacy": 257,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 180,
+      "forecast": 185,
+      "legacy": 158,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 187,
+      "forecast": 211,
+      "legacy": 177,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 185,
+      "forecast": 173,
+      "legacy": 212,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 160,
+      "forecast": 180,
+      "legacy": 204,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 173,
+      "forecast": 179,
+      "legacy": 173,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 180,
+      "forecast": 182,
+      "legacy": 207,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 251,
+      "forecast": 237,
+      "legacy": 208,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 221,
+      "forecast": 166,
+      "legacy": 272,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 196,
+      "forecast": 152,
+      "legacy": 257,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 126,
+      "forecast": 153,
+      "legacy": 162,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 142,
+      "forecast": 179,
+      "legacy": 117,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 155,
+      "forecast": 191,
+      "legacy": 151,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 200,
+      "forecast": 194,
+      "legacy": 164,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 203,
+      "forecast": 205,
+      "legacy": 237,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 148,
+      "forecast": 155,
+      "legacy": 201,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 271,
+      "forecast": 247,
+      "legacy": 134,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 396,
+      "forecast": 407,
+      "legacy": 272,
+      "oos": false,
+      "promo": "Labor Day Water $2.98",
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 224,
+      "forecast": 173,
+      "legacy": 374,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 176,
+      "forecast": 174,
+      "legacy": 205,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 166,
+      "forecast": 162,
+      "legacy": 154,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 190,
+      "p80": 216,
+      "p95": 241,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 190,
+      "p80": 218,
+      "p95": 243,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 191,
+      "p80": 219,
+      "p95": 246,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 215,
+      "p80": 247,
+      "p95": 278,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 192,
+      "p80": 222,
+      "p95": 250,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 192,
+      "p80": 223,
+      "p95": 252,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 192,
+      "p80": 224,
+      "p95": 254,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 221,
+      "p80": 258,
+      "p95": 293,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 192,
+      "p80": 225,
+      "p95": 256,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 192,
+      "p80": 225,
+      "p95": 257,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 191,
+      "p80": 226,
+      "p95": 258,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 225,
+      "p80": 266,
+      "p95": 306,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 190,
+      "p80": 226,
+      "p95": 260,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100354": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 19,
+      "forecast": 39,
+      "legacy": 35,
+      "oos": true,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 26,
+      "forecast": 37,
+      "legacy": 20,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 46,
+      "forecast": 33,
+      "legacy": 23,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 44,
+      "forecast": 37,
+      "legacy": 39,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 43,
+      "forecast": 43,
+      "legacy": 51,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 32,
+      "forecast": 44,
+      "legacy": 40,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 29,
+      "forecast": 34,
+      "legacy": 26,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 35,
+      "forecast": 34,
+      "legacy": 24,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 36,
+      "forecast": 39,
+      "legacy": 36,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 11,
+      "forecast": 34,
+      "legacy": 36,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 35,
+      "forecast": 29,
+      "legacy": 12,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 35,
+      "forecast": 35,
+      "legacy": 33,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 21,
+      "forecast": 27,
+      "legacy": 41,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 38,
+      "forecast": 37,
+      "legacy": 20,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 26,
+      "forecast": 33,
+      "legacy": 36,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 49,
+      "forecast": 40,
+      "legacy": 29,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 35,
+      "forecast": 40,
+      "legacy": 55,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 31,
+      "forecast": 45,
+      "legacy": 37,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 17,
+      "forecast": 43,
+      "legacy": 29,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 22,
+      "forecast": 33,
+      "legacy": 19,
+      "oos": true,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 20,
+      "forecast": 39,
+      "legacy": 22,
+      "oos": true,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 27,
+      "forecast": 32,
+      "legacy": 17,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 21,
+      "forecast": 41,
+      "legacy": 28,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 33,
+      "forecast": 35,
+      "legacy": 22,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 40,
+      "forecast": 46,
+      "legacy": 33,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 31,
+      "forecast": 45,
+      "legacy": 47,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 38,
+      "forecast": 35,
+      "legacy": 29,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 25,
+      "forecast": 40,
+      "legacy": 42,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 34,
+      "forecast": 38,
+      "legacy": 22,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 71,
+      "forecast": 44,
+      "legacy": 38,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 26,
+      "forecast": 36,
+      "legacy": 66,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 50,
+      "forecast": 39,
+      "legacy": 28,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 23,
+      "forecast": 41,
+      "legacy": 59,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 39,
+      "forecast": 42,
+      "legacy": 19,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 41,
+      "forecast": 49,
+      "legacy": 38,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 46,
+      "forecast": 47,
+      "legacy": 43,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 26,
+      "forecast": 49,
+      "legacy": 47,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 23,
+      "forecast": 38,
+      "legacy": 22,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 32,
+      "forecast": 41,
+      "legacy": 25,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 43,
+      "p80": 52,
+      "p95": 61,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 43,
+      "p80": 53,
+      "p95": 61,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 43,
+      "p80": 53,
+      "p95": 62,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 44,
+      "p80": 53,
+      "p95": 63,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 44,
+      "p80": 54,
+      "p95": 63,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 44,
+      "p80": 54,
+      "p95": 64,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 44,
+      "p80": 54,
+      "p95": 64,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 46,
+      "p80": 57,
+      "p95": 68,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 44,
+      "p80": 55,
+      "p95": 65,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 43,
+      "p80": 55,
+      "p95": 66,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 43,
+      "p80": 55,
+      "p95": 66,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 45,
+      "p80": 57,
+      "p95": 69,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 43,
+      "p80": 55,
+      "p95": 67,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ],
+  "SKU-100368": [
+    {
+      "week": "2026-01-05",
+      "w": -38,
+      "actual": 16,
+      "forecast": 47,
+      "legacy": 40,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-12",
+      "w": -37,
+      "actual": 42,
+      "forecast": 32,
+      "legacy": 18,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-19",
+      "w": -36,
+      "actual": 32,
+      "forecast": 35,
+      "legacy": 49,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-01-26",
+      "w": -35,
+      "actual": 27,
+      "forecast": 30,
+      "legacy": 37,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-02",
+      "w": -34,
+      "actual": 45,
+      "forecast": 31,
+      "legacy": 25,
+      "oos": false,
+      "promo": null,
+      "event": "Super Bowl"
+    },
+    {
+      "week": "2026-02-09",
+      "w": -33,
+      "actual": 44,
+      "forecast": 39,
+      "legacy": 49,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-16",
+      "w": -32,
+      "actual": 42,
+      "forecast": 30,
+      "legacy": 48,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-02-23",
+      "w": -31,
+      "actual": 39,
+      "forecast": 25,
+      "legacy": 47,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-02",
+      "w": -30,
+      "actual": 45,
+      "forecast": 41,
+      "legacy": 45,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-09",
+      "w": -29,
+      "actual": 28,
+      "forecast": 30,
+      "legacy": 43,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-16",
+      "w": -28,
+      "actual": 15,
+      "forecast": 30,
+      "legacy": 30,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-23",
+      "w": -27,
+      "actual": 46,
+      "forecast": 37,
+      "legacy": 14,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-03-30",
+      "w": -26,
+      "actual": 31,
+      "forecast": 36,
+      "legacy": 42,
+      "oos": false,
+      "promo": null,
+      "event": "Easter"
+    },
+    {
+      "week": "2026-04-06",
+      "w": -25,
+      "actual": 36,
+      "forecast": 39,
+      "legacy": 29,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-13",
+      "w": -24,
+      "actual": 17,
+      "forecast": 34,
+      "legacy": 31,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-20",
+      "w": -23,
+      "actual": 13,
+      "forecast": 42,
+      "legacy": 17,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-04-27",
+      "w": -22,
+      "actual": 33,
+      "forecast": 28,
+      "legacy": 12,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-04",
+      "w": -21,
+      "actual": 21,
+      "forecast": 27,
+      "legacy": 28,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-11",
+      "w": -20,
+      "actual": 22,
+      "forecast": 36,
+      "legacy": 18,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-05-18",
+      "w": -19,
+      "actual": 39,
+      "forecast": 28,
+      "legacy": 22,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-05-25",
+      "w": -18,
+      "actual": 26,
+      "forecast": 35,
+      "legacy": 40,
+      "oos": false,
+      "promo": null,
+      "event": "Memorial Day"
+    },
+    {
+      "week": "2026-06-01",
+      "w": -17,
+      "actual": 43,
+      "forecast": 29,
+      "legacy": 22,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-08",
+      "w": -16,
+      "actual": 24,
+      "forecast": 35,
+      "legacy": 38,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-15",
+      "w": -15,
+      "actual": 29,
+      "forecast": 35,
+      "legacy": 23,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-22",
+      "w": -14,
+      "actual": 27,
+      "forecast": 30,
+      "legacy": 30,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-06-29",
+      "w": -13,
+      "actual": 42,
+      "forecast": 33,
+      "legacy": 30,
+      "oos": false,
+      "promo": null,
+      "event": "July 4th"
+    },
+    {
+      "week": "2026-07-06",
+      "w": -12,
+      "actual": 54,
+      "forecast": 32,
+      "legacy": 40,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-13",
+      "w": -11,
+      "actual": 28,
+      "forecast": 39,
+      "legacy": 49,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-20",
+      "w": -10,
+      "actual": 57,
+      "forecast": 33,
+      "legacy": 32,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-07-27",
+      "w": -9,
+      "actual": 54,
+      "forecast": 30,
+      "legacy": 59,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-03",
+      "w": -8,
+      "actual": 38,
+      "forecast": 36,
+      "legacy": 57,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-10",
+      "w": -7,
+      "actual": 73,
+      "forecast": 40,
+      "legacy": 44,
+      "oos": false,
+      "promo": null,
+      "event": "Back to school"
+    },
+    {
+      "week": "2026-08-17",
+      "w": -6,
+      "actual": 37,
+      "forecast": 31,
+      "legacy": 66,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-24",
+      "w": -5,
+      "actual": 58,
+      "forecast": 37,
+      "legacy": 35,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-08-31",
+      "w": -4,
+      "actual": 54,
+      "forecast": 35,
+      "legacy": 50,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-07",
+      "w": -3,
+      "actual": 38,
+      "forecast": 15,
+      "legacy": 56,
+      "oos": false,
+      "promo": null,
+      "event": "Labor Day"
+    },
+    {
+      "week": "2026-09-14",
+      "w": -2,
+      "actual": 37,
+      "forecast": 43,
+      "legacy": 34,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-21",
+      "w": -1,
+      "actual": 21,
+      "forecast": 42,
+      "legacy": 33,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-09-28",
+      "w": 0,
+      "actual": 25,
+      "forecast": 44,
+      "legacy": 18,
+      "oos": false,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-05",
+      "w": 1,
+      "p50": 39,
+      "p80": 51,
+      "p95": 64,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-12",
+      "w": 2,
+      "p50": 39,
+      "p80": 52,
+      "p95": 64,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-19",
+      "w": 3,
+      "p50": 39,
+      "p80": 52,
+      "p95": 65,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-10-26",
+      "w": 4,
+      "p50": 39,
+      "p80": 53,
+      "p95": 66,
+      "override": null,
+      "promo": null,
+      "event": "Halloween"
+    },
+    {
+      "week": "2026-11-02",
+      "w": 5,
+      "p50": 39,
+      "p80": 53,
+      "p95": 67,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-09",
+      "w": 6,
+      "p50": 39,
+      "p80": 54,
+      "p95": 68,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-16",
+      "w": 7,
+      "p50": 39,
+      "p80": 54,
+      "p95": 68,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-11-23",
+      "w": 8,
+      "p50": 41,
+      "p80": 57,
+      "p95": 72,
+      "override": null,
+      "promo": null,
+      "event": "Thanksgiving"
+    },
+    {
+      "week": "2026-11-30",
+      "w": 9,
+      "p50": 39,
+      "p80": 54,
+      "p95": 69,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-07",
+      "w": 10,
+      "p50": 38,
+      "p80": 54,
+      "p95": 70,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-14",
+      "w": 11,
+      "p50": 38,
+      "p80": 55,
+      "p95": 70,
+      "override": null,
+      "promo": null,
+      "event": null
+    },
+    {
+      "week": "2026-12-21",
+      "w": 12,
+      "p50": 40,
+      "p80": 57,
+      "p95": 73,
+      "override": null,
+      "promo": null,
+      "event": "Christmas"
+    },
+    {
+      "week": "2026-12-28",
+      "w": 13,
+      "p50": 38,
+      "p80": 55,
+      "p95": 71,
+      "override": null,
+      "promo": null,
+      "event": null
+    }
+  ]
+}

@@ -1,0 +1,1736 @@
+{
+  "asOf": "2026-09-29",
+  "week": {
+    "start": "2026-09-28",
+    "end": "2026-10-04"
+  },
+  "taxRate": 0.0825,
+  "taxLabel": "Texas sales tax 8.25%",
+  "store": {
+    "id": "US-DFW-1101",
+    "name": "John Henry Plano Market",
+    "number": "1101",
+    "region": "Dallas–Fort Worth",
+    "address": [
+      "2396 Preston Ridge Pkwy",
+      "Plano, TX 75071"
+    ],
+    "phone": "(972) 555-0100",
+    "lanes": 12,
+    "defaultLane": 4,
+    "startingFloat": 200
+  },
+  "cashier": {
+    "id": "U-1005",
+    "name": "Jamal Carter",
+    "role": "Cashier"
+  },
+  "managers": [
+    {
+      "id": "30112",
+      "name": "Rob Castillo",
+      "pin": "9999",
+      "role": "Front-end manager"
+    }
+  ],
+  "catalogue": [
+    {
+      "id": "SKU-100200",
+      "gtin": "041300000000",
+      "name": "Whole Milk 1 gal",
+      "category": "Dairy",
+      "dept": "Dairy",
+      "supplierId": "SUP-PRAIRIE",
+      "price": 3.48,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100207",
+      "gtin": "041300007919",
+      "name": "2% Reduced Fat Milk 1 gal",
+      "category": "Dairy",
+      "dept": "Dairy",
+      "supplierId": "SUP-PRAIRIE",
+      "price": 3.48,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100214",
+      "gtin": "041300015838",
+      "name": "Large Grade A Eggs 18 ct",
+      "category": "Dairy",
+      "dept": "Dairy",
+      "supplierId": "SUP-PRAIRIE",
+      "price": 4.97,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100221",
+      "gtin": "041300023757",
+      "name": "Plain Greek Yogurt 32 oz",
+      "category": "Dairy",
+      "dept": "Dairy",
+      "supplierId": "SUP-PRAIRIE",
+      "price": 5.98,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100228",
+      "gtin": "041300031676",
+      "name": "Shredded Mild Cheddar 8 oz",
+      "category": "Dairy",
+      "dept": "Dairy",
+      "supplierId": "SUP-PRAIRIE",
+      "price": 2.72,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100235",
+      "gtin": "041300039595",
+      "name": "Salted Butter 1 lb",
+      "category": "Dairy",
+      "dept": "Dairy",
+      "supplierId": "SUP-PRAIRIE",
+      "price": 4.48,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100242",
+      "gtin": "041300047514",
+      "name": "Sour Cream 16 oz",
+      "category": "Dairy",
+      "dept": "Dairy",
+      "supplierId": "SUP-PRAIRIE",
+      "price": 2.18,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100249",
+      "gtin": "041300055433",
+      "name": "Half & Half 1 qt",
+      "category": "Dairy",
+      "dept": "Dairy",
+      "supplierId": "SUP-PRAIRIE",
+      "price": 3.12,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100256",
+      "gtin": "041300063352",
+      "name": "White Sandwich Bread 20 oz",
+      "category": "Bakery",
+      "dept": "Bakery",
+      "supplierId": "SUP-LONESTAR",
+      "price": 1.98,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100263",
+      "gtin": "041300071271",
+      "name": "100% Whole Wheat Bread 24 oz",
+      "category": "Bakery",
+      "dept": "Bakery",
+      "supplierId": "SUP-LONESTAR",
+      "price": 3.48,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100270",
+      "gtin": "041300079190",
+      "name": "Flour Tortillas 10 ct",
+      "category": "Bakery",
+      "dept": "Bakery",
+      "supplierId": "SUP-LONESTAR",
+      "price": 2.64,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100277",
+      "gtin": "041300087109",
+      "name": "Hamburger Buns 8 ct",
+      "category": "Bakery",
+      "dept": "Bakery",
+      "supplierId": "SUP-LONESTAR",
+      "price": 2.28,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100284",
+      "gtin": "041300095028",
+      "name": "Blueberry Muffins 4 ct",
+      "category": "Bakery",
+      "dept": "Bakery",
+      "supplierId": "SUP-LONESTAR",
+      "price": 4.98,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100291",
+      "gtin": "041300102947",
+      "name": "Glazed Donuts 12 ct",
+      "category": "Bakery",
+      "dept": "Bakery",
+      "supplierId": "SUP-LONESTAR",
+      "price": 6.98,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100298",
+      "gtin": "041300110866",
+      "name": "Purified Water 24 pk 16.9 oz",
+      "category": "Beverages",
+      "dept": "Beverages",
+      "supplierId": "SUP-CLEARWELL",
+      "price": 3.98,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100305",
+      "gtin": "041300118785",
+      "name": "Spring Water 1 gal",
+      "category": "Beverages",
+      "dept": "Beverages",
+      "supplierId": "SUP-CLEARWELL",
+      "price": 1.28,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100312",
+      "gtin": "041300126704",
+      "name": "Orange Juice 52 oz",
+      "category": "Beverages",
+      "dept": "Beverages",
+      "supplierId": "SUP-SUMMIT",
+      "price": 3.98,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100319",
+      "gtin": "041300134623",
+      "name": "Cola 12 pk 12 oz Cans",
+      "category": "Beverages",
+      "dept": "Beverages",
+      "supplierId": "SUP-SUMMIT",
+      "price": 6.48,
+      "unit": "each",
+      "taxable": true,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100326",
+      "gtin": "041300142542",
+      "name": "Sparkling Water 8 pk",
+      "category": "Beverages",
+      "dept": "Beverages",
+      "supplierId": "SUP-CLEARWELL",
+      "price": 4.98,
+      "unit": "each",
+      "taxable": true,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100333",
+      "gtin": "041300150461",
+      "name": "Sports Drink 8 pk 20 oz",
+      "category": "Beverages",
+      "dept": "Beverages",
+      "supplierId": "SUP-SUMMIT",
+      "price": 7.98,
+      "unit": "each",
+      "taxable": true,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100340",
+      "gtin": "041300158380",
+      "name": "Apple Juice 64 oz",
+      "category": "Beverages",
+      "dept": "Beverages",
+      "supplierId": "SUP-SUMMIT",
+      "price": 2.98,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100347",
+      "gtin": "041300166299",
+      "name": "Dish Soap 19.4 oz",
+      "category": "Household",
+      "dept": "Household",
+      "supplierId": "SUP-BRIGHTHOME",
+      "price": 3.24,
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": true
+    },
+    {
+      "id": "SKU-100354",
+      "gtin": "041300174218",
+      "name": "Laundry Detergent 92 oz",
+      "category": "Household",
+      "dept": "Household",
+      "supplierId": "SUP-BRIGHTHOME",
+      "price": 11.97,
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": true
+    },
+    {
+      "id": "SKU-100361",
+      "gtin": "041300182137",
+      "name": "Paper Towels 6 Double Rolls",
+      "category": "Household",
+      "dept": "Household",
+      "supplierId": "SUP-BRIGHTHOME",
+      "price": 9.97,
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": true
+    },
+    {
+      "id": "SKU-100368",
+      "gtin": "041300190056",
+      "name": "Trash Bags 13 gal 40 ct",
+      "category": "Household",
+      "dept": "Household",
+      "supplierId": "SUP-BRIGHTHOME",
+      "price": 7.47,
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": true
+    },
+    {
+      "id": "SKU-100375",
+      "gtin": "041300197975",
+      "name": "Bath Tissue 12 Mega Rolls",
+      "category": "Household",
+      "dept": "Household",
+      "supplierId": "SUP-BRIGHTHOME",
+      "price": 13.97,
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": true
+    },
+    {
+      "id": "SKU-100382",
+      "gtin": "041300205894",
+      "name": "Disinfecting Wipes 3 pk",
+      "category": "Household",
+      "dept": "Household",
+      "supplierId": "SUP-BRIGHTHOME",
+      "price": 6.44,
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": true
+    },
+    {
+      "id": "SKU-100389",
+      "gtin": "041300213813",
+      "name": "Bananas (per bunch)",
+      "category": "Fresh Produce",
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "price": 1.45,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100396",
+      "gtin": "041300221732",
+      "name": "Hass Avocados (each)",
+      "category": "Fresh Produce",
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "price": 0.98,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100403",
+      "gtin": "041300229651",
+      "name": "Roma Tomatoes 1 lb",
+      "category": "Fresh Produce",
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "price": 1.24,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100410",
+      "gtin": "041300237570",
+      "name": "Strawberries 1 lb",
+      "category": "Fresh Produce",
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "price": 2.97,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100417",
+      "gtin": "041300245489",
+      "name": "Russet Potatoes 5 lb bag",
+      "category": "Fresh Produce",
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "price": 3.47,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "SKU-100424",
+      "gtin": "041300253408",
+      "name": "Gala Apples 3 lb bag",
+      "category": "Fresh Produce",
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "price": 4.24,
+      "unit": "each",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "PLU-4011",
+      "plu": "4011",
+      "name": "Bananas",
+      "category": "Fresh Produce",
+      "price": 0.58,
+      "unit": "lb",
+      "gtin": null,
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "PLU-4225",
+      "plu": "4225",
+      "name": "Avocados, Hass large",
+      "category": "Fresh Produce",
+      "price": 1.25,
+      "unit": "each",
+      "gtin": null,
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "PLU-4048",
+      "plu": "4048",
+      "name": "Limes",
+      "category": "Fresh Produce",
+      "price": 0.33,
+      "unit": "each",
+      "gtin": null,
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "PLU-4664",
+      "plu": "4664",
+      "name": "Tomatoes on the vine",
+      "category": "Fresh Produce",
+      "price": 2.49,
+      "unit": "lb",
+      "gtin": null,
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "PLU-4131",
+      "plu": "4131",
+      "name": "Fuji Apples",
+      "category": "Fresh Produce",
+      "price": 1.99,
+      "unit": "lb",
+      "gtin": null,
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "PLU-4065",
+      "plu": "4065",
+      "name": "Green Bell Peppers",
+      "category": "Fresh Produce",
+      "price": 0.88,
+      "unit": "each",
+      "gtin": null,
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "PLU-4082",
+      "plu": "4082",
+      "name": "Red Onions",
+      "category": "Fresh Produce",
+      "price": 1.49,
+      "unit": "lb",
+      "gtin": null,
+      "dept": "Fresh Produce",
+      "supplierId": "SUP-RIOVALLEY",
+      "taxable": false,
+      "snap": true,
+      "points": true
+    },
+    {
+      "id": "POS-BEER-01",
+      "gtin": "071990300012",
+      "name": "Light Lager 12 pk 12 oz",
+      "price": 14.99,
+      "category": "Beer & Wine",
+      "dept": "Beer & Wine",
+      "supplierId": "SUP-SUMMIT",
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": false,
+      "minAge": 21
+    },
+    {
+      "id": "POS-BEER-02",
+      "gtin": "071990300029",
+      "name": "Mexican Lager 12 pk 12 oz",
+      "price": 16.49,
+      "category": "Beer & Wine",
+      "dept": "Beer & Wine",
+      "supplierId": "SUP-SUMMIT",
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": false,
+      "minAge": 21
+    },
+    {
+      "id": "POS-WINE-01",
+      "gtin": "089744400015",
+      "name": "Red Blend Wine 750 ml",
+      "price": 11.98,
+      "category": "Beer & Wine",
+      "dept": "Beer & Wine",
+      "supplierId": "SUP-SUMMIT",
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": false,
+      "minAge": 21
+    },
+    {
+      "id": "POS-GM-01",
+      "gtin": "085001234561",
+      "name": "Air Fryer 5 qt",
+      "price": 69,
+      "serialised": true,
+      "category": "General Merchandise",
+      "dept": "General Merchandise",
+      "supplierId": null,
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": true
+    },
+    {
+      "id": "POS-GM-02",
+      "gtin": "085001234578",
+      "name": "Bluetooth Speaker",
+      "price": 39.88,
+      "serialised": true,
+      "category": "General Merchandise",
+      "dept": "General Merchandise",
+      "supplierId": null,
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": true
+    },
+    {
+      "id": "POS-GM-03",
+      "gtin": "085001234585",
+      "name": "Reusable Grocery Bag",
+      "price": 0.98,
+      "category": "General Merchandise",
+      "dept": "General Merchandise",
+      "supplierId": null,
+      "unit": "each",
+      "taxable": true,
+      "snap": false,
+      "points": true
+    },
+    {
+      "id": "POS-GC-01",
+      "gtin": "079936500001",
+      "name": "John Henry Gift Card",
+      "category": "Gift Cards",
+      "dept": "Gift Cards",
+      "supplierId": null,
+      "price": 25,
+      "unit": "each",
+      "openPrice": true,
+      "giftCard": true,
+      "taxable": false,
+      "snap": false,
+      "points": false
+    }
+  ],
+  "quickKeys": [
+    {
+      "label": "Bananas",
+      "sub": "PLU 4011 · lb",
+      "code": "4011"
+    },
+    {
+      "label": "Avocados",
+      "sub": "PLU 4225",
+      "code": "4225"
+    },
+    {
+      "label": "Limes",
+      "sub": "PLU 4048",
+      "code": "4048"
+    },
+    {
+      "label": "Tomatoes TOV",
+      "sub": "PLU 4664 · lb",
+      "code": "4664"
+    },
+    {
+      "label": "Whole Milk",
+      "sub": "1 gal",
+      "code": "041300000000"
+    },
+    {
+      "label": "Eggs 18 ct",
+      "sub": "Member price",
+      "code": "041300015838"
+    },
+    {
+      "label": "White Bread",
+      "sub": "BOGO",
+      "code": "041300063352"
+    },
+    {
+      "label": "Water 24 pk",
+      "sub": "16.9 oz",
+      "code": "041300110866"
+    },
+    {
+      "label": "Light Lager",
+      "sub": "21+",
+      "code": "071990300012"
+    },
+    {
+      "label": "Bag",
+      "sub": "Reusable",
+      "code": "085001234585"
+    },
+    {
+      "label": "Gift Card",
+      "sub": "Open value",
+      "code": "079936500001"
+    },
+    {
+      "label": "Fuji Apples",
+      "sub": "PLU 4131 · lb",
+      "code": "4131"
+    }
+  ],
+  "scanScript": [
+    "041300000000",
+    "041300000000",
+    "041300063352",
+    "041300071271",
+    "4011",
+    "041300023757",
+    "041300015838",
+    "041300174218",
+    "041300182137",
+    "041300197975",
+    "041300126704",
+    "041300158380",
+    "041300134623",
+    "041300237570",
+    "4225",
+    "071990300012",
+    "041300031676",
+    "085001234561"
+  ],
+  "scaleWeights": [
+    2.87,
+    2.75,
+    1.2,
+    2.5,
+    1.83,
+    2.35,
+    2.35,
+    0.78,
+    0.93,
+    2.26,
+    2.16,
+    0.94
+  ],
+  "rules": [
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-MP-101",
+      "type": "MEMBER_PRICE",
+      "name": "Eggs 18 ct $3.97 member price",
+      "receipt": "Member price",
+      "itemIds": [
+        "SKU-100214"
+      ],
+      "price": 3.97,
+      "membersOnly": true,
+      "stackable": false,
+      "funder": "Prairie Gold Dairy",
+      "vendorFundedPct": 50,
+      "redemptionsWeek": 1091,
+      "costWeek": 1059.13,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-MP-102",
+      "type": "MEMBER_PRICE",
+      "name": "Orange Juice 52 oz $2.99 member price",
+      "receipt": "Member price",
+      "itemIds": [
+        "SKU-100312"
+      ],
+      "price": 2.99,
+      "membersOnly": true,
+      "stackable": false,
+      "funder": "Summit Drinks Co.",
+      "vendorFundedPct": 100,
+      "redemptionsWeek": 1354,
+      "costWeek": 1250.32,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-MB-201",
+      "type": "MULTI_BUY",
+      "name": "Whole Milk 1 gal 2 for $6",
+      "receipt": "2 for $6.00",
+      "itemIds": [
+        "SKU-100200"
+      ],
+      "qty": 2,
+      "price": 6,
+      "stackable": false,
+      "funder": "John Henry",
+      "vendorFundedPct": 0,
+      "redemptionsWeek": 2210,
+      "costWeek": 2320.45,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-MB-202",
+      "type": "MIX_MATCH",
+      "name": "Any 2 juices for $6",
+      "receipt": "Juice 2 for $6.00",
+      "itemIds": [
+        "SKU-100312",
+        "SKU-100340"
+      ],
+      "qty": 2,
+      "price": 6,
+      "stackable": false,
+      "funder": "Summit Drinks Co.",
+      "vendorFundedPct": 60,
+      "redemptionsWeek": 1601,
+      "costWeek": 11248.77,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-BG-301",
+      "type": "BOGO",
+      "name": "Buy 1 get 1 free sandwich bread (mix)",
+      "receipt": "BOGO bread",
+      "itemIds": [
+        "SKU-100256",
+        "SKU-100263"
+      ],
+      "qty": 1,
+      "getQty": 1,
+      "getPct": 100,
+      "stackable": false,
+      "funder": "Lone Star Bakery",
+      "vendorFundedPct": 100,
+      "redemptionsWeek": 734,
+      "costWeek": 1480.74,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-MM-401",
+      "type": "MIX_MATCH",
+      "name": "Any 3 household essentials for $25",
+      "receipt": "Any 3 for $25.00",
+      "itemIds": [
+        "SKU-100354",
+        "SKU-100361",
+        "SKU-100368",
+        "SKU-100375"
+      ],
+      "qty": 3,
+      "price": 25,
+      "stackable": false,
+      "funder": "BrightHome Products",
+      "vendorFundedPct": 40,
+      "redemptionsWeek": 987,
+      "costWeek": 6884.19,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-PC-501",
+      "type": "PCT_OFF",
+      "name": "10% off all Fresh Produce",
+      "receipt": "Produce 10% off",
+      "categories": [
+        "Fresh Produce"
+      ],
+      "pct": 10,
+      "stackable": false,
+      "funder": "John Henry",
+      "vendorFundedPct": 0,
+      "redemptionsWeek": 2034,
+      "costWeek": 789.96,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-SS-601",
+      "type": "SPEND_SAVE",
+      "name": "$10 off when you spend $75",
+      "receipt": "Spend $75 save $10",
+      "threshold": 75,
+      "amount": 10,
+      "excludeDepts": [
+        "Beer & Wine",
+        "Gift Cards"
+      ],
+      "stackable": true,
+      "funder": "John Henry",
+      "vendorFundedPct": 0,
+      "redemptionsWeek": 726,
+      "costWeek": 7761.29,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-EM-701",
+      "type": "EMPLOYEE",
+      "name": "Team member discount 10%",
+      "receipt": "Team member 10%",
+      "pct": 10,
+      "excludeDepts": [
+        "Beer & Wine",
+        "Gift Cards"
+      ],
+      "stackable": true,
+      "funder": "John Henry",
+      "vendorFundedPct": 0,
+      "redemptionsWeek": 1309,
+      "costWeek": 4052.88,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "inactive",
+      "id": "R-BP-801",
+      "type": "BONUS_POINTS",
+      "name": "+200 bonus points on Greek Yogurt 32 oz",
+      "receipt": "Bonus points",
+      "itemIds": [
+        "SKU-100221"
+      ],
+      "points": 200,
+      "membersOnly": true,
+      "stackable": true,
+      "funder": "Prairie Gold Dairy",
+      "vendorFundedPct": 100,
+      "redemptionsWeek": 1414,
+      "costWeek": 1793.54,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-PO-901",
+      "type": "BONUS_POINTS",
+      "name": "Personal offer: 500 bonus points when you spend $50",
+      "receipt": "Your offer: +500 pts",
+      "minSpend": 50,
+      "points": 500,
+      "membersOnly": true,
+      "targetMemberIds": [
+        "M-1001"
+      ],
+      "stackable": true,
+      "funder": "John Henry",
+      "vendorFundedPct": 0,
+      "redemptionsWeek": 2193,
+      "costWeek": 2770.45,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-PO-902",
+      "type": "BONUS_POINTS",
+      "name": "Personal offer: 250 bonus points on Sparkling Water 8 pk",
+      "receipt": "Your offer: +250 pts",
+      "itemIds": [
+        "SKU-100326"
+      ],
+      "points": 250,
+      "membersOnly": true,
+      "targetMemberIds": [
+        "M-1002"
+      ],
+      "stackable": true,
+      "funder": "Clearwell Beverages",
+      "vendorFundedPct": 100,
+      "redemptionsWeek": 339,
+      "costWeek": 432.61,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "status": "live",
+      "id": "R-PO-903",
+      "type": "BONUS_POINTS",
+      "name": "Personal offer: 300 bonus points on any Fresh Produce $10+",
+      "receipt": "Your offer: +300 pts",
+      "categories": [
+        "Fresh Produce"
+      ],
+      "minSpend": 10,
+      "points": 300,
+      "membersOnly": true,
+      "targetMemberIds": [
+        "M-1005"
+      ],
+      "stackable": true,
+      "funder": "John Henry",
+      "vendorFundedPct": 0,
+      "redemptionsWeek": 1029,
+      "costWeek": 1306.04,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "id": "R-MP-110",
+      "type": "MEMBER_PRICE",
+      "name": "Halloween Cola 12 pk $4.99 member price",
+      "receipt": "Member price",
+      "itemIds": [
+        "SKU-100319"
+      ],
+      "price": 4.99,
+      "membersOnly": true,
+      "stackable": false,
+      "start": "2026-10-19",
+      "end": "2026-11-01",
+      "status": "scheduled",
+      "funder": "Summit Drinks Co.",
+      "vendorFundedPct": 70,
+      "redemptionsWeek": 0,
+      "costWeek": 0,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    },
+    {
+      "id": "R-PC-120",
+      "type": "PCT_OFF",
+      "name": "Labor Day water 25% off",
+      "receipt": "Water 25% off",
+      "itemIds": [
+        "SKU-100298",
+        "SKU-100305"
+      ],
+      "pct": 25,
+      "stackable": false,
+      "start": "2026-09-07",
+      "end": "2026-09-13",
+      "status": "expired",
+      "funder": "Clearwell Beverages",
+      "vendorFundedPct": 50,
+      "redemptionsWeek": 5622,
+      "costWeek": 2126.58,
+      "channels": [
+        "All tills",
+        "Online checkout",
+        "App"
+      ],
+      "stores": "All 30 pilot stores"
+    }
+  ],
+  "coupons": [
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-S-01",
+      "code": "981200050",
+      "kind": "store",
+      "channel": "paper",
+      "name": "$5 off your $50 order",
+      "target": "basket",
+      "amount": 5,
+      "minSpend": 50,
+      "excludeDepts": [
+        "Beer & Wine",
+        "Gift Cards"
+      ],
+      "limitPerTxn": 1,
+      "exclusiveWith": [
+        "R-SS-601"
+      ],
+      "issued": 40000,
+      "redeemed": 3120,
+      "funder": "John Henry",
+      "redemptionsWeek": 510
+    },
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-S-02",
+      "code": "981200101",
+      "kind": "store",
+      "channel": "paper",
+      "name": "$1.00 off Shredded Mild Cheddar 8 oz",
+      "target": "item",
+      "itemIds": [
+        "SKU-100228"
+      ],
+      "amount": 1,
+      "limitPerTxn": 2,
+      "issued": 25000,
+      "redeemed": 1840,
+      "funder": "John Henry",
+      "redemptionsWeek": 437
+    },
+    {
+      "validFrom": "2026-08-31",
+      "validTo": "2026-09-26",
+      "status": "expired",
+      "id": "CP-S-03",
+      "code": "981200077",
+      "kind": "store",
+      "channel": "paper",
+      "name": "$2.00 off Glazed Donuts 12 ct",
+      "target": "item",
+      "itemIds": [
+        "SKU-100291"
+      ],
+      "amount": 2,
+      "limitPerTxn": 1,
+      "issued": 15000,
+      "redeemed": 2210,
+      "funder": "John Henry",
+      "redemptionsWeek": 0
+    },
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-S-04",
+      "code": "981200333",
+      "kind": "store",
+      "channel": "paper",
+      "name": "$3.00 off Sports Drink 8 pk (first 500)",
+      "target": "item",
+      "itemIds": [
+        "SKU-100333"
+      ],
+      "amount": 3,
+      "limitPerTxn": 1,
+      "totalLimit": 500,
+      "issued": 500,
+      "redeemed": 500,
+      "funder": "John Henry",
+      "redemptionsWeek": 500
+    },
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-M-01",
+      "code": "8110014930011",
+      "kind": "manufacturer",
+      "channel": "paper",
+      "name": "$1.00 off Laundry Detergent 92 oz",
+      "target": "item",
+      "itemIds": [
+        "SKU-100354"
+      ],
+      "amount": 1,
+      "limitPerTxn": 2,
+      "issued": 120000,
+      "redeemed": 4410,
+      "funder": "BrightHome Products",
+      "redemptionsWeek": 597
+    },
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-M-02",
+      "code": "8110027210075",
+      "kind": "manufacturer",
+      "channel": "paper",
+      "name": "$0.75 off Plain Greek Yogurt 32 oz",
+      "target": "item",
+      "itemIds": [
+        "SKU-100221"
+      ],
+      "amount": 0.75,
+      "limitPerTxn": 2,
+      "issued": 90000,
+      "redeemed": 2980,
+      "funder": "Prairie Gold Dairy",
+      "redemptionsWeek": 546
+    },
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-M-03",
+      "code": "8110036640150",
+      "kind": "manufacturer",
+      "channel": "paper",
+      "name": "$1.50 off when you buy 2 Sports Drink 8 pk",
+      "target": "item",
+      "itemIds": [
+        "SKU-100333"
+      ],
+      "amount": 1.5,
+      "minQty": 2,
+      "limitPerTxn": 1,
+      "issued": 60000,
+      "redeemed": 1170,
+      "funder": "Summit Drinks Co.",
+      "redemptionsWeek": 168
+    },
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-D-01",
+      "code": "DIG-STRAW1",
+      "kind": "store",
+      "channel": "digital",
+      "name": "$1.00 off Strawberries 1 lb",
+      "target": "item",
+      "itemIds": [
+        "SKU-100410"
+      ],
+      "amount": 1,
+      "limitPerTxn": 1,
+      "issued": 18000,
+      "redeemed": 2650,
+      "clipped": 7420,
+      "funder": "John Henry",
+      "redemptionsWeek": 767
+    },
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-D-02",
+      "code": "DIG-BATH2",
+      "kind": "manufacturer",
+      "channel": "digital",
+      "name": "$2.00 off Bath Tissue 12 Mega Rolls",
+      "target": "item",
+      "itemIds": [
+        "SKU-100375"
+      ],
+      "amount": 2,
+      "limitPerTxn": 1,
+      "issued": 30000,
+      "redeemed": 1980,
+      "clipped": 6310,
+      "funder": "BrightHome Products",
+      "redemptionsWeek": 743
+    },
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-D-03",
+      "code": "DIG-MUFF20",
+      "kind": "store",
+      "channel": "digital",
+      "name": "20% off Blueberry Muffins 4 ct",
+      "target": "item",
+      "itemIds": [
+        "SKU-100284"
+      ],
+      "pct": 20,
+      "limitPerTxn": 1,
+      "issued": 12000,
+      "redeemed": 910,
+      "clipped": 3380,
+      "funder": "John Henry",
+      "redemptionsWeek": 606
+    },
+    {
+      "validFrom": "2026-09-21",
+      "validTo": "2026-10-18",
+      "status": "live",
+      "id": "CP-D-04",
+      "code": "DIG-HALF50",
+      "kind": "manufacturer",
+      "channel": "digital",
+      "name": "$0.50 off Half & Half 1 qt",
+      "target": "item",
+      "itemIds": [
+        "SKU-100249"
+      ],
+      "amount": 0.5,
+      "limitPerTxn": 1,
+      "issued": 20000,
+      "redeemed": 1420,
+      "clipped": 5105,
+      "funder": "Prairie Gold Dairy",
+      "redemptionsWeek": 318
+    }
+  ],
+  "members": [
+    {
+      "id": "M-1001",
+      "name": "Maria Delgado",
+      "phone": "2145550142",
+      "card": "7700 1001 4421",
+      "tier": "Gold",
+      "rewardsPlus": true,
+      "points": 8420,
+      "clipped": [
+        "CP-D-01",
+        "CP-D-02"
+      ],
+      "offerIds": [
+        "R-PO-901"
+      ],
+      "since": "2019-04-12",
+      "homeStore": "Plano Market"
+    },
+    {
+      "id": "M-1002",
+      "name": "Daniel Okafor",
+      "phone": "4695550117",
+      "card": "7700 1002 1187",
+      "tier": "Silver",
+      "rewardsPlus": false,
+      "points": 3150,
+      "clipped": [
+        "CP-D-03"
+      ],
+      "offerIds": [
+        "R-PO-902"
+      ],
+      "since": "2021-09-03",
+      "homeStore": "Plano Market"
+    },
+    {
+      "id": "M-1003",
+      "name": "Priya Raman",
+      "phone": "9725550188",
+      "card": "7700 1003 8812",
+      "tier": "Member",
+      "rewardsPlus": false,
+      "points": 640,
+      "clipped": [
+        "CP-D-04"
+      ],
+      "offerIds": [],
+      "since": "2025-11-20",
+      "homeStore": "Plano Market"
+    },
+    {
+      "id": "M-1004",
+      "name": "James Whitaker",
+      "phone": "8175550103",
+      "card": "7700 1004 0353",
+      "tier": "Gold",
+      "rewardsPlus": false,
+      "points": 12900,
+      "clipped": [],
+      "offerIds": [],
+      "since": "2017-02-08",
+      "homeStore": "Plano Market"
+    },
+    {
+      "id": "M-1005",
+      "name": "Sofia Herrera",
+      "phone": "9565550164",
+      "card": "7700 1005 6461",
+      "tier": "Silver",
+      "rewardsPlus": true,
+      "points": 2275,
+      "clipped": [
+        "CP-D-01",
+        "CP-D-03"
+      ],
+      "offerIds": [
+        "R-PO-903"
+      ],
+      "since": "2022-06-30",
+      "homeStore": "Plano Market"
+    },
+    {
+      "id": "M-1006",
+      "name": "Tom Nguyen",
+      "phone": "5125550129",
+      "card": "7700 1006 2990",
+      "tier": "Member",
+      "rewardsPlus": false,
+      "points": 0,
+      "clipped": [],
+      "offerIds": [],
+      "since": "2026-09-29",
+      "homeStore": "Plano Market"
+    }
+  ],
+  "loyalty": {
+    "programme": "John Henry Rewards",
+    "earnPerDollar": 1,
+    "tierMultiplier": {
+      "Member": 1,
+      "Silver": 1.25,
+      "Gold": 1.5
+    },
+    "redeemBlock": 1000,
+    "redeemValue": 5,
+    "rewardsPlus": {
+      "fee": 59,
+      "annualRewardPct": 2
+    },
+    "excludedDepts": [
+      "Beer & Wine",
+      "Gift Cards"
+    ]
+  },
+  "payments": {
+    "cards": [
+      {
+        "id": "visa",
+        "label": "Visa •••• 4242",
+        "brand": "Visa",
+        "last4": "4242",
+        "outcome": "approve",
+        "entry": "tap"
+      },
+      {
+        "id": "debit",
+        "label": "Debit Mastercard •••• 8831",
+        "brand": "Debit",
+        "last4": "8831",
+        "outcome": "approve",
+        "entry": "insert",
+        "pin": true
+      },
+      {
+        "id": "amex",
+        "label": "Amex •••• 1005",
+        "brand": "Amex",
+        "last4": "1005",
+        "outcome": "approve",
+        "entry": "tap"
+      },
+      {
+        "id": "mc-decline",
+        "label": "Mastercard •••• 0119",
+        "brand": "Mastercard",
+        "last4": "0119",
+        "outcome": "decline",
+        "declineReason": "Declined: insufficient funds (51)",
+        "entry": "insert"
+      }
+    ],
+    "floorLimit": 100,
+    "ebt": {
+      "label": "Lone Star Card (EBT) •••• 7730",
+      "snapBalance": 182.4,
+      "cashBalance": 0
+    },
+    "giftCards": [
+      {
+        "number": "6006491200001234",
+        "balance": 50
+      },
+      {
+        "number": "6006491200005678",
+        "balance": 12.35
+      },
+      {
+        "number": "6006491200009012",
+        "balance": 0
+      }
+    ],
+    "cashQuick": [
+      5,
+      10,
+      20,
+      50,
+      100
+    ]
+  },
+  "shift": {
+    "openedAt": "2026-09-29T07:00:00",
+    "transactions": 64,
+    "items": 652,
+    "grossSales": 5102.4,
+    "discounts": 482.47,
+    "returns": 79.34,
+    "tax": 187.13,
+    "tenders": {
+      "Cash": 1656.74,
+      "Card": 2357.21,
+      "SNAP EBT": 405.03,
+      "Gift card": 96.45,
+      "Points": 59.61
+    },
+    "voids": 2,
+    "voidValue": 23.51,
+    "overrides": 2,
+    "noSales": 3,
+    "cashRefunds": 21.32,
+    "cashPickups": 1000
+  },
+  "stacking": {
+    "order": [
+      {
+        "step": 1,
+        "key": "PRICE",
+        "name": "Item price",
+        "detail": "Shelf price × quantity (or price per lb × scale weight). Manager price overrides happen here and take the line out of item promotions."
+      },
+      {
+        "step": 2,
+        "key": "MEMBER",
+        "name": "Member price",
+        "detail": "Members identified by phone, card or app get member-only prices."
+      },
+      {
+        "step": 3,
+        "key": "DEALS",
+        "name": "Multi-buy, BOGO, mix & match",
+        "detail": "Grouped deals. Units are grouped most-expensive first, and the saving is shared across the units in each group."
+      },
+      {
+        "step": 4,
+        "key": "PCT",
+        "name": "% off",
+        "detail": "Category or item % off."
+      },
+      {
+        "step": 5,
+        "key": "BASKET",
+        "name": "Basket threshold",
+        "detail": "Spend & save on the eligible subtotal after steps 1–4, shared across eligible lines by value."
+      },
+      {
+        "step": 6,
+        "key": "STORE_CPN",
+        "name": "Store coupons",
+        "detail": "Paper and digital store coupons. Paid by the store, so they reduce taxable sales."
+      },
+      {
+        "step": 7,
+        "key": "MFR_CPN",
+        "name": "Manufacturer coupons",
+        "detail": "Reimbursed by the manufacturer. In Texas, tax is charged on the price before these."
+      },
+      {
+        "step": 8,
+        "key": "EMPLOYEE",
+        "name": "Employee discount",
+        "detail": "10% of what's left, excluding alcohol and gift cards."
+      }
+    ],
+    "types": [
+      "Member price",
+      "Multi-buy / BOGO / mix & match",
+      "% off",
+      "Spend & save",
+      "Store coupon",
+      "Manufacturer coupon",
+      "Employee",
+      "Bonus points"
+    ],
+    "matrix": [
+      [
+        "—",
+        "Best of",
+        "Best of",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks"
+      ],
+      [
+        "Best of",
+        "Best of",
+        "Best of",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks"
+      ],
+      [
+        "Best of",
+        "Best of",
+        "—",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks"
+      ],
+      [
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "—",
+        "Exclusive*",
+        "Stacks",
+        "Stacks",
+        "Stacks"
+      ],
+      [
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Exclusive*",
+        "1 per unit",
+        "Stacks",
+        "Stacks",
+        "Stacks"
+      ],
+      [
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "1 per unit",
+        "Stacks",
+        "Stacks"
+      ],
+      [
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "—",
+        "Stacks"
+      ],
+      [
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks",
+        "Stacks"
+      ]
+    ],
+    "notes": [
+      "Only one item-level promotion (member price, multi-buy, BOGO, mix & match, % off) applies to a unit. If several qualify, the till picks the one that saves the customer the most.",
+      "One store coupon and one manufacturer coupon can be used on the same item. Neither can take a line below $0.00.",
+      "*The \"$5 off $50\" store coupon doesn't combine with \"Spend $75 save $10\". The customer gets whichever applies; spend & save wins when both qualify.",
+      "Alcohol and gift cards are excluded from spend & save, the employee discount and points. Gift cards get no discounts at all.",
+      "Lines with a manager price override are excluded from item promotions (member price, deals, % off). Basket offers, coupons and the employee discount still apply."
+    ]
+  }
+}

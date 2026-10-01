@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# The reference prototype is read-only: keep it byte-exact.
+reference/** -text

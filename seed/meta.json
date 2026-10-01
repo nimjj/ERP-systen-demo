@@ -1,0 +1,6 @@
+{
+  "storeId": "US-DFW-1101",
+  "sourceAsOf": "2026-09-28T14:35:00",
+  "source": "reference/mock",
+  "generator": "scripts/extract-seed.ts"
+}

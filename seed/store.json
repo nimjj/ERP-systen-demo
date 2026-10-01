@@ -1,0 +1,41 @@
+{
+  "id": "US-DFW-1101",
+  "name": "Plano Market",
+  "region": "Dallas–Fort Worth",
+  "regionCode": "DFW",
+  "format": "Market",
+  "group": "pilot",
+  "displayName": "John Henry Plano Market",
+  "number": "1101",
+  "address": [
+    "2396 Preston Ridge Pkwy",
+    "Plano, TX 75071"
+  ],
+  "phone": "(972) 555-0100",
+  "lanes": 12,
+  "manager": "Ana Kessler",
+  "districtManager": "Gloria Pennington",
+  "country": {
+    "code": "US",
+    "name": "United States",
+    "currency": "USD",
+    "timezone": "America/Chicago",
+    "pilotMarket": "Texas"
+  },
+  "dcs": [
+    {
+      "id": "US-DC-LAN",
+      "name": "Lancaster TX Ambient DC",
+      "type": "Ambient",
+      "city": "Lancaster, TX"
+    },
+    {
+      "id": "US-DC-TMP",
+      "name": "Temple TX Perishables DC",
+      "type": "Chilled & fresh",
+      "city": "Temple, TX"
+    }
+  ],
+  "asOf": "2026-09-28T14:35:00",
+  "asOfLabel": "Mon 28 Sep, 14:35 CT"
+}

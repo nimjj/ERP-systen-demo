@@ -1,0 +1,146 @@
+[
+  {
+    "id": "SEG-01",
+    "name": "Lapsed Gold members",
+    "definition": "Gold tier, no visit in 45+ days",
+    "size": 5820,
+    "source": "Loyalty (Rewards) segments · refreshed nightly",
+    "reachable": {
+      "Email": 3453,
+      "SMS": 1320,
+      "Push": 1789,
+      "In-app": 2439,
+      "Receipt message": 5413,
+      "Digital flyer": 5820
+    },
+    "avgSpend90": 518
+  },
+  {
+    "id": "SEG-02",
+    "name": "New parents",
+    "definition": "First baby-category purchase in the last 6 months",
+    "size": 11940,
+    "source": "Loyalty (Rewards) segments · refreshed nightly",
+    "reachable": {
+      "Email": 7844,
+      "SMS": 2897,
+      "Push": 3904,
+      "In-app": 4725,
+      "Receipt message": 11104,
+      "Digital flyer": 11940
+    },
+    "avgSpend90": 663
+  },
+  {
+    "id": "SEG-03",
+    "name": "BBQ buyers",
+    "definition": "Bought charcoal, buns & meat together 2+ times this year",
+    "size": 36210,
+    "source": "Loyalty (Rewards) segments · refreshed nightly",
+    "reachable": {
+      "Email": 24806,
+      "SMS": 7529,
+      "Push": 12364,
+      "In-app": 16468,
+      "Receipt message": 33675,
+      "Digital flyer": 36210
+    },
+    "avgSpend90": 334
+  },
+  {
+    "id": "SEG-04",
+    "name": "Plus renewing in 30 days",
+    "definition": "Rewards Plus, renewal date within 30 days",
+    "size": 1602,
+    "source": "Loyalty (Rewards) segments · refreshed nightly",
+    "reachable": {
+      "Email": 902,
+      "SMS": 433,
+      "Push": 467,
+      "In-app": 757,
+      "Receipt message": 1490,
+      "Digital flyer": 1602
+    },
+    "avgSpend90": 294
+  },
+  {
+    "id": "SEG-05",
+    "name": "High-value, churn risk",
+    "definition": "Top 20% spend; churn model risk High",
+    "size": 9480,
+    "source": "Loyalty (Rewards) segments · refreshed nightly",
+    "reachable": {
+      "Email": 5265,
+      "SMS": 2078,
+      "Push": 2931,
+      "In-app": 4247,
+      "Receipt message": 8816,
+      "Digital flyer": 9480
+    },
+    "avgSpend90": 729
+  },
+  {
+    "id": "SEG-06",
+    "name": "Produce-light families",
+    "definition": "Household 3+, produce < 8% of basket",
+    "size": 27730,
+    "source": "Loyalty (Rewards) segments · refreshed nightly",
+    "reachable": {
+      "Email": 19657,
+      "SMS": 6843,
+      "Push": 9066,
+      "In-app": 10926,
+      "Receipt message": 25789,
+      "Digital flyer": 27730
+    },
+    "avgSpend90": 204
+  },
+  {
+    "id": "SEG-07",
+    "name": "Business members — restaurants",
+    "definition": "Business / Business Plus, segment Restaurant or Caterer",
+    "size": 1318,
+    "source": "Loyalty (Rewards) segments · refreshed nightly",
+    "reachable": {
+      "Email": 886,
+      "SMS": 340,
+      "Push": 462,
+      "In-app": 506,
+      "Receipt message": 1226,
+      "Digital flyer": 1318
+    },
+    "avgSpend90": 816
+  },
+  {
+    "id": "SEG-08",
+    "name": "Halloween buyers 2025",
+    "definition": "Bought candy or costumes 15–31 Oct 2025",
+    "size": 64110,
+    "source": "Loyalty (Rewards) segments · refreshed nightly",
+    "reachable": {
+      "Email": 44050,
+      "SMS": 14409,
+      "Push": 20417,
+      "In-app": 24189,
+      "Receipt message": 59622,
+      "Digital flyer": 64110
+    },
+    "avgSpend90": 782
+  },
+  {
+    "id": "SEG-09",
+    "name": "All active members",
+    "definition": "Visited in the last 90 days",
+    "size": 278562,
+    "source": "Loyalty (Rewards) segments · refreshed nightly",
+    "reachable": {
+      "Email": 174068,
+      "SMS": 62198,
+      "Push": 87754,
+      "In-app": 137889,
+      "Receipt message": 259063,
+      "Digital flyer": 278562
+    },
+    "avgSpend90": 576
+  }
+]
