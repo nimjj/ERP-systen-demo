@@ -6,6 +6,7 @@ import { LocalEventStore } from '../../src/store/localEventStore'
 import { LOG_KEY, saveLog } from '../../src/store/persistence'
 import positionsJson from '../../../seed/positions.json'
 import proposalsJson from '../../../seed/proposals.json'
+import { s1, s2, s3 } from '../../src/scenarios'
 import { MemoryStorage, note } from '../helpers'
 
 const makeStore = (storage = new MemoryStorage()) =>
@@ -65,6 +66,16 @@ describe('A13 reset', () => {
   it('a corrupt log is ignored', () => {
     const storage = new MemoryStorage()
     storage.setItem(LOG_KEY, '{not json')
+    expect(makeStore(storage).getState()).toEqual(buildSeedState())
+  })
+
+  it('reset after playing S1, S2 and S3 in full restores the seed exactly, here and from storage', () => {
+    const storage = new MemoryStorage()
+    const store = makeStore(storage)
+    for (const scenario of [s1, s2, s3]) for (const step of scenario.steps) for (const d of step.next(store.getState(), { shortShip: true })) store.append(d)
+    expect(store.getEvents().length).toBeGreaterThan(90)
+    store.reset()
+    expect(store.getState()).toEqual(buildSeedState())
     expect(makeStore(storage).getState()).toEqual(buildSeedState())
   })
 })

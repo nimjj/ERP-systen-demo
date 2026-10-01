@@ -149,7 +149,7 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
         <div className="till-side">
           <button className="scan-btn" onClick={scanNext}>
             <span>▮▯▮▮ Scan next item</span>
-            <span className="muted-on-amber">simulated scanner · {till.scanScript.length}-item script</span>
+            <span className="muted-on-amber">simulated scanner</span>
           </button>
           <div className="field-row">
             <select value={lookup} onChange={(e) => setLookup(e.target.value)} aria-label="Item lookup">

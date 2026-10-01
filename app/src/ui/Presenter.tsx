@@ -12,11 +12,11 @@ import { demoTuning } from '../config/demoTuning'
 import type { DemoEvent } from '../domain/types'
 import { scenarios, type Scenario } from '../scenarios'
 import { Avatar, initials } from './components'
-import { ACTOR_NAME, describeEvent } from './describe'
+import { ACTOR_NAME, ACTOR_SHORT, describeEvent, TYPE_LABEL } from './describe'
 import { usePresenter, type ScenarioRun } from './PresenterContext'
 import { useAppState, useEventStore } from './StoreContext'
 
-const ACTOR_LABEL = { jamal: 'Jamal', aisha: 'Aisha', emily: 'Emily', priya: 'Priya', presenter: 'Presenter' } as const
+const ACTOR_LABEL = { jamal: 'Jamal', aisha: 'Aisha', emily: 'Emily', priya: 'Priya', presenter: 'Presenter', external: 'Supplier / FDA' } as const
 
 export function startRun(scenarioId: string, eventCount: number): ScenarioRun {
   return { scenarioId, step: 0, marks: [eventCount] }
@@ -198,7 +198,7 @@ function Timeline({ scenario, run, onClose }: { scenario: Scenario; run: Scenari
           <div>
             <div className="timeline-title">{scenario.title}: one connected timeline</div>
             <div className="muted small">
-              {scenario.steps.length} human actions → {total} events across four roles. Every reaction points back to the action that caused it.
+              {scenario.steps.length} actions → {total} events across four roles. Every reaction points back to the action that caused it.
             </div>
           </div>
           <button className="btn btn-quiet" onClick={onClose}>
@@ -215,7 +215,13 @@ function Timeline({ scenario, run, onClose }: { scenario: Scenario; run: Scenari
               <li key={i} className="tl-step">
                 <div className="tl-step-head">
                   <span className="tl-n">{i + 1}</span>
-                  {step.actor !== 'presenter' ? <Avatar actor={step.actor} label={initials(state.personas.find((p) => p.role === step.actor)!.name)} size="sm" /> : <span className="avatar avatar-sm avatar-system">P</span>}
+                  {step.actor === 'presenter' ? (
+                    <span className="avatar avatar-sm avatar-system">P</span>
+                  ) : step.actor === 'external' ? (
+                    <span className="avatar avatar-sm avatar-external">!</span>
+                  ) : (
+                    <Avatar actor={step.actor} label={initials(state.personas.find((p) => p.role === step.actor)!.name)} size="sm" />
+                  )}
                   <b>{step.title}</b>
                   <span className="muted small">
                     {evs.length} {evs.length === 1 ? 'event' : 'events'}
@@ -225,8 +231,12 @@ function Timeline({ scenario, run, onClose }: { scenario: Scenario; run: Scenari
                   {shown.map((e) => (
                     <li key={e.id} style={{ paddingLeft: depthOf(byId, e) * 18 }} className={e.causedBy ? 'tl-reaction' : 'tl-root'}>
                       <span className="stream-n">#{index.get(e.id)}</span>
-                      <span className="tl-who">{e.causedBy ? '↳' : ACTOR_NAME[e.actor]}</span>
-                      <span className="stream-type">{e.type}</span>
+                      <span className="tl-who" title={ACTOR_NAME[e.actor]}>
+                        {e.causedBy ? '↳' : ACTOR_SHORT[e.actor]}
+                      </span>
+                      <span className="stream-type" title={e.type}>
+                        {TYPE_LABEL[e.type]}
+                      </span>
                       <span className="tl-desc">{describeEvent(state, e)}</span>
                     </li>
                   ))}

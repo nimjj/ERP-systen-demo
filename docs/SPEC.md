@@ -283,3 +283,8 @@ Agreed with the client owner on 2026-10-01. Every resulting data change is logge
 15. **Three events added to §4:** `INBOUND_HELD` (open order held), `RECALL_SCAN_BLOCKED` (the till refused a scan; increments the recall's `posBlock.blockedScans`), `RECALL_NOTICE_SENT` (Emily sends the drafted notice).
 16. **Customer notice counts are the recall record's network counts** (1,284 member buyers; push 1,102 / email 1,219 / SMS 388; 173 refunds; 265 non-member sales; signage), not Plano-only.
 17. **Recalled items are not gaps:** an empty recalled shelf is left out of Aisha's gap scan.
+
+### M6 notes
+
+18. **Recall root actor is `external`, shown as "Supplier / FDA notice".** A12 accepts chains that start at one of the four people or at an external notice; reactions are always `system`.
+19. **An offer's campaign follows it:** publishing OF-3101 sets CMP-505 Live, pausing sets it Paused.

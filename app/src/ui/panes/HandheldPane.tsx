@@ -219,7 +219,13 @@ export function HandheldPane({ onExpand }: { onExpand?: () => void }) {
             <>
               <h3 className="phone-title">Good morning 👋</h3>
               <p className="muted small">
-                You have <Flash value={openCount} /> open tasks. High priority first.
+                {openCount > 0 ? (
+                  <>
+                    You have <Flash value={openCount} /> open {openCount === 1 ? 'task' : 'tasks'}. High priority first.
+                  </>
+                ) : (
+                  'All done for now. New tasks will appear here.'
+                )}
               </p>
               <ul className="tasks">
                 {tasks.map((t) => {

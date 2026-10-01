@@ -131,7 +131,7 @@ export function sampleDrafts(state: AppState): Record<EventType, EventDraft> {
     STOCK_RISK_CLEARED: { type: 'STOCK_RISK_CLEARED', actor: 'system', payload: { offerId: 'OF-3101', sku: 'SKU-100221', coverDays: 1.5 } },
     SHELF_REFILLED: { type: 'SHELF_REFILLED', actor: 'aisha', payload: { sku: 'SKU-100221', qty: 8 } },
     COUNT_SUBMITTED: { type: 'COUNT_SUBMITTED', actor: 'aisha', payload: { countId: 'CNT-44821', lines: [{ sku: 'SKU-100214', systemQty: 19, actualQty: 0 }] } },
-    RECALL_ISSUED: { type: 'RECALL_ISSUED', actor: 'system', payload: { recallId: 'RCL-2026-014', sku: 'SKU-100228', lots: ['PGD-26261A'], qty: 31 } },
+    RECALL_ISSUED: { type: 'RECALL_ISSUED', actor: 'external', payload: { recallId: 'RCL-2026-014', sku: 'SKU-100228', lots: ['PGD-26261A'], qty: 31 } },
     RECALL_PULLED: { type: 'RECALL_PULLED', actor: 'aisha', payload: { recallId: 'RCL-2026-014', sku: 'SKU-100228', lots: ['PGD-26261A'], qty: 12 } },
     RECALL_SCAN_BLOCKED: { type: 'RECALL_SCAN_BLOCKED', actor: 'jamal', payload: { recallId: 'RCL-2026-014', sku: 'SKU-100228', lane: 4 } },
     RECALL_NOTICE_SENT: { type: 'RECALL_NOTICE_SENT', actor: 'emily', payload: { recallId: 'RCL-2026-014', push: 1102, email: 1219, sms: 388 } },

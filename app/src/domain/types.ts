@@ -4,7 +4,14 @@
  */
 
 export type Role = 'jamal' | 'aisha' | 'emily' | 'priya'
-export type Actor = Role | 'system'
+/**
+ * Who emitted an event. 'system' = a reaction rule (never a root);
+ * 'external' = a notice from outside the store (supplier / FDA recall), a valid root.
+ */
+export type Actor = Role | 'system' | 'external'
+
+/** Actors that may start a causal chain (A12): the four people and external notices. */
+export const ROOT_ACTORS: readonly Actor[] = ['jamal', 'aisha', 'emily', 'priya', 'external']
 export type Severity = 'info' | 'success' | 'warning' | 'critical'
 
 export interface Persona {

@@ -16,10 +16,13 @@ const reducers: { [T in EventType]?: Reducer<T> } = {
   OFFER_PUBLISHED: (d, p) => {
     const o = d.offers.find((x) => x.id === p.offerId)
     if (o) o.status = 'Live'
+    // The offer's campaign goes out with it.
+    for (const c of d.campaigns) if (c.offerId === p.offerId) c.status = 'Live'
   },
   OFFER_PAUSED: (d, p) => {
     const o = d.offers.find((x) => x.id === p.offerId)
     if (o) o.status = 'Paused'
+    for (const c of d.campaigns) if (c.offerId === p.offerId) c.status = 'Paused'
   },
   PROMO_SUBMITTED: (d, p) => {
     const promo = d.promos.promotions.find((x) => x.id === p.promoId)

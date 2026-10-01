@@ -83,10 +83,10 @@ export function refillShelf(position: Position): EventDraft {
 }
 
 // ---------------------------------------------------------------- Recall (ops, Jamal, Aisha, Emily)
-/** Ops issues the recall (Presenter control / S3 step 1). */
+/** A supplier / FDA recall notice arrives (Presenter control / S3 step 1): an external root event. */
 export function issueRecall(recall: Recall): EventDraft {
   const qty = recall.stores.reduce((n, s) => n + s.lots.reduce((m, l) => m + l.onHand, 0), 0)
-  return { type: 'RECALL_ISSUED', actor: 'system', payload: { recallId: recall.id, sku: recall.itemId, lots: recall.lots.map((l) => l.lot), qty } }
+  return { type: 'RECALL_ISSUED', actor: 'external', payload: { recallId: recall.id, sku: recall.itemId, lots: recall.lots.map((l) => l.lot), qty } }
 }
 
 /** The till refused a scan of a recalled item. */

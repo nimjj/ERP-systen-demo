@@ -67,7 +67,7 @@ function Row({ p, selected, onSelect }: { p: Proposal; selected: boolean; onSele
     <tr className={`${selected ? 'row-selected' : ''} ${p.status === 'PENDING_REVIEW' ? 'row-pending' : ''}`} onClick={onSelect}>
       <td className="item-cell">
         <div className="cell-main">{p.itemName}</div>
-        <div className="muted small">{p.id}</div>
+        <div className="muted small">{p.supplierName}</div>
       </td>
       <td className="num">
         <Flash value={p.proposedQty} className="qty">
@@ -146,7 +146,7 @@ export function PlannerPane({ onExpand }: { onExpand?: () => void }) {
       onExpand={onExpand}
       actions={
         <Flash value={pending}>
-          <Chip tone={pending ? 'amber' : 'green'}>{pending} need review</Chip>
+          <Chip tone={pending ? 'amber' : 'green'}>{pending ? `${pending} need review` : 'Nothing to review'}</Chip>
         </Flash>
       }
     >

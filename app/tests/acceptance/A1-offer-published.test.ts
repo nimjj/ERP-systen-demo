@@ -8,6 +8,7 @@ describe('A1 offer published', () => {
     expect(sim.state.till.rules.find((r) => r.id === 'R-BP-801')!.status).toBe('inactive')
     sim.do(publishOffer())
     expect(sim.offer('OF-3101').status).toBe('Live')
+    expect(sim.state.campaigns.find((c) => c.id === 'CMP-505')!.status).toBe('Live') // its campaign goes out with it
     expect(sim.state.till.rules.find((r) => r.id === 'R-BP-801')!.status).toBe('live')
     expect(sim.state.notifications.some((n) => n.role === 'jamal' && n.text.includes('+200 bonus points'))).toBe(true)
   })

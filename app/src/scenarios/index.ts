@@ -14,7 +14,8 @@ export interface StepContext {
 }
 
 export interface ScenarioStep {
-  actor: Role | 'presenter'
+  /** Who acts: a person, the presenter (helper), or an external notice. */
+  actor: Role | 'presenter' | 'external'
   title: string
   /** What to click in the pane to do it by hand. */
   how: string
@@ -158,8 +159,8 @@ export const s3: Scenario = {
   setup: [],
   steps: [
     {
-      actor: 'presenter',
-      title: 'Ops issues recall RCL-2026-014 (Shredded Mild Cheddar)',
+      actor: 'external',
+      title: 'A supplier / FDA recall notice arrives: RCL-2026-014 Shredded Mild Cheddar',
       how: 'Presenter → Issue recall RCL-2026-014',
       watch: 'All four panes change at once: till blocks cheddar, Aisha gets 3 pull tasks, Priya’s cheddar order (84 units) is held, Emily’s PRM-2698 is flagged and a customer notice is drafted.',
       next: (s) => (recallOf(s).status === 'NOT_ISSUED' ? [issueRecall(recallOf(s))] : []),

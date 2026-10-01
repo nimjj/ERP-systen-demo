@@ -2,7 +2,7 @@
 import { useMemo, useState } from 'react'
 import type { DemoEvent } from '../domain/types'
 import { Avatar, useEventIndex } from './components'
-import { ACTOR_NAME, describeEvent } from './describe'
+import { ACTOR_INITIAL, ACTOR_NAME, describeEvent, TYPE_LABEL } from './describe'
 import { useAppState } from './StoreContext'
 
 /** The event's ancestors up to the root, and every descendant of that root. */
@@ -61,8 +61,10 @@ export function EventStream() {
                 return (
                   <li key={e.id} className={`${inChain ? 'in-chain' : ''} ${chain && !inChain ? 'dim' : ''} ${e.causedBy ? 'reaction' : 'root'}`}>
                     <span className="stream-n">#{n}</span>
-                    <Avatar actor={e.actor} label={ACTOR_NAME[e.actor][0]} size="sm" />
-                    <span className="stream-type">{e.type}</span>
+                    <Avatar actor={e.actor} label={ACTOR_INITIAL[e.actor]} size="sm" />
+                    <span className="stream-type" title={e.type}>
+                      {TYPE_LABEL[e.type]}
+                    </span>
                     <span className="stream-desc">{describeEvent(state, e)}</span>
                     {e.causedBy ? (
                       <button className="chip chip-cause" onClick={() => setFocus(focus === e.id ? null : e.id)} title="Highlight the chain">
