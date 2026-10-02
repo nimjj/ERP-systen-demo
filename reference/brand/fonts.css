@@ -1,6 +1,0 @@
-/* Jost, bundled locally (no runtime font requests). Same files the demo uses (@fontsource/jost). */
-@font-face{font-family:'Jost';font-style:normal;font-display:swap;font-weight:400;src:url('./fonts/jost-latin-400-normal.woff2') format('woff2')}
-@font-face{font-family:'Jost';font-style:normal;font-display:swap;font-weight:500;src:url('./fonts/jost-latin-500-normal.woff2') format('woff2')}
-@font-face{font-family:'Jost';font-style:normal;font-display:swap;font-weight:600;src:url('./fonts/jost-latin-600-normal.woff2') format('woff2')}
-@font-face{font-family:'Jost';font-style:normal;font-display:swap;font-weight:700;src:url('./fonts/jost-latin-700-normal.woff2') format('woff2')}
-@font-face{font-family:'Jost';font-style:normal;font-display:swap;font-weight:800;src:url('./fonts/jost-latin-800-normal.woff2') format('woff2')}
