@@ -11,6 +11,13 @@ A front-end-only demo where four people work in one shared, live state. When one
 
 No database, no login, no backend: data is JSON (`seed/`), state lives in the browser, and open windows stay in sync.
 
+This repo holds two demos, both in the client's SPAR theme:
+
+- **Flow demo** (`app/`): the four connected roles above. Everything below is about this one unless it says otherwise.
+- **Platform demo** (`reference/`): the original ~40-screen retail platform prototype (compiled, read-only). See [Platform demo](#platform-demo).
+
+Branches: `main-build` (default) has both demos, the tests and the build tooling. `flow-demo` is a trimmed copy with only the runnable flow demo.
+
 ## Requirements
 
 - Node.js 22.6 or newer (tested on Node 24)
@@ -45,6 +52,17 @@ Controls in the Presenter: **Simulate 10 sales** (ten yogurt sales at the till),
 
 See `docs/DEMO-SCRIPT.md` for a 6-minute client script.
 
+## Platform demo
+
+The full platform prototype (replenishment, forecast, receiving, store, inventory, purchase orders, overview and more) is a compiled app in `reference/`. Serve the folder with any static server:
+
+```bash
+cd reference
+python -m http.server 8080
+```
+
+then open http://localhost:8080. Its data comes from `reference/mock/*.json`; nothing is saved. It runs alongside the flow demo (different port).
+
 ## Reset
 
 - **Reset demo** (top bar), or **Reset** in the Presenter, returns every open window to the seed state.
@@ -75,7 +93,7 @@ cd app
 npm test
 ```
 
-245 tests, including every acceptance assertion in `docs/SPEC.md` §8 (A0–A15), one test file per reaction rule, and the three scenarios (played with Next and as pane clicks, which must give identical event logs).
+250 tests, including every acceptance assertion in `docs/SPEC.md` §8 (A0–A15), one test file per reaction rule, and the three scenarios (played with Next and as pane clicks, which must give identical event logs).
 
 Headless browser checks (use the locally installed Chrome; start the app first):
 
@@ -105,10 +123,12 @@ Every place the seed differs from the source data, and why, is listed in `seed/C
 CLAUDE.md            working rules for this repo
 docs/SPEC.md         source of truth: connections, events, rules, scenarios, acceptance tests (§13: decisions)
 docs/DEMO-SCRIPT.md  6-minute client script
+docs/THEME.md        SPAR theme brief; docs/brand/ (logo, client site, originals/)
+docs/planning/       build prompts (PROMPTS, MASTER-PROMPT) and the POC improvement spec
 PROGRESS.md          milestones, decisions, and the final review
-reference/           original compiled prototype (read-only)
+reference/           platform demo: original compiled prototype, SPAR-themed (read-only)
 seed/                Plano slice of the data + CHANGES.md
-scripts/             extract-seed.ts
+scripts/             extract-seed.ts, rebrand-reference.py
 app/                 Vite + React + TypeScript app
   src/config/        demoTuning.ts
   src/domain/        AppState and event types
