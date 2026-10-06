@@ -11,6 +11,8 @@ A front-end-only demo where four people work in one shared, live state. When one
 
 No database, no login, no backend: data is JSON (`seed/`), state lives in the browser, and open windows stay in sync.
 
+> **This is the `flow-demo` branch: the runnable flow demo only.** The test suite, the seed-extraction and rebrand scripts, and the platform demo (the original ~40-screen prototype in `reference/`) are on the default branch, `main-build`.
+
 ## Requirements
 
 - Node.js 22.6 or newer (tested on Node 24)
@@ -68,16 +70,11 @@ python -m http.server 8080
 
 then open http://localhost:8080 (opening `index.html` from the file system will not work; browsers block module scripts from `file://`).
 
-## Tests
+## Checks
 
-```bash
-cd app
-npm test
-```
+The unit and acceptance tests (250, covering every assertion in `docs/SPEC.md` §8) are on `main-build`; this branch has none, so `npm test` finds nothing to run.
 
-245 tests, including every acceptance assertion in `docs/SPEC.md` §8 (A0–A15), one test file per reaction rule, and the three scenarios (played with Next and as pane clicks, which must give identical event logs).
-
-Headless browser checks (use the locally installed Chrome; start the app first):
+Headless browser checks (use the locally installed Chrome; start the app first; run from `app/`):
 
 ```bash
 node scripts/scenarios.mjs http://localhost:5173/ <screenshot-folder>   # S1–S3, both ways, screenshot per step
@@ -86,18 +83,11 @@ node scripts/flow.mjs      http://localhost:5173/ <screenshot-folder>   # two-wi
 
 ## Theme
 
-The UI follows the client's SPAR theme: `docs/THEME.md` (brief, sampled colours, contrast results). All colours and the Jost font live in `app/src/ui/theme.css`; change them there. The original prototype in `reference/` is themed too (by `scripts/rebrand-reference.py`). Contrast check (start the app first): `node scripts/contrast-audit.mjs http://localhost:5173/` from `app/`.
+The UI follows the client's SPAR theme: `docs/THEME.md` (brief, sampled colours, contrast results). All colours and the Jost font live in `app/src/ui/theme.css`; change them there.
 
 ## Seed data
 
-`seed/` is generated from the original prototype's data in `reference/mock/` (read-only):
-
-```bash
-cd app
-npm run seed
-```
-
-Every place the seed differs from the source data, and why, is listed in `seed/CHANGES.md`. Every demo-only number lives in `app/src/config/demoTuning.ts`, labelled.
+`seed/` was generated from the original prototype's data (`reference/mock/`, by `scripts/extract-seed.ts`; both on `main-build`, so `npm run seed` does not work on this branch). Every place the seed differs from the source data, and why, is listed in `seed/CHANGES.md`. Every demo-only number lives in `app/src/config/demoTuning.ts`, labelled.
 
 ## Layout
 
@@ -105,11 +95,11 @@ Every place the seed differs from the source data, and why, is listed in `seed/C
 CLAUDE.md            working rules for this repo
 docs/SPEC.md         source of truth: connections, events, rules, scenarios, acceptance tests (§13: decisions)
 docs/DEMO-SCRIPT.md  6-minute client script
+docs/THEME.md        SPAR theme brief; docs/brand/ (logo, client site)
 PROGRESS.md          milestones, decisions, and the final review
-reference/           original compiled prototype (read-only)
 seed/                Plano slice of the data + CHANGES.md
-scripts/             extract-seed.ts
 app/                 Vite + React + TypeScript app
+  scripts/           headless browser checks (scenarios, flow, shot)
   src/config/        demoTuning.ts
   src/domain/        AppState and event types
   src/rules/         one file per reaction rule; engine/ (order-up-to, exceptions, points, till pricing, …)
@@ -117,5 +107,4 @@ app/                 Vite + React + TypeScript app
   src/scenarios/     S1–S3
   src/actions.ts     one builder per user action (used by panes and the Presenter)
   src/ui/            shell, panes, event stream, presenter
-  tests/             acceptance (A0–A15), rules, engine, scenarios
 ```
