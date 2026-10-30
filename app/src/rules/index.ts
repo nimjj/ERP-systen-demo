@@ -11,6 +11,8 @@ import { c12CountVariance } from './c12CountVariance'
 import { c13ShelfRefill } from './c13ShelfRefill'
 import { c14RecallIssued } from './c14RecallIssued'
 import { c15RecallPulled } from './c15RecallPulled'
+import { c17CouponRedeemed } from './c17CouponRedeemed'
+import { c19PointsRedeemed } from './c19PointsRedeemed'
 import { c2OfferUplift } from './c2OfferUplift'
 import { c3SaleDepletesStock } from './c3SaleDepletesStock'
 import { c4RecomputeProposal } from './c4RecomputeProposal'
@@ -25,6 +27,8 @@ export const rules: readonly Rule[] = [
   c2OfferUplift,
   c3SaleDepletesStock,
   c7MemberPoints,
+  c19PointsRedeemed,
+  c17CouponRedeemed,
   c4RecomputeProposal,
   c5ApprovalCreatesReceipt,
   c6DeliveryReceipt,

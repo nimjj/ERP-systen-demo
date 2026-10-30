@@ -426,12 +426,23 @@ const tillSeed = {
   rules: tillRules,
   coupons: pos.coupons,
   members: pos.members,
-  loyalty: pos.loyalty,
+  loyalty: {
+    ...pos.loyalty,
+    pointValueUsd: loyalty.programme.pointValueUsd,
+    tiers: clone(loyalty.programme.tiers).map((t: Any) => ({ name: t.name, threshold: t.threshold, multiplier: t.multiplier, benefits: t.benefits })),
+    burn: clone(loyalty.programme.burn),
+    expiry: { months: loyalty.programme.expiry.months, rule: loyalty.programme.expiry.rule },
+  },
   payments: pos.payments,
   shift: pos.shift,
   stacking: pos.stacking,
 }
 change('till', 'Cashier is Jamal Carter (admin.json U-1005).', 'pos.json cashiers do not include the persona; admin.json does.')
+change(
+  'till',
+  'till.loyalty gains pointValueUsd, tiers (threshold, multiplier, benefits), burn (1,000 points = $5, minimum 1,000, usable as tender) and the expiry rule from loyalty.json programme.',
+  'M7 loyalty: the till redeems points as tender and the member views show tier benefits. pos.json loyalty carries only the multipliers and the redeem block.',
+)
 
 // ---------------------------------------------------------------- offers / campaigns / segments
 const offers = loyalty.offers.filter((o: Any) => SCOPE_OFFERS.includes(o.id)).map(clone)

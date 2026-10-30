@@ -1493,7 +1493,56 @@
     "excludedDepts": [
       "Beer & Wine",
       "Gift Cards"
-    ]
+    ],
+    "pointValueUsd": 0.005,
+    "tiers": [
+      {
+        "name": "Member",
+        "threshold": 0,
+        "multiplier": 1,
+        "benefits": [
+          "1 point per $1",
+          "Member prices",
+          "Digital coupons"
+        ]
+      },
+      {
+        "name": "Silver",
+        "threshold": 2500,
+        "multiplier": 1.25,
+        "benefits": [
+          "1.25 points per $1",
+          "Birthday 500 bonus points",
+          "Early access to seasonal offers"
+        ]
+      },
+      {
+        "name": "Gold",
+        "threshold": 6000,
+        "multiplier": 1.5,
+        "benefits": [
+          "1.5 points per $1",
+          "Free curbside pickup",
+          "Quarterly 1,000-point bonus",
+          "Priority service line"
+        ]
+      }
+    ],
+    "burn": {
+      "pointsPerReward": 1000,
+      "rewardUsd": 5,
+      "minRedeem": 1000,
+      "asTender": true,
+      "rules": [
+        "Redeem in blocks of 1,000 points ($5) as a tender at the till, online or in the app",
+        "Two-phase reserve → confirm, so points can't be spent twice",
+        "No redemption while the till is offline"
+      ]
+    },
+    "expiry": {
+      "months": 12,
+      "rule": "Points expire after 12 months without an earn or burn (rolling)"
+    }
   },
   "payments": {
     "cards": [

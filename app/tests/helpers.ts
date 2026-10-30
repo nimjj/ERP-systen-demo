@@ -98,7 +98,16 @@ export function sampleDrafts(state: AppState): Record<EventType, EventDraft> {
     SALE_COMPLETED: {
       type: 'SALE_COMPLETED',
       actor: 'jamal',
-      payload: { txnId: 'T-1', memberId: 'M-1001', lines: [{ sku: 'SKU-100221', qty: 1, price: 5.98, promoApplied: [] }], total: 5.98, tax: 0, tender: 'Card' },
+      payload: {
+        txnId: 'T-1',
+        memberId: 'M-1001',
+        lines: [{ sku: 'SKU-100221', qty: 1, price: 5.23, promoApplied: ['CP-M-02'] }],
+        total: 5.23,
+        tax: 0,
+        tender: 'Card + Points',
+        pointsRedeemed: 1000,
+        coupons: [{ couponId: 'CP-M-02', sku: 'SKU-100221', amount: 0.75, funder: 'Prairie Gold Dairy', kind: 'manufacturer' }],
+      },
     },
     POINTS_AWARDED: { type: 'POINTS_AWARDED', actor: 'system', payload: { memberId: 'M-1001', points: 208, reasons: [{ label: 'Base', points: 8 }, { label: 'R-BP-801', points: 200 }] } },
     STOCK_CHANGED: { type: 'STOCK_CHANGED', actor: 'system', payload: { sku: 'SKU-100221', delta: -1, reason: 'SALE', onHand: pos.onHand - 1, shelf: pos.shelf - 1, backRoom: pos.backRoom } },
@@ -140,6 +149,8 @@ export function sampleDrafts(state: AppState): Record<EventType, EventDraft> {
     SUPPLY_ADDED: { type: 'SUPPLY_ADDED', actor: 'priya', payload: { promoId: 'PRM-2702', proposalId: 'PRP-00003', units: 2200 } },
     WASTE_LOGGED: { type: 'WASTE_LOGGED', actor: 'aisha', payload: { sku: 'SKU-100410', qty: 2, reason: 'Damaged' } },
     COUPON_ISSUED: { type: 'COUPON_ISSUED', actor: 'emily', payload: { couponId: 'CP-M-02', memberId: 'M-1001' } },
+    COUPON_REDEEMED: { type: 'COUPON_REDEEMED', actor: 'system', payload: { couponId: 'CP-D-01', memberId: 'M-1001', sku: 'SKU-100410', amount: 1, funder: 'John Henry', txnId: 'T-1' } },
+    POINTS_REDEEMED: { type: 'POINTS_REDEEMED', actor: 'system', payload: { memberId: 'M-1001', txnId: 'T-1', points: 1000, valueUsd: 5 } },
     MARKDOWN_RECOMMENDED: { type: 'MARKDOWN_RECOMMENDED', actor: 'priya', payload: { proposalId: yogurt.id, sku: 'SKU-100221' } },
   }
 }

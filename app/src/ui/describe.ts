@@ -37,6 +37,8 @@ export const TYPE_LABEL: Record<EventType, string> = {
   SUPPLY_ADDED: 'Supply added',
   WASTE_LOGGED: 'Waste logged',
   COUPON_ISSUED: 'Coupon issued',
+  COUPON_REDEEMED: 'Coupon used',
+  POINTS_REDEEMED: 'Points redeemed',
   MARKDOWN_RECOMMENDED: 'Markdown suggested',
 }
 
@@ -61,7 +63,7 @@ const d: { [T in EventType]: Describer<T> } = {
   },
   SALE_COMPLETED: (p, s) => {
     const n = p.lines.reduce((sum, l) => sum + (Number.isInteger(l.qty) ? l.qty : 1), 0)
-    return `Sale ${p.txnId}: ${n} ${n === 1 ? 'item' : 'items'}, ${money(p.total)}${p.memberId ? ` · ${memberName(s, p.memberId)}` : ''}`
+    return `Sale ${p.txnId}: ${n} ${n === 1 ? 'item' : 'items'}, ${money(p.total)}${p.memberId ? ` · ${memberName(s, p.memberId)}` : ''}${p.pointsRedeemed ? ' · paid with points' : ''}`
   },
   POINTS_AWARDED: (p, s) => `${p.points.toLocaleString()} points to ${memberName(s, p.memberId)}${p.reasons.some((r) => r.offerId) ? ' (incl. offer bonus)' : ''}`,
   STOCK_CHANGED: (p, s) => `${itemName(s, p.sku)}: ${p.delta > 0 ? '+' : ''}${p.delta} (${p.reason.toLowerCase().replace(/_/g, ' ')}) → ${p.onHand} on hand`,
@@ -87,6 +89,8 @@ const d: { [T in EventType]: Describer<T> } = {
   SUPPLY_ADDED: (p) => `Added ${p.units} units of supply for ${p.promoId}`,
   WASTE_LOGGED: (p, s) => `Waste: ${p.qty} × ${itemName(s, p.sku)}`,
   COUPON_ISSUED: (p, s) => `Coupon ${p.couponId} to ${memberName(s, p.memberId)}`,
+  COUPON_REDEEMED: (p, s) => `${memberName(s, p.memberId)} used coupon ${p.couponId}: ${money(p.amount)} off ${itemName(s, p.sku)} (${p.funder})`,
+  POINTS_REDEEMED: (p, s) => `${memberName(s, p.memberId)} paid ${money(p.valueUsd)} with ${p.points.toLocaleString()} points`,
   MARKDOWN_RECOMMENDED: (p, s) => `Markdown suggested for ${itemName(s, p.sku)}`,
 }
 
