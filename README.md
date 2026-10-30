@@ -1,12 +1,22 @@
 # John Henry Supermarkets — Connected Retail Demo
 
+**New here? Read [RUN-THE-DEMO.md](RUN-THE-DEMO.md): setup, how to present each demo, and what to do if something goes wrong.**
+
+Quick start (Node 22.6+):
+
+```bash
+cd app
+npm install
+npm run dev        # then open http://localhost:5173
+```
+
 A front-end-only demo where four people work in one shared, live state. When one of them acts, the others' screens update on their own:
 
 | Persona | Role | Screen |
 |---|---|---|
 | Jamal Carter | Cashier | Till: scans, Rewards, promotions, tender |
 | Aisha Khan | Store associate, Plano Market | Handheld: receive, count, gap scan, recall pulls |
-| Emily Chen | Loyalty & marketing | Offers, campaigns, promotions with a stock-check gate, recall notices |
+| Emily Chen | Loyalty & marketing | Offers, live Rewards scorecard, member cards (wallet, coupons, points history), campaigns, promotions with a stock-check gate, recall notices |
 | Priya Raman | Replenishment planner | Order proposals with exceptions, approvals, supplier claims |
 
 No database, no login, no backend: data is JSON (`seed/`), state lives in the browser, and open windows stay in sync.
@@ -45,12 +55,17 @@ Either pick it in the Presenter panel, or open the app with a URL parameter, whi
 | `?scenario=S1` | From offer to shelf | ~4 min |
 | `?scenario=S2` | Promo gate | ~2 min |
 | `?scenario=S3` | Recall hits everyone | ~2 min |
+| `?scenario=S4` | Loyalty loop (coupons, bonus points, paying with points, 1:1 offers) | ~3 min |
 
-For each step the Presenter shows who acts, what to click, and what the audience should watch. Do the step by clicking in the pane, or press **Next** to do it for you: both produce exactly the same events. **Back** undoes the last step in every open window. S1 and S3 end with the whole chain of events as one timeline.
+For each step the Presenter shows who acts, what to click, and what the audience should watch. Do the step by clicking in the pane, or press **Next** to do it for you: both produce exactly the same events. **Back** undoes the last step in every open window. S1, S3 and S4 end with the whole chain of events as one timeline.
 
 Controls in the Presenter: **Simulate 10 sales** (ten yogurt sales at the till), **Issue recall RCL-2026-014**, and **Short-ship deliveries** (deliveries ordered during the demo arrive 4 units short; untick for full deliveries).
 
-See `docs/DEMO-SCRIPT.md` for a 6-minute client script.
+See `docs/DEMO-SCRIPT.md` for a 6-minute client script and a 5-minute loyalty-only pitch.
+
+### Loyalty features
+
+Wallet coupons applied at the till (store then manufacturer, Texas tax rule), Emily sending a coupon to a member's wallet, paying with points (1,000 points = $5), personal 1:1 offers, a live Rewards scorecard (member share of sales, points issued and redeemed, coupons used, supplier versus retailer funding) and a member card with points history. All derived from the event log; see S4 and `docs/SPEC.md` §13 (M7).
 
 ## Platform demo
 
@@ -93,12 +108,12 @@ cd app
 npm test
 ```
 
-250 tests, including every acceptance assertion in `docs/SPEC.md` §8 (A0–A15), one test file per reaction rule, and the three scenarios (played with Next and as pane clicks, which must give identical event logs).
+280 tests, including every acceptance assertion in `docs/SPEC.md` §8 (A0–A15), one test file per reaction rule, and the four scenarios (played with Next and as pane clicks, which must give identical event logs).
 
 Headless browser checks (use the locally installed Chrome; start the app first):
 
 ```bash
-node scripts/scenarios.mjs http://localhost:5173/ <screenshot-folder>   # S1–S3, both ways, screenshot per step
+node scripts/scenarios.mjs http://localhost:5173/ <screenshot-folder>   # S1–S4, with Next and by clicking, screenshot per step
 node scripts/flow.mjs      http://localhost:5173/ <screenshot-folder>   # two-window S1 click-through
 ```
 
@@ -120,6 +135,7 @@ Every place the seed differs from the source data, and why, is listed in `seed/C
 ## Layout
 
 ```
+RUN-THE-DEMO.md      how to set up, run and present the demo
 CLAUDE.md            working rules for this repo
 docs/SPEC.md         source of truth: connections, events, rules, scenarios, acceptance tests (§13: decisions)
 docs/DEMO-SCRIPT.md  6-minute client script
@@ -132,10 +148,10 @@ scripts/             extract-seed.ts, rebrand-reference.py
 app/                 Vite + React + TypeScript app
   src/config/        demoTuning.ts
   src/domain/        AppState and event types
-  src/rules/         one file per reaction rule; engine/ (order-up-to, exceptions, points, till pricing, …)
+  src/rules/         one file per reaction rule; engine/ (order-up-to, exceptions, points, till pricing, loyalty views, …)
   src/store/         event store, reducers, cross-tab sync, persistence
-  src/scenarios/     S1–S3
+  src/scenarios/     S1–S4
   src/actions.ts     one builder per user action (used by panes and the Presenter)
   src/ui/            shell, panes, event stream, presenter
-  tests/             acceptance (A0–A15), rules, engine, scenarios
+  tests/             acceptance (A0–A15), rules, engine, scenarios (S1–S4)
 ```

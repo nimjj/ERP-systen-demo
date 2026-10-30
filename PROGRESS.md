@@ -10,7 +10,8 @@
 | ✅ | M3 Role panes — four panes, inboxes, event stream, split view, till pricing | `e8205b8` |
 | ✅ | M4 Presenter + S1 + S2 — C11/C12/C13, shared action builders, Presenter, scenarios | `d9a6450` |
 | ✅ | M5 Recall + S3 — C14/C15, S3 | `7ad4ddf` |
-| ✅ | M6 Polish — external recall actor, A12, docs, static-build check | this commit |
+| ✅ | M6 Polish — external recall actor, A12, docs, static-build check | `d0926ef` |
+| ✅ | M7 Loyalty — wallet coupons at the till (C17), points as tender (C19), Members tab, Rewards scorecard, S4 · Loyalty loop, RUN-THE-DEMO.md | `c85a2a6`, `91638fa`, docs commit |
 
 ## Decisions
 
@@ -50,9 +51,14 @@ Checked on 2026-10-01: `npm test` (245 tests, 31 files) all pass; `npm run build
 | A14 | Event in window 1 appears in window 2 within 1 s | ✅ Pass — BroadcastChannel and localStorage fallback; also reset, scenario setup, Back; confirmed in a real browser | `A14-sync` |
 | A15 | Rules are pure | ✅ Pass — every event type and every registered rule (C1–C9, C11–C15) on two states, clock/random forbidden, no vacuous rule | `A15-purity` |
 
+### M7 review (2026-10-30)
+
+`npm test`: 280 tests, 34 files, all pass (S1 still 55 events, S2 17, S3 23, A3 still 208 points). `npm run build` passes. Headless Chrome: S1 to S4 run end to end with Next and with pane clicks giving identical event logs (S4: 15 events); contrast audit 0 below AA including S4 and the Members tab; a coupon sent in one window shows in a second window (61 ms after the click returned).
+
 ### Not working / not built
 
-- **C16 waste, C17 coupon issue, C18 markdown (P2)** are not built. Their event types exist; the till does not apply coupons; Aisha's markdown task shows "Soon", as in the reference app.
+- **C16 waste and C18 markdown (P2)** are not built. Their event types exist; Aisha's markdown task shows "Soon", as in the reference app. C17 (coupons) and C19 (points as tender) were built in M7; basket coupons (CP-S-01) and the employee discount are still not applied.
+- **Loyalty ideas not built** (data exists in `reference/mock/loyalty.json`): tier progress, points expiry reminders, household cards, next-best-offer, returns reversing points, fraud alerts, Rewards Plus benefits.
 - **C10 offer pause** works (A7) but is not part of a scripted scenario.
 - **Optional SSE server adapter** not built (not needed; CLAUDE.md says build it only if time allows).
 - **Short-ship toggle** pre-fills the receive form only in the window where it is ticked; in four-window mode, Aisha types the received quantity.
