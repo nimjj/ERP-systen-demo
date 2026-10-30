@@ -4,6 +4,7 @@
  */
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { completeSale as completeSaleDraft, scanBlocked } from '../../actions'
+import { lastMemberSale, maxRedeemBlocks, personalOffers, pointsValueUsd, tierInfo, walletCoupons } from '../../rules/engine/loyalty'
 import { priceBasket, resolveCode, type BasketItem } from '../../rules/engine/tillPricing'
 import { Chip, Flash, money, num, PaneFrame } from '../components'
 import { useAppState, useEventStore } from '../StoreContext'
@@ -18,6 +19,8 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
   const [lookup, setLookup] = useState('SKU-100221')
   const [alert, setAlert] = useState<string | null>(null)
   const [last, setLast] = useState<string | null>(null)
+  /** Blocks of 1,000 points the member chose to pay with (the cashier's draft, like the basket). */
+  const [redeemBlocks, setRedeemBlocks] = useState(0)
 
   const basket = useMemo(() => {
     const merged = new Map<string, number>()
@@ -30,6 +33,15 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
   const priced = useMemo(() => priceBasket(state, sellable, memberId), [state, sellable, memberId])
   const activeRecalls = state.recalls.filter((r) => r.status === 'ISSUED' && till.blockedSkus.includes(r.itemId))
   const member = till.members.find((m) => m.id === memberId)
+  const { burn } = till.loyalty
+  const maxBlocks = maxRedeemBlocks(state, member, priced.total)
+  const blocks = Math.min(redeemBlocks, maxBlocks)
+  const pointsRedeemed = blocks * burn.pointsPerReward
+  const pointsOff = pointsValueUsd(state, pointsRedeemed)
+  const cardDue = Math.round((priced.total - pointsOff) * 100) / 100
+  const wallet = member ? walletCoupons(state, member.id) : []
+  const personal = member ? personalOffers(state, member.id) : []
+  const lastSale = useMemo(() => lastMemberSale(state), [state])
   const listRef = useRef<HTMLUListElement>(null)
   useEffect(() => {
     listRef.current?.querySelector('.just-scanned')?.scrollIntoView({ block: 'nearest' })
@@ -60,9 +72,10 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
 
   function completeSale() {
     if (priced.lines.length === 0) return
-    store.append(completeSaleDraft(state, sellable, memberId))
+    store.append(completeSaleDraft(state, sellable, memberId, 0, { redeemPoints: pointsRedeemed }))
     setScans([])
     setMemberId(null)
+    setRedeemBlocks(0)
     setAlert(null)
     setLast(null)
   }
@@ -99,7 +112,7 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
                     <span className="till-amt">{money(l.base)}</span>
                   </div>
                   {l.adjustments.map((a) => (
-                    <div key={a.ruleId} className="till-row till-promo">
+                    <div key={a.ruleId} className={a.ruleId.startsWith('CP-') ? 'till-row till-coupon' : 'till-row till-promo'}>
                       <span>{a.label}</span>
                       <span>{money(a.amount)}</span>
                     </div>
@@ -139,9 +152,15 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
               <span className="label">Tax 8.25%</span>
               <b>{money(priced.tax)}</b>
             </div>
+            {pointsRedeemed > 0 && (
+              <div>
+                <span className="label">{num(pointsRedeemed)} pts</span>
+                <b className="save">−{money(pointsOff)}</b>
+              </div>
+            )}
             <div className="till-total">
-              <span className="label">Total</span>
-              <b>{money(priced.total)}</b>
+              <span className="label">{pointsRedeemed > 0 ? 'Card to pay' : 'Total'}</span>
+              <b>{money(pointsRedeemed > 0 ? cardDue : priced.total)}</b>
             </div>
           </div>
         </div>
@@ -165,7 +184,14 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
           </div>
           <div className="card card-tight">
             <div className="card-title">Rewards member</div>
-            <select value={memberId ?? ''} onChange={(e) => setMemberId(e.target.value || null)} aria-label="Rewards member">
+            <select
+              value={memberId ?? ''}
+              onChange={(e) => {
+                setMemberId(e.target.value || null)
+                setRedeemBlocks(0)
+              }}
+              aria-label="Rewards member"
+            >
               <option value="">No member</option>
               {till.members.map((m) => (
                 <option key={m.id} value={m.id}>
@@ -174,15 +200,65 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
               ))}
             </select>
             {member && (
-              <div className="member-line">
-                <span>
-                  {member.name} · {member.tier}
+              <>
+                <div className="member-line">
+                  <span>
+                    {member.name} · {member.tier} {tierInfo(state, member).tier?.multiplier}×
+                    {member.rewardsPlus && (
+                      <>
+                        {' '}
+                        <Chip tone="blue">Rewards Plus</Chip>
+                      </>
+                    )}
+                  </span>
+                  <Flash value={member.points}>{num(member.points)} pts</Flash>
+                </div>
+                <div className="muted small">
+                  {money(pointsValueUsd(state, member.points))} · <Flash value={wallet.length}>{wallet.length}</Flash> {wallet.length === 1 ? 'coupon' : 'coupons'} in wallet
+                  {priced.points && <> · earns {num(priced.points.points)} pts</>}
+                </div>
+                {personal.length > 0 && (
+                  <div className="chips">
+                    {personal.map((o) => (
+                      <Chip key={o.rule.id} tone="blue" title={o.rule.name}>
+                        ★ {o.rule.name.replace('Personal offer: ', '')}
+                      </Chip>
+                    ))}
+                  </div>
+                )}
+              </>
+            )}
+            {member && maxBlocks > 0 && (
+              <div className="redeem-row">
+                <span title={`${num(burn.pointsPerReward)} points = ${money(burn.rewardUsd)} off`}>Pay with points</span>
+                <span className="stepper">
+                  <button className="btn btn-quiet btn-sm" disabled={blocks === 0} onClick={() => setRedeemBlocks(blocks - 1)} aria-label="Use fewer points">
+                    −
+                  </button>
+                  <b>{num(pointsRedeemed)}</b>
+                  <button className="btn btn-quiet btn-sm" disabled={blocks >= maxBlocks} onClick={() => setRedeemBlocks(blocks + 1)} aria-label="Use more points">
+                    +
+                  </button>
                 </span>
-                <Flash value={member.points}>{num(member.points)} pts</Flash>
               </div>
             )}
-            {member && priced.points && <div className="muted small">This sale earns {num(priced.points.points)} points.</div>}
           </div>
+          {priced.lines.length === 0 && lastSale && (
+            <div className="last-sale" aria-live="polite">
+              <b>Last member sale {lastSale.txnId}</b>
+              <span>
+                {lastSale.member?.name} · <Flash value={lastSale.pointsEarned}>+{num(lastSale.pointsEarned)} pts</Flash>
+                {lastSale.pointsSpent > 0 && <> · −{num(lastSale.pointsSpent)} pts spent</>}
+                {lastSale.couponsUsed > 0 && (
+                  <>
+                    {' '}
+                    · {lastSale.couponsUsed} {lastSale.couponsUsed === 1 ? 'coupon' : 'coupons'} used
+                  </>
+                )}
+                {lastSale.member && <> · balance {num(lastSale.member.points)}</>}
+              </span>
+            </div>
+          )}
           <div className="muted small">
             {liveRules} till promotions live
             {till.rules.find((r) => r.id === 'R-BP-801')?.status === 'live' && (
@@ -194,7 +270,7 @@ export function TillPane({ onExpand }: { onExpand?: () => void }) {
           </div>
           <div className="till-pay">
             <button className="btn btn-pay" disabled={priced.lines.length === 0} onClick={completeSale}>
-              Complete sale · {money(priced.total)}
+              Complete sale · {money(pointsRedeemed > 0 ? cardDue : priced.total)}
             </button>
             <button className="btn btn-quiet" disabled={scans.length === 0} onClick={() => setScans([])}>
               Void

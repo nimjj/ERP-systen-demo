@@ -303,7 +303,18 @@ export interface TillState {
   rules: TillRule[]
   coupons: Record<string, unknown>[]
   members: Member[]
-  loyalty: { programme: string; earnPerDollar: number; tierMultiplier: Record<string, number>; redeemBlock: number; redeemValue: number; [extra: string]: unknown }
+  loyalty: {
+    programme: string
+    earnPerDollar: number
+    tierMultiplier: Record<string, number>
+    redeemBlock: number
+    redeemValue: number
+    pointValueUsd: number
+    tiers: { name: string; threshold: number; multiplier: number; benefits: string[] }[]
+    burn: { pointsPerReward: number; rewardUsd: number; minRedeem: number; asTender: boolean }
+    expiry: { months: number; rule: string }
+    [extra: string]: unknown
+  }
   stacking: { order: { step: number; key: string; name: string; detail: string }[]; [extra: string]: unknown }
   shift: Record<string, unknown>
   /** Session state (not in source data). */
@@ -502,6 +513,15 @@ export interface SaleLine {
   promoApplied: string[]
 }
 
+/** A wallet coupon the till applied to a sale (C17). */
+export interface CouponUse {
+  couponId: string
+  sku: string
+  amount: number
+  funder: string
+  kind: 'store' | 'manufacturer'
+}
+
 export interface PointsReason {
   label: string
   points: number
@@ -525,7 +545,7 @@ export interface EventPayloads {
   PROMO_SUBMITTED: { promoId: string }
   PROMO_STOCK_CHECKED: { promoId: string; result: StockCheckResult }
   PROMO_PUBLISHED: { promoId: string }
-  SALE_COMPLETED: { txnId: string; memberId: string | null; lines: SaleLine[]; total: number; tax: number; tender: string }
+  SALE_COMPLETED: { txnId: string; memberId: string | null; lines: SaleLine[]; total: number; tax: number; tender: string; pointsRedeemed?: number; coupons?: CouponUse[] }
   POINTS_AWARDED: { memberId: string; points: number; reasons: PointsReason[] }
   STOCK_CHANGED: { sku: string; delta: number; reason: StockReason; onHand: number; shelf: number; backRoom: number }
   PROPOSAL_RECOMPUTED: {
@@ -563,6 +583,8 @@ export interface EventPayloads {
   SUPPLY_ADDED: { promoId: string; proposalId: string; units: number }
   WASTE_LOGGED: { sku: string; qty: number; reason: string }
   COUPON_ISSUED: { couponId: string; memberId: string }
+  COUPON_REDEEMED: { couponId: string; memberId: string; sku: string; amount: number; funder: string; txnId: string }
+  POINTS_REDEEMED: { memberId: string; txnId: string; points: number; valueUsd: number }
   MARKDOWN_RECOMMENDED: { proposalId: string; sku: string }
 }
 

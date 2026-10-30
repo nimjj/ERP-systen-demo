@@ -62,7 +62,8 @@ Tiers: **P0** = the story; must work and be tested. **P1** = strengthens the sto
 | C14 | P1 | ops → everyone | `RECALL_ISSUED` (RCL-2026-014 cheddar) | **Till blocks SKU** · **Aisha gets "Pull from shelf" task** with lots · **Priya: open orders for SKU held, proposals blocked** · **Emily: PRM-2698 flagged, cheddar removed; customer notice drafted** | All four panes change at once |
 | C15 | P1 | Aisha → ops | `RECALL_PULLED` (confirmed qty) | Stock for SKU = 0, recall store row gets `confirmedBy` | Recall progress bar moves; Priya sees write-off |
 | C16 | P2 | Aisha → Priya | `WASTE_LOGGED` | Stock falls; waste counts in demand signal note | Priya: waste chip |
-| C17 | P2 | Emily → Jamal | `COUPON_ISSUED` (CP-M-02 $0.75 off yogurt) | Member's wallet gets coupon; till can apply | Till shows coupon line |
+| C17 | P2 | Emily → Jamal | `COUPON_ISSUED` (CP-M-02 $0.75 off yogurt) | Member's wallet gets coupon; till applies it; `COUPON_REDEEMED` on the sale **(built in M7)** | Till shows coupon line |
+| C19 | P2 | Jamal → Emily | `SALE_COMPLETED` with `pointsRedeemed` | `POINTS_REDEEMED`: balance falls, 1,000 points = $5 **(built in M7)** | Till shows points as tender; Emily's scorecard and the member's history update |
 | C18 | P2 | Priya → Aisha | `MARKDOWN_RECOMMENDED` (NEAR_EXPIRY line) | Markdown task created | Aisha: markdown labels task |
 
 Fixed rule: no pane ever writes another pane's data. A pane emits an event; rules do the rest.
@@ -177,6 +178,12 @@ Each scenario = ordered steps. A step is either an *actor action* (the presenter
 3. **Aisha** pulls lots → confirm → recall progress moves (C15).
 4. Emily's PRM-2698 shows the flag; customer notice draft opens with real counts.
 
+### S4 — "Loyalty loop" (~3 min, added in M7)
+1. **Emily** publishes OF-3101 → till bonus rule live.
+2. **Emily** sends Maria coupon CP-M-02 → wallet 2 → 3 coupons.
+3. **Jamal** sells Maria 2 yogurt + strawberries, paying 1,000 points → two coupons applied, 418 points earned (18 base + 400 bonus), balance 7,838, card $7.13.
+4. **Jamal** sells Daniel (Silver) sparkling water → personal offer R-PO-902 adds 250 points.
+
 ---
 
 ## 8. Acceptance assertions (turn into tests)
@@ -288,3 +295,12 @@ Agreed with the client owner on 2026-10-01. Every resulting data change is logge
 
 18. **Recall root actor is `external`, shown as "Supplier / FDA notice".** A12 accepts chains that start at one of the four people or at an external notice; reactions are always `system`.
 19. **An offer's campaign follows it:** publishing OF-3101 sets CMP-505 Live, pausing sets it Paused.
+
+### M7 notes (loyalty, requested by the client owner, 2026-10-30)
+
+20. **Events added to §4:** `COUPON_REDEEMED` (system; the coupon leaves the wallet), `POINTS_REDEEMED` (system; balance falls). `SALE_COMPLETED` gains optional `pointsRedeemed` and `coupons[]`. `COUPON_ISSUED` (declared since M0) is now emitted by Emily.
+21. **Coupons at the till (stacking steps 6 and 7):** only the identified member's wallet coupons apply; store coupons first, then manufacturer; one of each per item; limit per transaction and minimum quantity respected; never below $0.00. Store coupons reduce the taxable price, manufacturer coupons do not (Texas, `pos.json` stacking notes). Points are earned on the price after coupons. Basket coupons (CP-S-01) and the employee discount are still not built.
+22. **Points as tender:** whole blocks of `burn.pointsPerReward` (1,000 = $5), at most the member's balance and the sale total; the earn is calculated on eligible spend before the points are applied, as in the programme data (`earn.basis`). `seed/till.json` `loyalty` gained `tiers`, `burn`, `pointValueUsd`, `expiry` from `loyalty.json` (logged in `seed/CHANGES.md`).
+23. **CP-M-02 is a paper coupon in the source data;** in S4 Emily sends it to the member's wallet as if it were digital. No number was invented for this.
+24. **Scorecard definitions** (since the last reset, from events only): supplier funded = offers' `vendorPaidUsd` + coupons whose funder is not John Henry; retailer funded = value of every point issued ($0.005 each) + coupon savings − supplier funded (so base points count as a retailer cost).
+25. **S4 does not depend on `setup`:** the Presenter's picker does not reset, so S4 starts with Emily publishing OF-3101 (a no-op if S1 already did).

@@ -1,5 +1,7 @@
 # Demo script — 6 minutes
 
+This is the supply-chain-led script (S1 to S3). S4 below is the loyalty story, with a 5-minute loyalty-only pitch after it. Setup and troubleshooting are in `RUN-THE-DEMO.md`.
+
 **Setup before the client joins.** Run the app, open it in one wide browser window in **Split view** and open the **Presenter** panel. Short-ship is ticked. Open the event stream (bottom bar) once to check it is empty, then close it. Load each scenario from the Presenter's scenario picker when you reach it; picking a scenario does not reset, so press **Reset** in the Presenter before S1.
 
 Timing: intro 0:30 · S1 2:30 · S2 1:15 · S3 1:15 · close 0:30.
@@ -100,6 +102,47 @@ Presenter → **S3 · Recall hits everyone**.
 - **Notice:** status Sent. The timeline opens: one external notice, 23 events, every role involved.
 
 **What it proves:** a food-safety event reaches the till, the shelf, the supply chain and the customer in one step, with an audit trail, instead of four teams working from four emails.
+
+---
+
+## S4 — Loyalty loop (3:00)
+
+Presenter → **S4 · Loyalty loop** → Reset (or open `?scenario=S4`).
+
+**1. Emily publishes the offer.**
+- **Say:** "Emily's programme has supplier-funded offers. This one pays 200 bonus points on Greek yogurt; Prairie Gold Dairy funds it."
+- **Click:** Emily pane → **Publish to Plano Market**.
+- **Notice:** the till shows "+200 pts Greek yogurt".
+
+**2. Emily sends Maria a coupon.**
+- **Say:** "Emily also wants to reward Maria directly with a coupon, also paid by the supplier."
+- **Click:** Emily pane → **Members** tab → Maria Delgado → choose "$0.75 off Plain Greek Yogurt 32 oz" → **Send to wallet**.
+- **Notice:** Maria's wallet at the till goes from 2 to 3 coupons.
+
+**3. Maria shops.**
+- **Say:** "Maria comes to the till. Watch the price, the points and how she pays."
+- **Click:** Till → Rewards member **Maria Delgado** → **Key item** Plain Greek Yogurt twice → Strawberries 1 lb → **Pay with points: +** once → **Complete sale**.
+- **Notice:** two coupons come off ($1.50 supplier-funded, $1.00 store-funded), the bonus adds 400 points, $5.00 is paid with 1,000 points and the card pays **$7.13**. Emily's scorecard moves: points issued 418, redeemed 1,000, coupons used 2, supplier funded $3.50. The till's last-sale strip says balance **7,838**.
+
+**4. A personal offer.**
+- **Click:** Till → Rewards member **Daniel Okafor** → Sparkling Water 8 pk → **Complete sale**.
+- **Notice:** Daniel earns 250 bonus points from his 1:1 offer; Emily's Members → **Personalised offers** row shows 1×.
+
+**End card (15 events).** **Say:** "One offer, one coupon, one basket: Emily can see what each promotion costs and who pays, the moment a customer uses it."
+
+**What it proves:** offers, coupons, points and payment run on one connected model, with funding visible by supplier and retailer, so the loyalty programme is configuration, not a set of disconnected tools.
+
+---
+
+## Loyalty-only pitch (5 minutes)
+
+For clients who care about loyalty only. Skip S2 and S3 and the supply steps of S1.
+
+1. **Intro (0:30).** Show the till and Emily's pane: "one member record, shared by the till and marketing."
+2. **S1 steps 1 and 2 (1:00).** Publish the offer; Maria buys yogurt and earns 208 points (8 base + 200 bonus).
+3. **S4 steps 2 to 4 (2:00).** Coupon to wallet, coupon + bonus + points payment, personal offer.
+4. **Members tab (1:00).** Maria's tier, wallet and points history; "Personalised offers"; the scorecard with supplier versus retailer funding.
+5. **Close (0:30).** "Tiers, point value, coupon rules and offers are data, so your programme is configured, not built from scratch. Next steps we can model: tier progress, points expiry reminders, household cards, next-best-offer and fraud rules."
 
 ---
 

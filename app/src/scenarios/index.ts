@@ -6,7 +6,7 @@
  *
  * `setup` is what `?scenario=<id>` / reset(<id>) dispatches before step 1.
  */
-import { approveOrder, completeSale, defaultReceived, issueRecall, publishOffer, publishPromo, pullLot, pullTaskLot, receiveDelivery, refillShelf, scanBlocked, sendRecallNotice, simulateSales, submitPromo } from '../actions'
+import { approveOrder, completeSale, defaultReceived, issueCoupon, issueRecall, publishOffer, publishPromo, pullLot, pullTaskLot, receiveDelivery, refillShelf, scanBlocked, sendRecallNotice, simulateSales, submitPromo } from '../actions'
 import type { AppState, DemoEvent, EventDraft, Role } from '../domain/types'
 
 export interface StepContext {
@@ -199,4 +199,53 @@ export const s3: Scenario = {
   ],
 }
 
-export const scenarios: ScenarioRegistry = { S1: s1, S2: s2, S3: s3 }
+const STRAWBERRIES = 'SKU-100410'
+const SPARKLING_WATER = 'SKU-100326'
+const DANIEL = 'M-1002'
+const YOGURT_COUPON = 'CP-M-02'
+
+export const s4: Scenario = {
+  title: 'S4 · Loyalty loop',
+  minutes: 3,
+  timeline: true,
+  setup: [],
+  steps: [
+    {
+      actor: 'emily',
+      title: 'Emily publishes OF-3101, the supplier-funded yogurt bonus',
+      how: 'Emily pane → Publish to Plano Market',
+      watch: "Jamal's till now shows the +200 pts yogurt bonus. Prairie Gold Dairy pays for it, not John Henry.",
+      next: (s) => {
+        const offer = s.offers.find((o) => o.id === 'OF-3101')!
+        return offer.status === 'Live' ? [] : [publishOffer(offer)]
+      },
+      done: (_s, since) => has(since, 'OFFER_PUBLISHED', (e) => e.payload.offerId === 'OF-3101'),
+    },
+    {
+      actor: 'emily',
+      title: 'Emily sends Maria a $0.75 yogurt coupon',
+      how: 'Emily pane → Members → Maria Delgado → pick "$0.75 off Plain Greek Yogurt 32 oz" → Send to wallet',
+      watch: "Maria's wallet at the till goes from 2 to 3 coupons. Nothing else is touched: it is her coupon, funded by Prairie Gold Dairy.",
+      next: (s) => (s.till.members.find((m) => m.id === MARIA)!.clipped.includes(YOGURT_COUPON) ? [] : [issueCoupon(YOGURT_COUPON, MARIA)]),
+      done: (_s, since) => has(since, 'COUPON_ISSUED', (e) => e.payload.memberId === MARIA && e.payload.couponId === YOGURT_COUPON),
+    },
+    {
+      actor: 'jamal',
+      title: 'Maria shops: coupons, bonus points, and 1,000 points as payment',
+      how: 'Till → Rewards member: Maria Delgado → Key item Plain Greek Yogurt ×2 and Strawberries 1 lb → Pay with points: + once → Complete sale',
+      watch: 'Two coupons come off at the till, the yogurt bonus adds 400 points, and $5.00 is paid in points. Emily’s scorecard, Maria’s points history and the supplier-funded total update; Priya and Aisha see the yogurt leave the shelf.',
+      next: (s) => [completeSale(s, [{ sku: YOGURT, qty: 2 }, { sku: STRAWBERRIES, qty: 1 }], MARIA, 0, { redeemPoints: 1000 })],
+      done: (_s, since) => has(since, 'SALE_COMPLETED', (e) => e.payload.memberId === MARIA && (e.payload.pointsRedeemed ?? 0) > 0),
+    },
+    {
+      actor: 'jamal',
+      title: 'Daniel (Silver) buys sparkling water and gets his personal offer',
+      how: 'Till → Rewards member: Daniel Okafor → Key item Sparkling Water 8 pk → Complete sale',
+      watch: 'His 1:1 offer adds 250 bonus points. In Emily’s Members tab the "Personalised offers" row ticks up to 1×.',
+      next: (s) => [completeSale(s, [{ sku: SPARKLING_WATER, qty: 1 }], DANIEL)],
+      done: (_s, since) => has(since, 'SALE_COMPLETED', (e) => e.payload.memberId === DANIEL),
+    },
+  ],
+}
+
+export const scenarios: ScenarioRegistry = { S1: s1, S2: s2, S3: s3, S4: s4 }

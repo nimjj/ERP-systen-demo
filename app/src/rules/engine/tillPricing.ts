@@ -1,12 +1,13 @@
 /**
  * Till pricing (SPEC §6): prices a basket with the till's live rules in the
  * stacking order from pos.json — member price → multi-buy / BOGO / mix & match →
- * % off → basket threshold. Only the steps present in the seed rules are
- * implemented (coupons and employee discount are not used in the demo).
+ * % off → basket threshold → store coupons → manufacturer coupons (the member's
+ * wallet only). Only the steps present in the seed rules are implemented (the
+ * employee discount and basket coupons are not used in the demo).
  * Non-stackable item promotions: one per line, the first in stacking order wins.
  * Tax: Texas 8.25% on taxable lines. Bonus points are shown via computePoints.
  */
-import type { AppState, PointsReason, SaleLine, TillRule } from '../../domain/types'
+import type { AppState, CouponUse, PointsReason, SaleLine, TillRule } from '../../domain/types'
 import { computePoints } from './points'
 
 export interface BasketItem {
@@ -44,6 +45,8 @@ export interface PricedBasket {
   total: number
   points: { points: number; reasons: PointsReason[] } | null
   saleLines: SaleLine[]
+  /** Wallet coupons applied to this basket. */
+  coupons: CouponUse[]
 }
 
 const cents = (n: number) => Math.round(n * 100) / 100
@@ -136,6 +139,35 @@ export function priceBasket(state: AppState, basket: BasketItem[], memberId: str
     if (spend >= (r.threshold ?? Infinity)) basketAdjustments.push({ ruleId: r.id, label: r.name, amount: -(r.amount ?? 0) })
   }
 
+  // Stacking steps 6 and 7: wallet coupons. Store coupons first, then manufacturer coupons;
+  // one of each per item, never below $0.00. Manufacturer coupons do not reduce the taxable price (Texas).
+  const coupons: CouponUse[] = []
+  const mfrOffTax = lines.map(() => 0)
+  if (member) {
+    const wallet = state.till.coupons
+      .filter((c) => member.clipped.includes(c.id as string) && c.status === 'live' && c.target === 'item')
+      .sort((a, b) => (a.kind === 'store' ? 0 : 1) - (b.kind === 'store' ? 0 : 1))
+    const usedKinds = lines.map(() => new Set<string>())
+    for (const c of wallet) {
+      const itemIds = (c.itemIds as string[] | undefined) ?? []
+      const i = lines.findIndex((l, idx) => itemIds.includes(l.sku) && !usedKinds[idx].has(c.kind as string))
+      if (i < 0) continue
+      const l = lines[i]
+      if (l.qty < ((c.minQty as number | undefined) ?? 1)) continue
+      const units = Math.min(Math.floor(l.qty), (c.limitPerTxn as number | undefined) ?? Infinity)
+      if (units < 1 || l.net <= 0) continue
+      const wanted = c.pct !== undefined ? (l.net / l.qty) * units * ((c.pct as number) / 100) : (c.amount as number) * units
+      const amount = cents(Math.min(wanted, l.net))
+      if (amount <= 0) continue
+      const kind = c.kind as 'store' | 'manufacturer'
+      l.adjustments.push({ ruleId: c.id as string, label: `Digital coupon: ${c.name as string}`, amount: -amount })
+      l.net = cents(l.net - amount)
+      if (kind === 'manufacturer') mfrOffTax[i] += amount
+      usedKinds[i].add(kind)
+      coupons.push({ couponId: c.id as string, sku: l.sku, amount, funder: c.funder as string, kind })
+    }
+  }
+
   const saleLines: SaleLine[] = lines.map((l) => ({ sku: l.sku, qty: l.qty, price: l.qty > 0 ? cents(l.net / l.qty) : 0, promoApplied: l.adjustments.map((a) => a.ruleId) }))
   const points = computePoints(state, memberId, saleLines)
   if (points) {
@@ -148,7 +180,7 @@ export function priceBasket(state: AppState, basket: BasketItem[], memberId: str
   // Savings are derived from the rounded line nets, so subtotal − savings + tax = total to the cent.
   const subtotal = cents(lines.reduce((s, l) => s + l.base, 0))
   const basketSavings = basketAdjustments.reduce((s, a) => s + a.amount, 0)
-  const tax = cents(lines.filter((l) => l.taxable).reduce((s, l) => s + l.net, 0) * state.till.taxRate)
+  const tax = cents(lines.reduce((s, l, i) => (l.taxable ? s + l.net + mfrOffTax[i] : s), 0) * state.till.taxRate)
   const net = cents(lines.reduce((s, l) => s + l.net, 0) + basketSavings)
   return {
     lines,
@@ -160,5 +192,6 @@ export function priceBasket(state: AppState, basket: BasketItem[], memberId: str
     total: cents(net + tax),
     points,
     saleLines,
+    coupons,
   }
 }

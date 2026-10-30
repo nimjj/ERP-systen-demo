@@ -50,6 +50,8 @@ Every place the seed differs from the source data, and why. "Decision M0 #n" ref
   Decision M0 #2: seed is the "before" state. Emily publishing OF-3101 activates it (C1).
 - **Cashier is Jamal Carter (admin.json U-1005).**
   pos.json cashiers do not include the persona; admin.json does.
+- **till.loyalty gains pointValueUsd, tiers (threshold, multiplier, benefits), burn (1,000 points = $5, minimum 1,000, usable as tender) and the expiry rule from loyalty.json programme.**
+  M7 loyalty: the till redeems points as tender and the member views show tier benefits. pos.json loyalty carries only the multipliers and the redeem block.
 
 ## offers
 

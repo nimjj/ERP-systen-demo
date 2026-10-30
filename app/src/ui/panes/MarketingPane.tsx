@@ -1,10 +1,12 @@
 /** Emily — loyalty & marketing: offers with live counters, stock-risk banner, campaigns, promotions with the stock-check gate. */
+import { useState } from 'react'
 import { pauseOffer, publishOffer, publishPromo, submitPromo } from '../../actions'
 import { demoTuning } from '../../config/demoTuning'
 import type { Offer, Promo } from '../../domain/types'
 import { canPublishPromo } from '../../rules/engine/promoStockCheck'
 import { coverDays } from '../../rules/engine/stockRisk'
 import { Chip, Flash, money, num, PaneFrame } from '../components'
+import { MembersTab, RewardsScorecard } from '../LoyaltyViews'
 import { MarketingRecallCard } from '../RecallViews'
 import { useAppState, useEventStore } from '../StoreContext'
 
@@ -134,6 +136,7 @@ function PromoRow({ promo }: { promo: Promo }) {
 export function MarketingPane({ onExpand }: { onExpand?: () => void }) {
   const state = useAppState()
   const store = useEventStore()
+  const [tab, setTab] = useState<'campaigns' | 'members'>('campaigns')
   return (
     <PaneFrame role="emily" onExpand={onExpand}>
       {state.stockRisks.map((r) => {
@@ -153,6 +156,21 @@ export function MarketingPane({ onExpand }: { onExpand?: () => void }) {
 
       <MarketingRecallCard />
 
+      <RewardsScorecard />
+
+      <div className="subtabs" role="tablist" aria-label="Emily's workspace">
+        <button role="tab" aria-selected={tab === 'campaigns'} className={`tab ${tab === 'campaigns' ? 'tab-on' : ''}`} onClick={() => setTab('campaigns')}>
+          Offers &amp; campaigns
+        </button>
+        <button role="tab" aria-selected={tab === 'members'} className={`tab ${tab === 'members' ? 'tab-on' : ''}`} onClick={() => setTab('members')}>
+          Members
+        </button>
+      </div>
+
+      {tab === 'members' ? (
+        <MembersTab />
+      ) : (
+        <>
       <h4 className="section">Offers</h4>
       {state.offers.map((o) => (
         <OfferCard key={o.id} offer={o} />
@@ -204,7 +222,8 @@ export function MarketingPane({ onExpand }: { onExpand?: () => void }) {
           ))}
         </tbody>
       </table>
-
+        </>
+      )}
     </PaneFrame>
   )
 }

@@ -1,5 +1,5 @@
 /**
- * Runs S1 and S2 in headless Chrome:
+ * Runs S1–S4 in headless Chrome (S1, S3 and S4 also by clicking in the panes):
  *  1. with the Presenter's Next button, screenshot per step (+ the S1 timeline);
  *  2. S1 again by clicking in the panes, checking the step list follows;
  *  3. compares the two S1 event logs (type, actor, payload, causedBy by position).
@@ -143,6 +143,57 @@ const s3Next = await runWithNext('S3', 4)
   if (!same) {
     const i = s3Hand.findIndex((e, k) => JSON.stringify(e) !== JSON.stringify(s3Next[k]))
     console.log('first difference at', i, JSON.stringify(s3Next[i]), JSON.stringify(s3Hand[i]))
+  }
+  await context.close()
+}
+
+// ---- 4. S4 (loyalty loop) with Next, then by hand, and compare
+const s4Next = await runWithNext('S4', 4)
+{
+  const { context, page } = await open('?scenario=S4')
+  const pane = (r) => page.locator(`.pane-${r}`)
+  const step = async (label) => console.log(`S4 by hand — ${label}: current step = ${await currentStep(page)}`)
+  const till = pane('jamal')
+
+  await pane('emily').getByRole('button', { name: /Publish to Plano Market/ }).click()
+  await page.waitForTimeout(300)
+  await step('after Emily publishes')
+
+  await pane('emily').getByRole('tab', { name: 'Members' }).click()
+  await pane('emily').locator('select[aria-label="Coupon to send"]').selectOption('CP-M-02')
+  await pane('emily').getByRole('button', { name: 'Send to wallet' }).click()
+  await page.waitForTimeout(300)
+  await shot(page, 'S4-hand-2-members')
+  await step('after the coupon is sent')
+
+  await till.locator('select[aria-label="Rewards member"]').selectOption('M-1001')
+  await till.locator('select[aria-label="Item lookup"]').selectOption('SKU-100221')
+  await till.getByRole('button', { name: 'Key item' }).click()
+  await till.getByRole('button', { name: 'Key item' }).click()
+  await till.locator('select[aria-label="Item lookup"]').selectOption('SKU-100410')
+  await till.getByRole('button', { name: 'Key item' }).click()
+  await till.getByRole('button', { name: 'Use more points' }).click()
+  await page.waitForTimeout(300)
+  await shot(page, 'S4-hand-3-till-before-pay')
+  await till.getByRole('button', { name: /Complete sale/ }).click()
+  await page.waitForTimeout(300)
+  await shot(page, 'S4-hand-3-after-sale')
+  await step('after the sale to Maria')
+
+  await till.locator('select[aria-label="Rewards member"]').selectOption('M-1002')
+  await till.locator('select[aria-label="Item lookup"]').selectOption('SKU-100326')
+  await till.getByRole('button', { name: 'Key item' }).click()
+  await till.getByRole('button', { name: /Complete sale/ }).click()
+  await page.waitForTimeout(400)
+  console.log('S4 by hand — timeline open at the end:', (await page.locator('.overlay').count()) === 1)
+  await shot(page, 'S4-hand-end')
+
+  const s4Hand = await log(page)
+  const same = JSON.stringify(s4Hand) === JSON.stringify(s4Next)
+  console.log(`S4 event logs: Next ${s4Next.length} events, by hand ${s4Hand.length} events, identical: ${same}`)
+  if (!same) {
+    const i = s4Hand.findIndex((e, k) => JSON.stringify(e) !== JSON.stringify(s4Next[k]))
+    console.log('first difference at', i, JSON.stringify(s4Next[i]), JSON.stringify(s4Hand[i]))
   }
   await context.close()
 }

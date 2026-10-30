@@ -59,6 +59,20 @@ const reducers: { [T in EventType]?: Reducer<T> } = {
       offer.vendorPaidUsd = round2(offer.vendorPaidUsd + (fundingUsd * offer.fundingPct) / 100)
     }
   },
+  COUPON_ISSUED: (d, p) => {
+    const member = d.till.members.find((m) => m.id === p.memberId)
+    if (member && !member.clipped.includes(p.couponId)) member.clipped.push(p.couponId)
+  },
+  COUPON_REDEEMED: (d, p) => {
+    const member = d.till.members.find((m) => m.id === p.memberId)
+    if (member) member.clipped = member.clipped.filter((id) => id !== p.couponId)
+    const coupon = d.till.coupons.find((c) => c.id === p.couponId)
+    if (coupon) coupon.redeemedInDemo = ((coupon.redeemedInDemo as number | undefined) ?? 0) + 1
+  },
+  POINTS_REDEEMED: (d, p) => {
+    const member = d.till.members.find((m) => m.id === p.memberId)
+    if (member) member.points = Math.max(0, member.points - p.points)
+  },
   STOCK_CHANGED: (d, p) => {
     const pos = d.positions[p.sku]
     if (!pos) return

@@ -6,6 +6,7 @@
  */
 import { demoTuning } from './config/demoTuning'
 import type { AppState, EventDraft, Inbound, Offer, Position, Proposal, Recall, Task } from './domain/types'
+import { maxRedeemBlocks } from './rules/engine/loyalty'
 import { priceBasket, type BasketItem } from './rules/engine/tillPricing'
 
 // ---------------------------------------------------------------- Emily
@@ -13,6 +14,8 @@ export const publishOffer = (offer: Offer): EventDraft => ({ type: 'OFFER_PUBLIS
 export const pauseOffer = (offer: Offer): EventDraft => ({ type: 'OFFER_PAUSED', actor: 'emily', payload: { offerId: offer.id, items: offer.itemIds, storeIds: offer.storeIds } })
 export const submitPromo = (promoId: string): EventDraft => ({ type: 'PROMO_SUBMITTED', actor: 'emily', payload: { promoId } })
 export const publishPromo = (promoId: string): EventDraft => ({ type: 'PROMO_PUBLISHED', actor: 'emily', payload: { promoId } })
+/** Emily sends a coupon to a member's wallet (C17). */
+export const issueCoupon = (couponId: string, memberId: string): EventDraft => ({ type: 'COUPON_ISSUED', actor: 'emily', payload: { couponId, memberId } })
 
 // ---------------------------------------------------------------- Jamal
 /** Transaction number from the count of sales so far: 1101-04-0001, 0002, … */
@@ -21,9 +24,37 @@ export function txnId(state: AppState, offset = 0): string {
   return `1101-04-${String(n).padStart(4, '0')}`
 }
 
-export function completeSale(state: AppState, basket: BasketItem[], memberId: string | null, offset = 0): EventDraft {
+export interface SaleOptions {
+  /** Offset for the transaction number when several sales are built from one state. */
+  offset?: number
+  /** Points to pay with: a multiple of the redeem block, within the member's balance and the sale total. Anything else is ignored. */
+  redeemPoints?: number
+}
+
+/** The points a sale may really redeem: whole blocks, at most the balance and the sale total. */
+export function redeemablePoints(state: AppState, memberId: string | null, total: number, wanted: number): number {
+  const member = memberId ? state.till.members.find((m) => m.id === memberId) : undefined
+  const blocks = Math.min(Math.floor(wanted / state.till.loyalty.burn.pointsPerReward), maxRedeemBlocks(state, member, total))
+  return Math.max(0, blocks) * state.till.loyalty.burn.pointsPerReward
+}
+
+export function completeSale(state: AppState, basket: BasketItem[], memberId: string | null, offset = 0, opts: Omit<SaleOptions, 'offset'> = {}): EventDraft {
   const priced = priceBasket(state, basket, memberId)
-  return { type: 'SALE_COMPLETED', actor: 'jamal', payload: { txnId: txnId(state, offset), memberId, lines: priced.saleLines, total: priced.total, tax: priced.tax, tender: 'Card' } }
+  const pointsRedeemed = redeemablePoints(state, memberId, priced.total, opts.redeemPoints ?? 0)
+  return {
+    type: 'SALE_COMPLETED',
+    actor: 'jamal',
+    payload: {
+      txnId: txnId(state, offset),
+      memberId,
+      lines: priced.saleLines,
+      total: priced.total,
+      tax: priced.tax,
+      tender: pointsRedeemed > 0 ? 'Card + Points' : 'Card',
+      ...(pointsRedeemed > 0 ? { pointsRedeemed } : {}),
+      ...(priced.coupons.length > 0 ? { coupons: priced.coupons } : {}),
+    },
+  }
 }
 
 /** Presenter helper: n single-yogurt sales at the till, as Jamal, no member. */
