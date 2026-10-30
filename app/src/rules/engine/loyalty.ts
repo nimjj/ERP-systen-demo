@@ -80,6 +80,27 @@ export function memberLedger(state: AppState, memberId: string): LedgerRow[] {
     .reverse()
 }
 
+export interface LastMemberSale {
+  txnId: string
+  member: Member | undefined
+  pointsEarned: number
+  pointsSpent: number
+  couponsUsed: number
+}
+
+/** The most recent sale to a member, read from the shared log (so it shows however the sale was made). */
+export function lastMemberSale(state: AppState): LastMemberSale | null {
+  for (let i = state.events.length - 1; i >= 0; i--) {
+    const e = state.events[i]
+    if (e.type !== 'SALE_COMPLETED') continue
+    const p = e.payload as DemoEvent<'SALE_COMPLETED'>['payload']
+    if (!p.memberId) continue
+    const pointsEarned = state.events.reduce((n, x) => (x.causedBy === e.id && x.type === 'POINTS_AWARDED' ? n + (x.payload as DemoEvent<'POINTS_AWARDED'>['payload']).points : n), 0)
+    return { txnId: p.txnId, member: state.till.members.find((m) => m.id === p.memberId), pointsEarned, pointsSpent: p.pointsRedeemed ?? 0, couponsUsed: p.coupons?.length ?? 0 }
+  }
+  return null
+}
+
 export interface PersonalOfferRow {
   rule: TillRule
   member: Member | undefined
@@ -112,8 +133,6 @@ export interface Scorecard {
   pointsIssuedUsd: number
   pointsRedeemed: number
   pointsRedeemedUsd: number
-  /** Change in the points liability: issued minus redeemed, in dollars. */
-  liabilityChangeUsd: number
   couponsRedeemed: number
   couponSavingsUsd: number
   supplierFundedUsd: number
@@ -145,10 +164,10 @@ export function programmeScorecard(state: AppState): Scorecard {
       if (p.funder !== RETAILER) supplierCoupons += p.amount
     }
   }
-  const offerCost = state.offers.reduce((s, o) => s + o.costUsd, 0)
-  const offerVendor = state.offers.reduce((s, o) => s + o.vendorPaidUsd, 0)
-  const supplierFundedUsd = cents(offerVendor + supplierCoupons)
-  const retailerFundedUsd = cents(offerCost - offerVendor + (couponSavingsUsd - supplierCoupons))
+  // Cost of the programme = value of every point issued + coupon savings. Suppliers pay their share
+  // of bonus points (offers' vendorPaidUsd) and their coupons; the retailer pays the rest, including base points.
+  const supplierFundedUsd = cents(state.offers.reduce((s, o) => s + o.vendorPaidUsd, 0) + supplierCoupons)
+  const retailerFundedUsd = cents(pointsIssued * pointValue + couponSavingsUsd - supplierFundedUsd)
   return {
     sales,
     memberSales,
@@ -157,7 +176,6 @@ export function programmeScorecard(state: AppState): Scorecard {
     pointsIssuedUsd: cents(pointsIssued * pointValue),
     pointsRedeemed,
     pointsRedeemedUsd: cents(pointsRedeemed * pointValue),
-    liabilityChangeUsd: cents((pointsIssued - pointsRedeemed) * pointValue),
     couponsRedeemed,
     couponSavingsUsd: cents(couponSavingsUsd),
     supplierFundedUsd,

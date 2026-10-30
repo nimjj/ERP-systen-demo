@@ -66,6 +66,14 @@ await runScenario('S1', 6, { 3: openStream, 4: () => openInbox('emily'), 5: () =
 await runScenario('S2', 4, { 1: () => openInbox('priya') })
 await runScenario('S3', 4, { 1: () => openInbox('jamal') })
 
+const openMembers = async () => {
+  await page.locator('.pane-emily').getByRole('tab', { name: 'Members' }).click()
+  await page.waitForTimeout(200)
+  await audit('emily members tab')
+  await page.locator('.pane-emily').getByRole('tab', { name: 'Offers & campaigns' }).click()
+}
+await runScenario('S4', 4, { 2: openMembers, 3: openMembers, 4: openMembers })
+
 // other layouts: each pane full screen after S3 (handheld pull form, marketing notice)
 for (const role of ['jamal', 'aisha', 'emily', 'priya']) {
   await page.getByRole('button', { name: new RegExp(role === 'jamal' ? 'Jamal' : role === 'aisha' ? 'Aisha' : role === 'emily' ? 'Emily' : 'Priya') }).first().click()

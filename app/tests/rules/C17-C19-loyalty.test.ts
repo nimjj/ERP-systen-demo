@@ -100,8 +100,8 @@ describe('loyalty views', () => {
     expect([c.sales, c.memberSales, c.identifiedPct]).toEqual([2, 1, 50])
     expect([c.pointsIssued, c.pointsIssuedUsd]).toEqual([208, 1.04])
     expect([c.pointsRedeemed, c.pointsRedeemedUsd]).toEqual([1000, 5])
-    expect(c.liabilityChangeUsd).toBe(-3.96)
     expect(c.supplierFundedUsd).toBe(1) // 200 points × $0.005, Prairie Gold funds 100%
+    expect(c.retailerFundedUsd).toBe(0.04) // the 8 base points; 208 × $0.005 = $1.04 in all
   })
 
   it('coupon savings are split by who funds them', () => {
@@ -112,6 +112,6 @@ describe('loyalty views', () => {
     expect(c.couponsRedeemed).toBe(2)
     expect(c.couponSavingsUsd).toBe(1.75)
     expect(c.supplierFundedUsd).toBe(0.75)
-    expect(c.retailerFundedUsd).toBe(1)
+    expect(c.retailerFundedUsd).toBe(1.05) // the $1.00 strawberry coupon + 10 base points ($0.05)
   })
 })
